@@ -184,20 +184,124 @@
 # for row in list1:
 #     print(row)
 
-n = 5
-a = [[19, 21, 33, 78, 99],
-     [41, 53, 66, 98, 76],
-     [79, 80, 90, 60, 20],
-     [33, 11, 45, 67, 90],
-     [45, 67, 12, 98, 23]]
+# n = 5
+# a = [[19, 21, 33, 78, 99],
+#      [41, 53, 66, 98, 76],
+#      [79, 80, 90, 60, 20],
+#      [33, 11, 45, 67, 90],
+#      [45, 67, 12, 98, 23]]
+#
+# maximum = -1
+# minimum = 100
+#
+# for i in range(n):
+#     if a[i][i] > maximum:
+#         maximum = a[i][i]
+#     if a[i][n - i - 1] < minimum:
+#         minimum = a[i][n - i - 1]
+# print(minimum + maximum)
 
-maximum = -1
-minimum = 100
+# tuples = [(), (), ('',), ('a', 'b'), (), ('a', 'b', 'c'), (1,), (), (), ('d',), ('', ''), ()]
+#
+# non_empty_tuples = [i for i in tuples if len(i) > 0]
+#
+# print(non_empty_tuples)
 
-for i in range(n):
-    if a[i][i] > maximum:
-        maximum = a[i][i]
-    if a[i][n - i - 1] < minimum:
-        minimum = a[i][n - i - 1]
-print(minimum + maximum)
+# tuples = [(10, 20, 40), (40, 50, 60), (70, 80, 90), (10, 90), (1, 2, 3, 4), (5, 6, 10, 2, 1, 77)]
+# new_tuples = [i[:-1] + (100,) for i in tuples]
+# print(new_tuples)
+
+# poets = [
+#     ('Есенин', 13),
+#     ('Тургенев', 14),
+#     ('Маяковский', 28),
+#     ('Лермонтов', 20),
+#     ('Фет', 15)]
+#
+# for i in range(len(poets)):
+#     for j in range(i+1, len(poets)):
+#         if poets[i][1] > poets[j][1]:
+#             poets[i], poets[j] = poets[j], poets[i]
+#
+# print(poets[0])
+# print(poets[-1])
+
+
+# poets = [
+#     ('Тургенев', 14),
+#     ('Есенин', 13),
+#     ('Маяковский', 28),
+#     ('Фет', 15),
+#     ('Лермонтов', 20)]
+#
+# for i in range(len(poets)):
+#     for j in range(i+1, len(poets)):
+#         if poets[i] > poets[j]:
+#             poets[i], poets[j] = poets[j], poets[i]
+#
+# print(poets[0])
+# print(poets[-1])
+
+# numbers = (2, 3, 5, 7, -11, 13, 17, 19, 23, 29, 31, -6, 41, 43, 47, 53, 59, 61, -96, 71, 1000, -1)
+# a = 1
+# for i in numbers:
+#     a *= i
+# print(a)
+
+# data = 'Python для продвинутых!'
+# data_list = data.split()
+# a = ''.join(data_list)
+# data_tuple = tuple(a)
+# print(data_tuple)
+
+# data = 'Python для продвинутых!'
+# data_tuple = tuple(data)
+# print(data_tuple)
+
+# poet_data = ('Пушкин', 1799, 'Санкт-Петербург')
+# poet_list = list(poet_data)
+# a = poet_list.insert(2, 'Москва')
+# del poet_list[3]
+# poet_data = tuple(poet_list)
+# print(poet_data)
+
+# numbers = ((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4), (90, 10))
+# lst = [sum(i) / len(i) for i in numbers]
+# print(lst)
+
+# a, b, c = int(input()), int(input()), int(input())
+# print((-(b / (2 * a)), (((4 * a * c) - b ** 2)) / 4 / a))
+
+# lst = [(input('name:'), int(input('score:'))) for i in range(int(input()))]
+# lst2 = []
+# for i in lst:
+#     if i[1] > 3:
+#         lst2.append(i)
+#     print(*i, end='\n')
+# print()
+# for i in lst2:
+#     print(*i, end='\n')
+
+# lst = [tuple(input('name:').split()) for i in range(int(input()))]
+# lst2 = []
+# for i in lst:
+#     if i[1] == '5':
+#         lst2.append(i)
+#     elif i[1] == '4':
+#         lst2.append(i)
+#     print(*i, end='\n')
+# print()
+# for i in lst2:
+#     print(*i, end='\n')
+
+# n = int(input())
+# f1, f2, f3 = 1, 1, 1
+# for i in range(n):
+#     print(f1, end=' ')
+#     f1, f2, f3 = f2, f3, f1 + f2 + f3
+
+dict1 = dict.fromkeys(['name', 'age', 'job'], 'Missed information')
+for item in dict1:
+    print(item, ':', dict1[item])
+
 
