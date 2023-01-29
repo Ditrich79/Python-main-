@@ -300,8 +300,50 @@
 #     print(f1, end=' ')
 #     f1, f2, f3 = f2, f3, f1 + f2 + f3
 
-dict1 = dict.fromkeys(['name', 'age', 'job'], 'Missed information')
-for item in dict1:
-    print(item, ':', dict1[item])
+# dict1 = dict.fromkeys(['name', 'age', 'job'], 'Missed information')
+# for item in dict1:
+#     print(item, ':', dict1[item])
 
+# a, b = float(input()), float(input())
+# imt = a / (b * b)
+# if imt < 18.5:
+#     print('Недостаточная масса')
+# elif imt > 25:
+#     print('Избыточная масса')
+# else:
+#     print('Оптимальная масса')
 
+# st = input()
+# cost2 = (len(st) * 60) % 100
+# cost1 = (len(st) * 60) // 100
+# print(f'{cost1} р. {cost2} коп.')
+
+# print(len(input().split()))
+
+# year = int(input())
+# animals = ["Обезьяна", "Петух", "Собака", "Свинья", "Крыса", "Бык", "Тигр", "Заяц", "Дракон", "Змея", "Лошадь",
+# "Овца"]
+# ind = year % 12
+# for i in range(len(animals)):
+#     if i == ind:
+#         print(animals[i])
+
+# int_rever = input()
+# if len(int_rever) == 5:
+#     print(int(int_rever[::-1]))
+# else:
+#     print(int(int_rever[0] + int_rever[:-6:-1]))
+
+# int1 = input()
+# int1 = list(int1)
+# for i in range(len(int1) - 3, 0, -3):
+#     int1.insert(i, ',')
+# print(''.join(int1))
+
+n, k = int(input()), int(input())  # задача Иосифа Флавия
+lst = [i for i in range(1, n + 1)]
+while len(lst) > 1:
+    for j in range(0, k - 1):
+        lst.append(lst[j])
+    del lst[:k]
+print(*lst)
