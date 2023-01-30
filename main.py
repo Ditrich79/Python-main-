@@ -2822,6 +2822,203 @@
 # hello_world('world!')
 # hello_world2('Hi!')
 
-print('Hi')
-a = 10
+# print('Hi')
+# a = 10
+
+
+# print(int('100', 2))
+# print(int('100', 8))
+# print(int('100', 10))
+# print(int('100', 16))
+
+# print(bin(18))
+# print(oct(18))
+# print(hex(18))
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)
+# print('y' in e)
+
+# s = 'Python'
+# s = s[:3] + 't' + s[4:]
+# print(s)
+
+# def change_char_to_str(s, c_old, c_new):
+#     s2 = ''
+#     for i in range(len(s)):
+#         if s[i] == c_old:
+#             s2 += c_new
+#         else:
+#             s2 += s[i]
+#     return s2
+#
+#
+# str1 = "Я изучая Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# str2 = change_char_to_str(str1, 'N', 'P')
+# print(str1)
+# print(str2)
+
+# print(u'Привет')
+# print('Привет')
+
+# print(r'C:\folder\file.txt')
+# print(r'C:\folder\\'[:-1])
+
+# from math import pi
+#
+# name = 'Дмитрий'
+# age = 25
+# print(f'Меня зовут {name}. Мне {age} лет.')
+# print(f'Значение числа pi: {round(pi, 2)}')
+# print(f'Значение числа pi: {pi:.2f}')
+#
+# x = 5
+# y = 10
+# print(f"{x} * {y} / 2 = {x * y / 2}")
+# print(f'{x = }, {y = }')
+
+# a = 74
+# print(f'{{{{{a}}}}}')
+
+
+# dir_name = 'my_doc'
+# file_name = "data.txt"
+# print(fr'home\{dir_name}\{file_name}')
+
+# s = """<div>
+#     <p>Текст</p>
+# </div>
+# """
+# print(s)
+#
+# a = "Hello"
+# print(a)
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     return n ** 2
+#
+#
+# print(square(5))
+#
+# print(square.__doc__)
+# print(sum.__doc__)
+# print(list.__doc__)
+
+# import math
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра.
+#
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return: положительное число, площадь цилиндра
+#     """
+#     return 2 * math.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# print(ord('a'))  # 97
+
+# while True:
+#     n = input('-> ')
+#     if n != '-1':
+#         print(ord(n))
+#     else:
+#         break
+
+
+# my_str = "Test string for me"
+# arr = [ord(x) for x in my_str]
+# print('ASCII коды', arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое:", arr)
+# arr += [ord(x) for x in input('-> ')[:3] if ord(x) not in arr]
+# print(arr)
+# # if arr[-1] in arr[:-1]:
+# print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+# print(chr(33))
+# print(chr(8364))
+
+# a = 122
+# b = 97
+# if a > b:
+#     a, b = b, a
+# for i in range(a, b + 1):
+#     print(chr(i), end=' ')
+
+# print('apple' == 'Apple')
+# print('apple' > 'Apple')
+# print(ord('a'))
+# print(ord('A'))
+
+# arr = ['red', 'blue', 'yellow']
+# arr.sort()
+# print(arr)
+
+# from random import randint
+#
+#
+# def random_password():
+#     rand_len = randint(6, 16)
+#     res = ''
+#
+#     for i in range(rand_len):
+#         rand_char = chr(randint(33, 126))
+#         res += rand_char
+#     return res
+#
+#
+# print('Ваш случайный пароль:', random_password())
+
+
+# print(dir(str))
+
+# s = 'hello, WORLD! I am learning Python.'
+# print(s.capitalize())
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())
+
+# print(s.count("h", 0, -4))
+#
+# print(s.find('e1'))  # ищет в строке заданную подстроку (возвращает '-1' - если подстрока не найдена)
+#
+# print(s.rfind('e'))
+# print(s.index('e1'))  # ищет в строке заданную подстроку
+# print(s.rindex('e'))
+
+# s = 'один два'
+# s = s[s.find(' ') + 1:] + ' ' + s[:s.find(' ')]
+# print(s)
+
+# s = 'ab12c59p7dq'
+# d = list(filter(lambda x: '0' <= x <= '9', s))
+# print(d)
+
+# s = 'ab12c59p7dq'
+# digits = []
+# for ch in s:
+#     if '0123456789'.find(ch) != -1:
+#         digits.append(int(ch))
+# print(digits)
+
+print('abc123'.isalnum())  # состоит ли строка из букв и цифр
+print('abc123!'.isalnum())
+
+print('ABCcbf'.isalpha())
+print('ABCcbf1'.isalpha())
+
+print('123'.isdigit())
+print('123#a'.isdigit())
 
