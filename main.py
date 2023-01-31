@@ -2841,9 +2841,9 @@
 # print(e)
 # print('y' in e)
 
-# s = 'Python'
-# s = s[:3] + 't' + s[4:]
-# print(s)
+s = 'Python'
+s = s[:3] + 't' + s[4:]
+print(s)
 
 # def change_char_to_str(s, c_old, c_new):
 #     s2 = ''
@@ -3013,12 +3013,12 @@
 #         digits.append(int(ch))
 # print(digits)
 
-print('abc123'.isalnum())  # состоит ли строка из букв и цифр
-print('abc123!'.isalnum())
-
-print('ABCcbf'.isalpha())
-print('ABCcbf1'.isalpha())
-
-print('123'.isdigit())
-print('123#a'.isdigit())
+# print('abc123'.isalnum())  # состоит ли строка из букв и цифр
+# print('abc123!'.isalnum())
+#
+# print('ABCcbf'.isalpha())
+# print('ABCcbf1'.isalpha())
+#
+# print('123'.isdigit())
+# print('123#a'.isdigit())
 
