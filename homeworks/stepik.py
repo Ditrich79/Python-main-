@@ -340,10 +340,49 @@
 #     int1.insert(i, ',')
 # print(''.join(int1))
 
-n, k = int(input()), int(input())  # задача Иосифа Флавия
-lst = [i for i in range(1, n + 1)]
-while len(lst) > 1:
-    for j in range(0, k - 1):
-        lst.append(lst[j])
-    del lst[:k]
-print(*lst)
+# n, k = int(input()), int(input())  # задача Иосифа Флавия
+# lst = [i for i in range(1, n + 1)]
+# while len(lst) > 1:
+#     for j in range(0, k - 1):
+#         lst.append(lst[j])
+#     del lst[:k]
+# print(*lst)
+
+# numbers = [-6, -8, 0, 1, 3, 8, -7, 12, 17, 24, 25, 3, 5, 1]
+# res = 0
+# for num in numbers:
+#     res += (num % 2 == 1) and (num > 1)
+# print(res)
+
+# def func(num1, num2):
+#     return num1 % num2 == 0
+#
+#
+# num1, num2 = int(input()), int(input())
+#
+#
+# if func(num1, num2):
+#     print("делится")
+# else:
+#     print("не делится")
+
+rows = int(input('Введите количество колонок: '))
+cols = int(input('Введите количество столбцов: '))
+matrix = []
+for _ in range(rows):
+    lst = []
+    for _ in range(cols):
+        lst.append(input('Слово: '))
+    matrix.append(lst)
+
+for i in range(rows):
+    for y in range(cols):
+        print(matrix[i][y], end=' ')
+    print()
+print()
+
+for i in range(cols):
+    for y in range(rows):
+        print(matrix[y][i], end=' ')
+    print()
+
