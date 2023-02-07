@@ -3261,3 +3261,4 @@ import re
 s = "yandex.com and yandex.ru"  # http://yandex.ru and http://yandex.com
 reg = r'(([a-z0-9-]{2,}\.)+[a-z]{2,4})'
 print(re.sub(reg, r'http://\1', s))
+
