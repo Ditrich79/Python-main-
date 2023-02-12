@@ -366,23 +366,62 @@
 # else:
 #     print("не делится")
 
-rows = int(input('Введите количество колонок: '))
-cols = int(input('Введите количество столбцов: '))
-matrix = []
-for _ in range(rows):
-    lst = []
-    for _ in range(cols):
-        lst.append(input('Слово: '))
-    matrix.append(lst)
+# rows = int(input('Введите количество колонок: '))
+# cols = int(input('Введите количество столбцов: '))
+# matrix = []
+# for _ in range(rows):
+#     lst = []
+#     for _ in range(cols):
+#         lst.append(input('Слово: '))
+#     matrix.append(lst)
+#
+# for i in range(rows):
+#     for y in range(cols):
+#         print(matrix[i][y], end=' ')
+#     print()
+# print()
+#
+# for i in range(cols):
+#     for y in range(rows):
+#         print(matrix[y][i], end=' ')
+#     print()
 
-for i in range(rows):
-    for y in range(cols):
-        print(matrix[i][y], end=' ')
-    print()
-print()
+# n = int(input('Введите количество колонок: '))
+# m = int(input('Введите количество столбцов: '))
+#
+# for i in range(n):
+#     mult = []
+#     for j in range(m):
+#         mult.append(str(i * j).ljust(3))
+#     print(*mult)
 
-for i in range(cols):
-    for y in range(rows):
-        print(matrix[y][i], end=' ')
-    print()
+# mult = [[str(i * j).ljust(3) for i in range(m)] for j in range(n)]
+# print(mult)
 
+# n = int(input('Введите количество колонок: '))
+# m = int(input('Введите количество столбцов: '))
+# matrix = []
+# for k in range(n):
+#     aver = [int(x) for x in input().split()]
+#     matrix.append(aver)
+# x = 0
+# y = 0
+# matrix_max = matrix[0][0]
+# for i in range(n):
+#     for j in range(m):
+#         if matrix[i][j] > matrix_max:
+#             matrix_max = matrix[i][j]
+#             x = i
+#             y = j
+# print(x, y)
+
+n, m = int(input()), int(input())
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+row, col = 0, 0
+
+for i in range(n):
+    for j in range(m):
+        if matrix[i][j] > matrix[row][col]:
+            row, col = i, j
+
+print(row, col)
