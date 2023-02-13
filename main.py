@@ -3376,7 +3376,12 @@ import re
 
 
 # Линейный (последовательный) поиск
+from random import randint
+import time
 
+
+#
+#
 # def seq_search(s, item):
 #     found = False
 #     pos = 0
@@ -3388,27 +3393,207 @@ import re
 #     return found
 #
 #
+# lst = [randint(1, 99) for i in range(10000)]
+# start = time.monotonic()
+# print(seq_search(lst, 0))
+# res = time.monotonic() - start
+# print(round(res, 3), 'sec')
+# # lst = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+# # print(seq_search(lst, 32))
+# # print(seq_search(lst, 3))
+#
+#
+# def seq_search(s, item):
+#     found = False
+#     pos = 0
+#     stop = False
+#     while pos < len(s) and not found and not stop:
+#         if s[pos] == item:
+#             found = True
+#         else:
+#             if s[pos] > item:
+#                 stop = True
+#             else:
+#                 pos += 1
+#     return found
+#
+#
+# # lst = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+# lst = [randint(1, 99) for y in range(10000)]
+# lst.sort()
+# start = time.monotonic()
+# # print(lst)
+# # print(seq_search(lst, 32))
+# # print(seq_search(lst, 3))
+# print(seq_search(lst, 0))
+# res = time.monotonic() - start
+# print(round(res, 3), 'sec')
+
+
+# Бинарный поиск
+
+# def binary_search(s, item):
+#     first = 0
+#     last = len(s) - 1  # 3
+#     found = False
+#
+#     while first <= last and not found:
+#         midpoint = (first + last) // 2  # 4  # 1
+#         if s[midpoint] == item:
+#             found = True
+#         else:
+#             if item < s[midpoint]:  # 1 < 13
+#                 last = midpoint - 1  # 3
+#             else:
+#                 first = midpoint + 1
+#
+#     return found
+#
+#
 # lst = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-# print(seq_search(lst, 32))
-# print(seq_search(lst, 3))
-
-def seq_search(s, item):
-    found = False
-    pos = 0
-    stop = False
-    while pos < len(s) and not found and not stop:
-        if s[pos] == item:
-            found = True
-        else:
-            if s[pos] > item:
-                stop = True
-            else:
-                pos += 1
-    return found
+# lst.sort()
+# print(binary_search(lst, 17))
+# print(binary_search(lst, 3))
 
 
-lst = [1, 2, 32, 8, 17, 19, 42, 13, 0]
-lst.sort()
-print(lst)
-print(seq_search(lst, 32))
-print(seq_search(lst, 3))
+# def bubble(array):
+#     for i in range(len(array) - 1):
+#         for j in range(len(array) - i - 1):
+#             if array[j] > array[j + 1]:
+#                 array[j], array[j + 1] = array[j + 1], array[j]
+#         #     print(*array)
+#         # print('=' * 50)
+#
+#
+# lst = [randint(1, 99) for y in range(10000)]
+# start = time.monotonic()
+# # print(lst)
+# bubble(lst)
+# # print(lst)
+# res = time.monotonic() - start
+# print(round(res, 3), 'sec')
+
+# def merge_sort(a):
+#     n = len(a)  # 5
+#     if n < 2:
+#         return a
+#
+#     left = merge_sort(a[:n // 2])  # [8, 2]
+#     right = merge_sort(a[n // 2: n])  # [6, 4, 5]
+#
+#     i = j = 0
+#     res = []
+#
+#     while i < len(left) or j < len(right):
+#         if not i < len(left):
+#             res.append(right[j])
+#             j += 1
+#         elif not j < len(right):
+#             res.append(left[i])
+#             i += 1
+#         elif left[i] < right[j]:
+#             res.append(left[i])
+#             i += 1
+#         else:
+#             res.append(right[j])
+#             j += 1
+#     return res
+#
+#
+# # array = [8, 2, 6, 4, 5]
+# array = [randint(1, 99) for y in range(10000)]
+# start = time.monotonic()
+# # print(array)
+# array = merge_sort(array)
+# # print(array)
+# res = time.monotonic() - start
+# print(round(res, 3), 'sec')
+
+
+# Сортировка Шелла
+
+# def shell_sort(s):  # [10, 21, 9, 14, 67, 44, 26, 87]
+#     gap = len(a)  # 4
+#
+#     while gap > 0:
+#         for val in range(gap, len(s)):  # range(4, 8)
+#             cur_val = s[val]  # s[4] = 67
+#             pos = val  # 4
+#
+#             while pos >= gap and s[pos - gap] > cur_val:
+#                 s[pos] = s[pos - gap]
+#                 pos -= gap
+#                 s[pos] = cur_val
+#
+#         gap //= 2  # 4
+#     return s
+#
+#
+# a = [10, 21, 9, 14, 67, 44, 26, 87]
+# print(a)
+# shell_sort(a)
+# print(a)
+
+
+# Быстрая сортировка
+
+# def quick_sort(a):
+#     if len(a) > 1:
+#         x = a[(len(a) - 1) // 2]  # a[(7 - 1) // 2] = 3 = a[3] = 4
+#
+#         low = [i for i in a if i < x]  # [-3, -8]
+#         eq = [i for i in a if i == x]  # [4]
+#         hi = [i for i in a if i > x]  # [9, 5, 7, 8]
+#         a = quick_sort(low) + eq + quick_sort(hi)
+#
+#     return a
+#
+#
+# lst = [9, 5, -3, 4, 7, 8, -8]
+# print(lst)
+# lst = quick_sort(lst)
+# print(lst)
+
+
+# Файлы
+
+# f = open('Text13.txt')  # mode='r'
+# print(*f)
+# print(f)
+# print(f.mode)
+# print(f.name)
+# print(f.encoding)
+# f.close()
+# print(f.closed)
+
+# f = open('Text13.txt')
+# print(f.read(3))
+# print(f.read())
+# f.close()
+
+# f = open('new13.txt')
+# # print(f.readline())
+# # print(f.readline(8))
+# # print(f.readline())
+# # print(f.readline())
+# print(f.readlines(16))
+# print(f.readlines())
+# f.close()
+
+
+# f = open('new13.txt')
+# for line in f:
+#     print(line)
+# f.close()
+
+# f = open('new13.txt')
+# print(len(f.readlines()))
+# f.close()
+
+# f = open('new13.txt', 'a')
+# f.write('New text.')
+# f.close()
+
+f = open('new13.txt', 'w')
+f.write('Hello\nWorld!\n')
+f.close()
