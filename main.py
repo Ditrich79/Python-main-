@@ -3379,7 +3379,6 @@ import re
 from random import randint
 import time
 
-
 #
 #
 # def seq_search(s, item):
@@ -3594,6 +3593,192 @@ import time
 # f.write('New text.')
 # f.close()
 
-f = open('new13.txt', 'w')
-f.write('Hello\nWorld!\n')
-f.close()
+# f = open('new13.txt', 'w')
+# f.write('Hello\nWorld!\n')
+# f.close()
+
+# f = open('xyz.txt', 'a')
+# lines = ['\nThis is line 1', '\nThis is line 2']
+# f.writelines(lines)
+# f.close()
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i ** 5) for i in range(1, 20)]
+# print(lst)
+# for index in lst:
+#     f.write(index + '\t')
+# f.close()
+
+# my_file = open('text23.txt', 'w')
+# my_file.writelines('Заменить строку в текстовом файле;\nизменить строку в списке;\nзаписать список в файл')
+# my_file.close()
+#
+# my_file = open('text23.txt', 'r')
+# read_file = my_file.readlines()
+# print(read_file)
+# read_file[1] = "Hello World!\n"
+# print(read_file)
+# my_file.close()
+#
+# my_file = open('text23.txt', 'w')
+# my_file.writelines(read_file)
+# my_file.close()
+
+# my_file = open('text23.txt', 'w')
+# my_file.writelines('Заменить строку в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;')
+# my_file.close()
+#
+# my_file = open('text23.txt', 'r')
+# read_file = my_file.readlines()
+# my_file.close()
+#
+# request = int(input('Укажите индекс строки, которую нужно удалить: '))
+# read_file.pop(request - 1)
+#
+# my_file = open('text2.txt', 'w')
+# my_file.write('\n'.join([*read_file]))
+# my_file.close()
+
+# my_file = open('text2.txt', 'w')
+# my_file.write('Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;')
+# my_file.close()
+#
+# my_file = open('text2.txt', 'r')
+# lst = my_file.readlines()
+# my_file.close()
+#
+# print(lst)
+# num = int(input('Номер строки для удаления: '))
+# lst.pop(num - 1)
+# print(lst)
+#
+# my_file = open('text2.txt', 'w')
+# my_file.write(''.join([*lst]))
+# my_file.close()
+
+# f = open('text13.txt', 'r')
+# print(f.read(3))
+# print(f.tell())
+# print(f.seek(1))
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+# f = open('text13.txt', 'w+')
+# print(f.write('I am learning Python'))
+# print(f.seek(3))
+# print(f.write('-new string-'))
+# print(f.tell())
+# f.close()
+
+# with open('text13.txt', 'w+') as f:
+#     print(f.write('12345\n67890'))
+#
+# with open('text13.txt', 'r') as f:
+#     for line in f:
+#         print(line)
+
+
+# file_name = 'res.txt'
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.77]
+# print(list(map(str, lst)))
+#
+# with open(file_name, 'w+') as my_file:
+#     my_file.write('\t'.join(map(str, lst)))
+
+# with open(file_name, 'r+') as my_file:
+#     new_lst = my_file.read().split('\t')
+#
+# print(len(new_lst))
+# print(list(map(float, new_lst)))
+# print(f'Sum = {sum(map(float, new_lst))}')
+
+
+# def longest_word(file):
+#     with open(file, 'r') as text:
+#         w = text.read().split()
+#         max_length = len(max(w, key=len))
+#         print(w)
+#         print(max_length)
+#         res = [word for word in w if len(word) == max_length]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_word('text23.txt'))
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\nСтрока №8\nСтрока №9\nСтрока №10\n"
+#
+# with open('one.txt', 'w') as f:
+#     f.write(text)
+
+# read_file = 'one.txt'
+# write_file = 'two.txt'
+#
+# with open(read_file, 'r') as fr, open(write_file, 'w') as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия - ")
+#         fw.write(line)
+
+
+# Модуль OS или OS.PATH
+
+import os
+import os.path
+
+# print(os.getcwd())  # текущая директория
+
+# print(os.listdir())  # список директорий и файлов по указанному пути
+# print(os.listdir('../..'))
+
+# os.mkdir("folder/new")  # создать папку
+
+# os.makedirs("nested1/nested2/nested3")  # создает не только конечную директорию, но и промежуточные папки
+
+# os.remove('xyz.txt')  # удаление файла
+
+# os.rmdir("folder")  # удаление пустой папки
+
+# os.rename('nested1', 'test')  # переименование папки и файлов
+# os.rename('two.txt', 'test/test1.txt')
+# os.renames('text2.txt', 'text/test3.txt')  # переименовывает папки и файлы, создавая промежуточные траектории
+
+# for root, dirs, files in os.walk('test', topdown=False):
+#     print("Root:", root)
+#     print("Sub_dirs:", dirs)
+#     print("Files:", files)
+
+
+# def remove_empty_dirs(root_tree):
+#     print(f'Удаление пустых директорий в ветви {root_tree}')
+#     print('-' * 50)
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f'Директория {root} удалена.')
+#     print('-' * 50)
+#
+#
+# remove_empty_dirs('test')
+
+# print(os.path.split(r'F:\python projects\test\nested2\nested3'))  # разбивает путь на кортеж (head, tail)
+#
+# print(os.path.dirname(r'F:\python projects\test\nested2\nested3'))
+# print(os.path.basename(r'F:\python projects\test\nested2\nested3'))
+
+# print(os.path.join(r'F:\python projects', 'test', 'nested2', 'text1.txt'))  # соединяет один или несколько компонентов
+# # пути с учётом особенности OS
+
+# print(os.path.exists(r'F:\python projects\test\nested2\nested3'))  # возвращает True, если указанный путь существует
+
+import time
+
+path = r'F:\python projects\text'
+print(os.path.getsize(path) // 1024)
+print(os.path.getmtime(path))  # последнее изменение файла
+print(os.path.getatime(path))  # последний доступ файла
+print(os.path.getctime(path))  # создание файла
+
+t = time.strftime('%d.%m.%Y, %H:%M:%S')
+print(t)
