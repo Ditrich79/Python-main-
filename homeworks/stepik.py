@@ -415,13 +415,67 @@
 #             y = j
 # print(x, y)
 
-n, m = int(input()), int(input())
-matrix = [[int(i) for i in input().split()] for _ in range(n)]
-row, col = 0, 0
+# n, m = int(input()), int(input())
+# matrix = [[int(i) for i in input().split()] for _ in range(n)]
+# row, col = 0, 0
+#
+# for i in range(n):
+#     for j in range(m):
+#         if matrix[i][j] > matrix[row][col]:
+#             row, col = i, j
+#
+# print(row, col)
 
-for i in range(n):
-    for j in range(m):
-        if matrix[i][j] > matrix[row][col]:
-            row, col = i, j
+# file = open(input())
+#
+# print(file.read())
 
-print(row, col)
+
+# file = open('lines.txt', 'r', encoding='utf-8')
+# print(file.readline())
+# file.close()
+
+# file = open('numbers.txt', 'r', encoding='utf-8')
+# summa = sum(list(map(int, file.readlines())))
+# print(summa)
+# file.close()
+
+
+# file = open('nums.txt', 'r', encoding='utf-8')
+# summa = sum(list(map(int, file.read().split())))
+# print(summa)
+# file.close()
+
+# file = open('prices.txt')
+# summa = 0
+#
+# for line in file.readlines():
+#     arr = line.split()
+#     summa += int(arr[1]) * int(arr[2])
+#
+# print(summa)
+# file.close()
+
+# with open('text.txt', 'r', encoding='utf-8') as file:
+#     string = file.read()[::-1]
+#     print(string)
+
+# with open('data.txt') as file:
+#     arr = file.readlines()
+#     for i in range(len(arr)):
+#         print(arr[len(arr) - 1 - i].strip())
+
+max_len = 0
+max_str = []
+
+with open('lines.txt') as file:
+    for line in file.readlines():
+        if len(line) > max_len:
+            max_len = len(line)
+            max_str = [line]
+        elif len(line) == max_len:
+            max_str.append(line)
+
+for elem in max_str:
+    print(elem, end='')
+
