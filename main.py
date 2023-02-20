@@ -3727,6 +3727,7 @@ import time
 import os
 import os.path
 
+
 # print(os.getcwd())  # текущая директория
 
 # print(os.listdir())  # список директорий и файлов по указанному пути
@@ -3772,13 +3773,247 @@ import os.path
 
 # print(os.path.exists(r'F:\python projects\test\nested2\nested3'))  # возвращает True, если указанный путь существует
 
-import time
+# import time
+#
+# path = r'F:\python projects\text'
+# print(os.path.getsize(path) // 1024)
+# print(os.path.getmtime(path))  # последнее изменение файла
+# print(os.path.getatime(path))  # последний доступ файла
+# print(os.path.getctime(path))  # создание файла
+#
+# t = time.strftime('%d.%m.%Y, %H:%M:%S')
+# print(t)
 
-path = r'F:\python projects\text'
-print(os.path.getsize(path) // 1024)
-print(os.path.getmtime(path))  # последнее изменение файла
-print(os.path.getatime(path))  # последний доступ файла
-print(os.path.getctime(path))  # создание файла
 
-t = time.strftime('%d.%m.%Y, %H:%M:%S')
-print(t)
+# read1_file = 'one.txt'
+# read2_file = 'two.txt'
+# write_file = 'three.txt'
+#
+# with open(read1_file, 'r') as fr, open(read2_file, 'r') as fw, open(write_file, 'w') as f:
+#     l1 = fr.readlines()
+#     l2 = fw.readlines()
+#     print(l1 + l2)
+#
+#     f.writelines(l1 + l2)
+
+
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# for d in dirs:
+#     os.makedirs(d)
+
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+#
+# for d, file in files.items():
+#     for f in file:
+#         file_path = os.path.join(d, f)
+#         # print(file_path)
+#         open(file_path, 'w').close()
+#
+# files_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+#
+# for file in files_with_text:
+#     with open(file, 'w') as f:
+#         f.write(f'some sample text for {file} file')
+#
+#
+# def print_tree(root, topdown):
+#     print(f'Обход {root} {"сверху вниз" if topdown else "снизу вниз"}')
+#     for root, dirs, fl in os.walk(root, topdown=topdown):
+#         print(root)
+#         print(dirs)
+#         print(fl)
+#     print("-" * 50)
+#
+#
+# print_tree("Work", topdown=False)
+# print_tree("Work", topdown=True)
+
+# import time
+# file_path = r'Work\F2\F21\f212.txt'
+#
+# if os.path.exists(file_path):
+#     dirs, name = os.path.split(file_path)
+#     atime = os.path.getatime(file_path)
+#     print(f'{name} ({dirs}) - время последнего доступа к файлу: {time.strftime("%d.%m.%Y, %H:%M:%S")}')
+# else:
+#     print(f'Файл {file_path} не существует!')
+
+# print(os.path.isfile(r'D:\Python214\214\test\nested12\text.txt'))
+# print(os.path.isdir(r'D:\Python214\214\test\nested12\text.txt'))
+
+# dir_name = 'Work'
+#
+# objs = os.listdir(dir_name)
+# print(objs)
+#
+# for obj in objs:
+#     p = os.path.join(dir_name, obj)
+#     if os.path.isfile(p):
+#         print(f'{obj} - file - {os.path.getsize(p)} bytes')
+#     elif os.path.isdir(p):
+#         print(f'{obj} - dir')
+
+
+# class Point:
+#     """Класс для предоставления координат точек на плоскости"""
+#     x = 1
+#     y = 1
+#
+#
+# p1 = Point()
+# print(p1.x)
+# print(type(p1))
+# print(dir(Point))
+# print(Point.__doc__)
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#
+# p1 = Point()
+# Point.x = 100
+# p1.x = 20
+# p1.y = 30
+# print(p1.x, p1.y)
+#
+# p2 = Point()
+# print(p2.x, p2.y)
+#
+# print(p1.__dict__)
+# print(p2.__dict__)
+# print(Point.__dict__)
+
+# print(id(Point))
+# print(id(p1))
+# print(id(p2))
+
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coord(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print(self.__dict__)
+#
+#
+# p1 = Point()
+# # p1.x = 5
+# # p1.y = 10
+# p1.set_coord(5, 10)
+# # Point.set_coord(p1)
+#
+# p2 = Point()
+# # p2.x = 100
+# # p2.y = 200
+# p2.set_coord(100, 200)
+
+
+# class Human:
+#     name = "name"
+#     birth = "00.00.0000"
+#     phone = '00-00-00'
+#     country = 'country'
+#     city = 'city'
+#     address = 'street, house'
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, "*"))
+#         print(f'Имя: {self.name}\nДата рождения: {self.birth}\nНомер телефона: {self.phone}\n'
+#               f'Страна: {self.country}\nГород: {self.city}\nДомашний адрес: {self.address}')
+#         print("=" * 40)
+#
+#     def input_info(self, first, birthday, phone, country, city, address):
+#         self.name = first
+#         self.birth = birthday
+#         self.country = country
+#         self.phone = phone
+#         self.city = city
+#         self.address = address
+#
+#     def set_name(self, name):  # устанавливаем новое имя
+#         self.name = name
+#
+#     def get_name(self):  # получаем имя
+#         return self.name
+#
+#     def set_birthday(self, val):
+#         self.birth = val
+#
+#     def get_birthday(self):
+#         return self.birth
+#
+#     def set_country(self, country):
+#         self.country = country
+#
+#     def get_country(self):
+#         return self.country
+#
+#     def set_phone(self, phone):
+#         self.phone = phone
+#
+#     def get_phone(self):
+#         return self.phone
+#
+#     def set_city(self, city):
+#         self.city = city
+#
+#     def get_city(self):
+#         return self.city
+#
+#     def set_address(self, address):
+#         self.address = address
+#
+#     def get_address(self):
+#         return self.address
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h1.print_info()
+#
+# h1.set_name("Оля")
+# print(h1.get_name())
+# h1.set_birthday("26.03.1989")
+# print(h1.get_birthday())
+# h1.set_country("Германия")
+# print(h1.get_country())
+# h1.set_phone("11-22-33")
+# print(h1.get_phone())
+# h1.set_city("Гессен")
+# print(h1.get_city())
+# h1.set_address("Липпенштрассе, 5")
+# print(h1.get_address())
+
+
+class Person:
+    skill = 10
+    # name = ""
+    # surname = ""
+
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def print_info(self):
+        print("Данные сотрудника:", self.name, self.surname)
+
+    def add_skill(self, k):
+        self.skill += k
+        print("Квалификация сотрудника:", self.skill, "\n")
+
+
+p1 = Person("Viktor", "Reznik")
+p1.print_info()
+p1.add_skill(3)
+
+p2 = Person("Anna", "Dolgih")
+p2.print_info()
+p1.add_skill(2)
