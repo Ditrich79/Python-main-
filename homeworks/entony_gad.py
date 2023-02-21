@@ -16,16 +16,18 @@
 # print(f'{number:<15,d}')  # выравнивание по левому краю поля
 # print(f'{number:>15,d}')  # выравнивание по правому краю поля
 
-def main():
-    show_interest(rate=0.01, periods=10, principal=10000.0)
+# def main():
+#     show_interest(rate=0.01, periods=10, principal=10000.0)
+#
+#
+# def show_interest(principal, rate, periods):
+#     interest = principal*rate*periods
+#     print(f'Простой процентный доход составит ${interest:,.2f}')
+#
+#
+# main()
 
 
-def show_interest(principal, rate, periods):
-    interest = principal*rate*periods
-    print(f'Простой процентный доход составит ${interest:,.2f}')
-
-
-main()
-
-
-
+# import time
+#
+# print(time.strftime('Сегодня: ''%d.%m.%Y, %H:%M:%S'))
