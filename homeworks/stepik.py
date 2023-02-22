@@ -465,17 +465,25 @@
 #     for i in range(len(arr)):
 #         print(arr[len(arr) - 1 - i].strip())
 
-max_len = 0
-max_str = []
+# max_len = 0
+# max_str = []
+#
+# with open('lines.txt') as file:
+#     for line in file.readlines():
+#         if len(line) > max_len:
+#             max_len = len(line)
+#             max_str = [line]
+#         elif len(line) == max_len:
+#             max_str.append(line)
+#
+# for elem in max_str:
+#     print(elem, end='')
 
-with open('lines.txt') as file:
-    for line in file.readlines():
-        if len(line) > max_len:
-            max_len = len(line)
-            max_str = [line]
-        elif len(line) == max_len:
-            max_str.append(line)
+# n, roman_numbers = int(input()), ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+# print(roman_numbers[n-1] if 1 <= n <= 10 else 'ошибка')
 
-for elem in max_str:
-    print(elem, end='')
+# s = input("digits: ").split()
+# print(s)
+# d = list(map(int, s))
+# print(d)
 
