@@ -487,3 +487,151 @@
 # d = list(map(int, s))
 # print(d)
 
+# import random
+#
+# n = int(input())
+# for i in range(n):
+#     if random.randint(0, i) % 2 == 0:
+#         print('Орел')
+#     else:
+#         print('Решка')
+
+# from random import choice
+#
+# n = int(input())
+#
+# for i in range(n):
+#     print(choice([i for i in range(1, 7)]))
+
+# def fancy(length, char1='-', char2='*'):
+#     return (char1 + char2) * length + char1
+#
+#
+# print(fancy(3, '.'))
+
+# def fancy(length, char1='-', char2='*'):
+#     return (char1 + char2) * length + char1
+#
+#
+# print(fancy(char2='$', length=3))
+
+# def matrix(n=1, m=None, value=0):
+#     if m is None:
+#         m = n
+#     elif n == 1 and m is None:
+#         m = 1
+#     return [[value] * m for _ in range(n)]
+
+# def f(n=3):
+#     return n + 7
+#
+#
+# print(f(f(f())))
+
+# def sq_sum(*args):
+#     return sum([i ** 2 for i in args])
+#
+#
+# print(sq_sum(1, 2, 3))
+
+
+# def mean(*args):
+#     lst = [i for i in args if type(i) == int or type(i) == float]
+#     return sum(lst) / len(lst)
+#
+#
+# print(mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)))
+
+# def greet(par, *args):
+#     people = ' and '.join((par,) + args)
+#     return f"Hello, {people}!"
+#
+#
+# print(greet('Timur', 'Roman', 'Ruslan'))
+
+
+# def count_sheeps(*sheep):
+#     count = 0
+#     for i in sheep:
+#         if i is True:
+#             count += 1
+#     return count
+#
+#
+# print(count_sheeps(True, False, True, None, True, None, True, False, None, None, False))
+
+# def summation(num):
+#     count = 0
+#     for i in range(0, num + 1):
+#         count += i
+#     return count
+#
+#
+# print(summation(8))
+
+
+# def generator_square_polynom(a, b, c):
+#     def square_polynom(x):
+#         return a*x**2 + b*x + c
+#     return square_polynom
+#
+#
+# f = generator_square_polynom(a=1, b=2, c=1)
+# print(f(2))
+
+# numbers = [-2, 45, 45, -7, -45, 37, -42, 27, -58, -58, -12, -27, -49, -27, -56, 4, -99, -11, 86]
+#
+# var1 = max(numbers, key=abs)
+# var2 = min(map(abs, numbers))
+#
+# print(var1 + var2)
+
+# def func_apply(func, args):
+#     return [func(item) for item in args]
+#
+#
+# def add3(x):
+#     return x + 3
+#
+#
+# def mul7(x):
+#     return x * 7
+#
+#
+# print(func_apply(mul7, [1, 2, 3, 4, 5, 6]))
+# print(func_apply(add3, [1, 2, 3, 4, 5, 6]))
+# print(func_apply(str, [1, 2, 3, 4, 5, 6]))
+
+
+# from functools import reduce
+#
+# numbers = range(10)
+# obj = map(lambda x: x + 1, numbers)
+# obj = filter(lambda x: x % 2 == 1, obj)
+# result = reduce(lambda x, y: x + y, obj, 0)
+#
+# print(result)
+
+# numbers = range(10)
+# obj = map(lambda x: x + 1, numbers)
+# print(list(obj))
+
+
+# floats = [4.35, 6.09, 3.25, 9.77, 2.16, 8.88, 4.59, 34.23, 12.12, 4.67, 2.45, 9.32]
+#
+# map_result = list(map(lambda num: round(num ** 2, 1), floats))
+# print(map_result)
+
+# words = ['racecar', 'akinremi', 'deed', 'temidayo', 'omoseun', 'civic', 'TATTARRATTAT', 'malayalam', 'nun']
+#
+# filter_result = list(filter(lambda name: name == name[::-1] and len(name) > 4, words))
+# print(filter_result)
+
+# from functools import reduce
+# numbers = [4, 6, 9, 23, 5]
+#
+# reduce_result = reduce(lambda num1, num2: num1 * num2, numbers, 1)
+# print(reduce_result)
+
+
+
