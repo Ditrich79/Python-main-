@@ -634,4 +634,9 @@
 # print(reduce_result)
 
 
+# func = lambda x: True if x % 19 == 0 or x % 13 == 0 else False
+# print(func(20))
+
+# func = lambda x: True if x[0] in 'Aa' and x[-1] in 'Aa' else False
+# print(func('abcd'))
 
