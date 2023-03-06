@@ -357,3 +357,43 @@
 # if __name__ == '__main__':
 #     main()
 
+
+# # Эта программа показывает содержимое файла
+# def main():
+#     # Получить имя файла
+#     filename = input("Введите имя файла: ")
+#
+#     try:
+#         # Открыть файл
+#         infile = open(filename, "r")
+#
+#         # Прочитать содержимое файла
+#         contents = infile.read()
+#
+#         # Показать содержимое файла
+#         print(contents)
+#
+#         # Закрыть файл
+#         infile.close()
+#     except IOError:
+#         print('Произошла ошибка при попытке прочитать')
+#         print('файл', filename)
+#
+#
+# # Вызвать главную функцию.
+# if __name__ == '__main__':
+#     main()
+
+# def main():
+#     try:
+#         hours = int(input('Введите сколько часов Вы отработали: '))
+#         pay_rate = float(input("Введите почасовую ставку: "))
+#         gross_pay = hours * pay_rate
+#         print(f"Заработная плата: ${gross_pay:,.2f}")
+#     except ValueError as err:
+#         print(err)
+#
+#
+# if __name__ == "__main__":
+#     main()
+
