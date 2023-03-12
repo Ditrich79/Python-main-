@@ -671,3 +671,178 @@
 # res = list(map(lambda x: x // 2 if x % 2 == 0 else x, filter(lambda x: x % 2 == 0 or (x % 2 != 0 and x < 47), numbers)))
 # print(*res)
 
+# numbers = {9089, -67, -32, 1, 78, 23, -65, 99, 9089, 34, -32, 0, -67, 1, 11, 111, 111, 1, 23}
+# lst = []
+# for num in numbers:
+#     lst.append(num ** 2)
+# print(sum(lst))
+
+# fruits = {'apple', 'banana', 'cherry', 'avocado', 'pineapple', 'apricot', 'banana', 'avocado', 'grapefruit'}
+# new_list = sorted(fruits, reverse=True)
+# print(*new_list, sep='\n')
+
+# print(len(set(input())))
+
+# stin = input()
+# loh = set(stin)
+# if len(stin) == len(loh):
+#     print('YES')
+# else:
+#     print('NO')
+
+# a = input()
+# b = input()
+# c = set(a + b)
+# if len(c) == 10:
+#     print('YES')
+# else:
+#     print('NO')
+
+# a = set(input())
+# b = set(input())
+# if a == b:
+#     print('YES')
+# else:
+#     print('NO')
+
+# a = input().split()
+# if set(a[0]) == set(a[1]) == set(a[2]):
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# n = int(input())
+# for i in range(n):
+#     a = set(input().lower())
+#     b = len(a)
+#     print(b)
+
+# n = int(input())
+# c = 0
+# for i in range(n):
+#     a = set(input().lower())
+#     c += len(a)
+# print(c)
+
+# a = set()
+# for i in range(int(input())):
+#     b = input().lower()
+#     for j in b:
+#         a.add(j)
+# print(len(a))
+
+# import re
+#
+# words = re.sub(r'[.,;:-?-!]', '', input().lower())
+# lst = words.split()
+# s = set(lst)
+# print(len(s))
+
+# st1 = input().split()
+# st2 = input().split()
+# a1 = set(st1)
+# a2 = set(st2)
+# a3 = a1.intersection(a2)
+# print(len(a3))
+
+# st1 = set(map(int, input().split()))
+# st2 = set(map(int, input().split()))
+# st3 = st1 & st2
+# print(*sorted(st3))
+
+# st1 = set(map(int, input().split()))
+# st2 = set(map(int, input().split()))
+# st3 = st1 - st2
+# print(*sorted(st3))
+
+# list1 = [{int(dig) for dig in input()} for _ in range(int(input()))]
+# set1 = set.intersection(*list1)
+# print(*sorted(set1))
+
+# st1 = {int(dig) for dig in input()}
+# st2 = {int(dig) for dig in input()}
+# if not st1.isdisjoint(st2):
+#     print("YES")
+# else:
+#     print("NO")
+
+# st1 = {int(dig) for dig in input()}
+# st2 = {int(dig) for dig in input()}
+# if st2.issubset(st1):
+#     print("YES")
+# else:
+#     print("NO")
+
+# st1 = set(map(int, input().split()))
+# st2 = set(map(int, input().split()))
+# st3 = set(map(int, input().split()))
+# st4 = st1 & st2 - st3
+# print(*sorted(st4, reverse=True))
+
+# st1 = set(map(int, input().split()))
+# st2 = set(map(int, input().split()))
+# st3 = set(map(int, input().split()))
+# union_set = st1 | st2 | st3
+# intersection_set = st1 & st2 & st3
+# haupt = union_set.difference(intersection_set)
+# print(*sorted(haupt))
+
+# s1, s2, s3 = [set(map(int, input().split())) for _ in range(3)]
+# print(*sorted((s1 | s2 | s3) - (s1 & s2 & s3)))
+
+# marks1, marks2, marks3 = [set(int(i) for i in input().split()) for _ in range(3)]
+# print(*sorted(marks3 - (marks1 | marks2), reverse=True))
+
+# marks1, marks2, marks3 = [set(int(i) for i in input().split()) for _ in range(3)]
+# marks4 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+# print(*sorted(marks4 - (marks1 | marks2 | marks3)))
+
+# items = [10, '30', 30, 10, '56', 34, '12', 90, 89, 34, 45, '67', 12, 10, 90, 23, '45', 56, '56', 1, 5, '6', 5]
+# my_set = {int(i) for i in items}
+# print(*sorted(my_set))
+
+# words = ['Plum', 'Grapefruit', 'apple', 'orange', 'pomegranate', 'Cranberry', 'lime', 'Lemon', 'grapes', 'persimmon',
+#          'tangerine', 'Watermelon', 'currant', 'Almond']
+# my_set = {i[0].lower() for i in words}
+# print(*sorted(my_set))
+
+# from re import sub
+#
+# sentence = '''My very photogenic mother died in a freak accident (picnic, lightning) when I was three, and, save for a
+#  pocket of warmth in the darkest past, nothing of her subsists within the hollows and dells of memory, over which, if
+#   you can still stand my style (I am writing under observation), the sun of my infancy had set: surely, you all know
+#    those redolent remnants of day suspended, with the midges, about some hedge in bloom or suddenly entered and
+#     traversed by the rambler, at the bottom of a hill, in the summer dusk; a furry warmth, golden midges.'''
+# stroka = sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", sentence)
+# spisok = stroka.lower().split()
+# myset = set(spisok)
+# print(*sorted(myset))
+
+# from re import sub
+#
+# sentence = '''My very photogenic mother died in a freak accident (picnic, lightning) when I was three, and, save for a
+#  pocket of warmth in the darkest past, nothing of her subsists within the hollows and dells of memory, over which, if
+#   you can still stand my style (I am writing under observation), the sun of my infancy had set: surely, you all know
+#    those redolent remnants of day suspended, with the midges, about some hedge in bloom or suddenly entered and
+#     traversed by the rambler, at the bottom of a hill, in the summer dusk; a furry warmth, golden midges.'''
+# stroka = sub(r"[-()\"#/@;:<>{}`+=~|.!?,]", "", sentence)
+# spisok = stroka.lower().split()
+# my_set = {i for i in spisok if len(i) < 4}
+# print(*sorted(my_set))
+
+# files = ['python.png', 'qwerty.py', 'stepik.png', 'beegeek.org', 'windows.pnp', 'pen.txt', 'phone.py', 'book.txT',
+#          'board.pNg', 'keyBoard.jpg', 'Python.PNg', 'apple.jpeg', 'png.png', 'input.tXt', 'split.pop', 'solution.Py',
+#          'stepik.org', 'kotlin.ko', 'github.git']
+# my_set = {i.lower() for i in files if '.png' in i.lower()}
+# print(*sorted(my_set))
+
+
+# def factorial(x: int) -> int:
+#     count: int = 1
+#     for i in range(2, x + 1):
+#         count *= i
+#     return count
+#
+#
+# print(factorial(5))
