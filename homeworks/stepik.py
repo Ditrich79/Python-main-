@@ -846,3 +846,80 @@
 #
 #
 # print(factorial(5))
+
+
+# n, m, k, p = [int(input()) for i in range(4)]
+# c = n - ((m + k) - p)
+# print(c)
+
+
+# d = input()
+# a = list(d.split())
+# b = set(map(int, d.split()))
+# c = len(a) - len(b)
+# print(c)
+
+
+# cities = set(input() for _ in range(int(input())))
+# new_city = input()
+# if new_city not in cities:
+#     print('OK')
+# else:
+#     print('REPEAT')
+
+# m, n = int(input()), int(input())
+# home_lib = {input() for _ in range(m)}
+# for i in range(n):
+#     if input() in home_lib:
+#         print('YES')
+#     else:
+#         print('NO')
+
+# sheet1 = set(map(int, input().split()))
+# sheet2 = set(map(int, input().split()))
+# sheet3 = sheet1 & sheet2
+# if len(sheet3) > 0:
+#     print(*sorted(sheet3, reverse=True))
+# else:
+#     print('BAD DAY')
+
+# proof1 = set(map(int, input().split()))
+# proof2 = set(map(int, input().split()))
+# if proof1 == proof2:
+#     print('YES')
+# else:
+#     print('NO')
+
+# m, n = int(input()), int(input())
+# students_math = {input() for _ in range(m)}
+# students_inf = {input() for _ in range(n)}
+# total = students_math - students_inf
+# print(len(total))
+
+# m, n = int(input()), int(input())
+# students_math = {input() for _ in range(m)}
+# students_inf = {input() for _ in range(n)}
+# total = students_math ^ students_inf
+# print('NO' if len(total) == 0 else len(total))
+
+# list_of_dir = set(i for i in input().split())
+# list_of_helper = set(i for i in input().split())
+# list_of_main = list_of_dir | list_of_helper
+# print(*sorted(list_of_main))
+
+# m, n = int(input()), int(input())
+# list_of_students = [input() for _ in range(m+n)]
+# set_of_students = set(list_of_students)
+# total = len(list_of_students) - len(set_of_students)
+# if len(set_of_students) - total == 0:
+#     print('NO')
+# else:
+#     print(len(set_of_students) - total)
+
+# n = int(input())
+# total = {input() for _ in range(int(input()))}
+#
+# for _ in range(n - 1):
+#     total &= {input() for _ in range(int(input()))}
+#
+# print(*sorted(total), sep='\n')
