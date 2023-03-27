@@ -5,6 +5,7 @@
 # print(id(age))
 # age = "hello"
 # print(type(age))
+import json
 import re
 
 # a = b = c = 1
@@ -3727,7 +3728,6 @@ import time
 import os
 import os.path
 
-
 # print(os.getcwd())  # текущая директория
 
 # print(os.listdir())  # список директорий и файлов по указанному пути
@@ -6376,7 +6376,8 @@ import os.path
 # json
 
 
-import pickle
+# import pickle
+
 
 # file_name = 'basket.txt'
 #
@@ -6478,46 +6479,328 @@ import pickle
 # print(json.dumps(y, ensure_ascii=False))
 
 
+# import json
+# from random import choice
+#
+#
+# def get_person():
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#     # print(name)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#     # print(tel)
+#
+#     person = {
+#         'name': name,
+#         'tel': tel
+#     }
+#     return person
+#
+#
+# def write_json(person_dict):
+#     try:
+#         data = json.load(open('person.json'))
+#     except FileNotFoundError:
+#         data = []
+#
+#     data.append(person_dict)
+#     with open('person.json', 'w') as f:
+#         json.dump(data, f, indent=2)
+#
+#
+# for i in range(5):
+#     write_json(get_person())
+
+# import json
+#
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         # a = ''
+#         # for i in self.marks:
+#         #     a += str(i) + ", "
+#         # return f'Студент: {self.name}: {a[:-2]}'
+#         a = ', '.join(map(str, self.marks))
+#         return f'Студент: {self.name}: {a}'
+#
+#     def add_mark(self, mark):
+#         self.marks.append(mark)
+#
+#     def delete_mark(self, index):
+#         self.marks.pop(index)
+#
+#     def edit_mark(self, index, new_mark):
+#         self.marks[index] = new_mark
+#
+#     def average_mark(self):
+#         return round(sum(self.marks) / len(self.marks), 2)
+#
+#     def dump_to_json(self, filename):
+#         try:
+#             data = json.load(open(filename))
+#         except FileNotFoundError:
+#             data = []
+#
+#         data.append({'name': self.name, 'marks': self.marks})
+#
+#         with open(filename, 'w') as f:
+#             json.dump(data, f)
+#
+#     @staticmethod
+#     def load_from_file(filename):
+#         with open(filename) as f:
+#             print(json.load(f))
+#
+#
+# class Group:
+#     def __init__(self, students, group):
+#         self.students = students
+#         self.group = group
+#
+#     def __str__(self):
+#         a = '\n'.join(map(str, self.students))
+#         return f'Группа: {self.group}\n{a}\n'
+#
+#     def add_student(self, student):
+#         self.students.append(student)
+#
+#     def remove_student(self, index):
+#         return self.students.pop(index)
+#
+#     @staticmethod
+#     def change_group(group1, group2, index):
+#         return group2.add_student(group1.remove_student(index))
+#
+#     def dump_group(self, file):
+#         try:
+#             data = json.load(open(file))
+#         except FileNotFoundError:
+#             data = []
+#
+#         with open(file, 'w') as f:
+#             stud_list = []
+#             for i in self.students:
+#                 stud_list.append([i.name, i.marks])
+#             data.append(stud_list)
+#             json.dump(stud_list, f, indent=2)
+#
+#     @staticmethod
+#     def upload_journal(file):
+#         with open(file, 'r') as f:
+#             print(json.load(f))
+#
+#
+# st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
+# st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
+# st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
+#
+# file1 = 'student.json'
+# file2 = 'group.json'
+# # st1.dump_to_json(file1)
+# # st2.dump_to_json(file1)
+# # st3.dump_to_json(file1)
+# Student.load_from_file(file1)
+#
+#
+# sts = [st1, st2]
+# my_group = Group(sts, 'ГК Python')
+# # print(my_group)
+# my_group.add_student(st3)
+# # print(my_group)
+# my_group.remove_student(1)
+# # print(my_group)
+#
+# group22 = [st2]
+# my_group2 = Group(group22, 'ГК Web')
+# Group.change_group(my_group, my_group2, 0)
+# # print(my_group)
+# # print(my_group2)
+#
+# # print(st1)
+# # st1.add_mark(4)
+# # print(st1)
+# # st1.delete_mark(3)
+# # print(st1)
+# # st1.edit_mark(2, 5)
+# # print(st1)
+# # print(st1.average_mark())
+# Group.upload_journal(file2)
+
+# def get_person():
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#     # print(name)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#     # print(tel)
+#
+#     person = {
+#         'name': name,
+#         'tel': tel
+#     }
+#     return person, tel  # person = {"name": "abacgbe", "tel": "6893582115"}, tel = "6893582115"
+#
+#
+# def write_json(person_dict, num):  # person_dict = {"name": "abacgbe", "tel": "6893582115"}, num = "6893582115"
+#     try:
+#         data = json.load(open('person1.json'))  # data = {"6893582115": {"name": "abacgbe", "tel": "6893582115"}}
+#     except FileNotFoundError:
+#         data = {}
+#
+#     data[num] = person_dict  # data = {"6893582115": {"name": "abacgbe", "tel": "6893582115"}, "7893582115": {"name":
+#     # "acabgbe", "tel": "5826893115"}}
+#     with open('person1.json', 'w') as f:
+#         json.dump(data, f, indent=2)
+#
+#
+# for i in range(5):
+#     write_json(get_person()[0], get_person()[1])
+
+
+# import json
+#
+#
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         # a = ''
+#         # for i in self.marks:
+#         #     a += str(i) + ", "
+#         # return f"Студент: {self.name}: {a[:-2]}"
+#         a = ', '.join(map(str, self.marks))  # ['5', '4', '3', '4', '5', '3']
+#         return f"Студент: {self.name}: {a}"
+#
+#     def add_mark(self, mark):
+#         self.marks.append(mark)
+#
+#     def delete_mark(self, index):
+#         self.marks.pop(index)
+#
+#     def edit_mark(self, index, new_mark):
+#         self.marks[index] = new_mark
+#
+#     def average_mark(self):
+#         return round(sum(self.marks) / len(self.marks), 2)
+#
+#     def dump_to_json(self, filename):
+#         try:
+#             data = json.load(open(filename))
+#         except FileNotFoundError:
+#             data = []
+#
+#         data.append({'name': self.name, 'marks': self.marks})
+#
+#         with open(filename, 'w') as f:
+#             json.dump(data, f)
+#
+#     @staticmethod
+#     def load_from_file(filename):
+#         with open(filename) as f:
+#             return json.load(f)
+#
+#
+# class Group:
+#     def __init__(self, students, group):
+#         self.students = students
+#         self.group = group
+#
+#     def __str__(self):
+#         a = '\n'.join(map(str, self.students))
+#         return f"Группа: {self.group}\n{a}\n"
+#
+#     def add_student(self, student):
+#         self.students.append(student)
+#
+#     def remove_student(self, index):
+#         return self.students.pop(index)
+#
+#     @staticmethod
+#     def change_group(group1, group2, index):
+#         return group2.add_student(group1.remove_student(index))
+#
+#     def dump_group(self, file):
+#         try:
+#             data = json.load(open(file))
+#         except FileNotFoundError:
+#             data = []
+#
+#         with open(file, 'w') as f:
+#             stud_list = []
+#             for i in self.students:
+#                 stud_list.append([i.name, i.marks])
+#             data.append(stud_list)
+#             json.dump(data, f, indent=2)
+#
+#     @staticmethod
+#     def upload_journal(file):
+#         with open(file, 'r') as f:
+#             print(json.load(f))
+#
+#
+# st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
+# st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
+# st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
+#
+# file1 = 'student.json'
+#
+# # st1.dump_to_json(file1)
+# # st2.dump_to_json(file1)
+# # st3.dump_to_json(file1)
+# t = Student.load_from_file(file1)
+#
+# sts = [st1, st2]
+# my_group = Group(sts, 'ГК Python')
+# # print(my_group)
+# # my_group.add_student(st3)
+# # print(my_group)
+# # my_group.remove_student(1)
+# # print(my_group)
+# file2 = 'group.json'
+# group22 = [st2]
+# my_group2 = Group(group22, 'ГК Web')
+# Group.change_group(my_group, my_group2, 0)
+# print(my_group)
+# print(my_group2)
+# my_group.dump_group(file2)
+# # my_group2.dump_group(file2)
+# # print(st1)
+# # st1.add_mark(4)
+# # print(st1)
+# # st1.delete_mark(3)
+# # print(st1)
+# # st1.edit_mark(2, 5)
+# # print(st1)
+# # print(st1.average_mark())
+# Group.upload_journal(file2)
+
+# pip install requests
+
+import requests
 import json
-from random import choice
 
-
-def get_person():
-    name = ''
-    tel = ''
-
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-
-    while len(name) != 7:
-        name += choice(letters)
-    # print(name)
-
-    while len(tel) != 10:
-        tel += choice(nums)
-    # print(tel)
-
-    person = {
-        'name': name,
-        'tel': tel
-    }
-    return person
-
-
-def write_json(person_dict):
-    try:
-        data = json.load(open('person.json'))
-    except FileNotFoundError:
-        data = []
-
-    data.append(person_dict)
-    with open('person.json', 'w') as f:
-        json.dump(data, f, indent=2)
-
-
-for i in range(5):
-    write_json(get_person())
-
-
-
-
+response = requests.get("https://jsonplaceholder.typicode.com/todos")
+todos = json.loads(response.text)
+# print(response.text)
+print(type(todos))
+print(todos)
