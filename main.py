@@ -5,8 +5,8 @@
 # print(id(age))
 # age = "hello"
 # print(type(age))
-import json
-import re
+# import json
+# import re
 
 # a = b = c = 1
 # print(a, b, c)
@@ -6796,11 +6796,190 @@ import os.path
 
 # pip install requests
 
-import requests
-import json
+# import requests
+# import json
+#
+# response = requests.get("https://jsonplaceholder.typicode.com/todos")
+# todos = json.loads(response.text)
+# # print(type(todos))
+# # print(todos)
+#
+# # print(response.text[:20])
+# #  {1: 5, 2: 10}
+#
+# todos_by_user = {}
+#
+# for todo in todos:
+#     if todo['completed']:
+#         try:
+#             todos_by_user[todo['userId']] += 1  # a +=1 a[2] = a[3] + 1
+#         except KeyError:
+#             todos_by_user[todo['userId']] = 1  # todos_by_user[3] = 1
+#
+# print(todos_by_user)
+#
+# top_user = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
+# print(top_user)
+#
+# max_complete = top_user[0][1]
+# print(max_complete)
+#
+# users = []
+# for user, num_complete in top_user:
+#     if num_complete < max_complete:
+#         break
+#     users.append(str(user))  # [5, 10]
+# print(users)
+# max_users = " and ".join(users)
+# print(max_users)
+#
+# s = 's' if len(users) > 1 else ''
+# print(f'User{s} {max_users} completed {max_complete} TODOs')
+#
+#
+# def keep(todo):
+#     is_complete = todo["completed"]  # True
+#     has_max_count = str(todo["userId"]) in users  # False
+#     return is_complete and has_max_count
+#
+#
+# with open('filtered_data.json', 'w') as f:
+#     filtered_todos = list(filter(keep, todos))
+#     # print(filtered_todos)
+#     json.dump(filtered_todos, f, indent=2)
 
-response = requests.get("https://jsonplaceholder.typicode.com/todos")
-todos = json.loads(response.text)
-# print(response.text)
-print(type(todos))
-print(todos)
+
+# import json
+#
+# data = {}
+#
+#
+# def load_data(func):
+#     def wrap(filename):
+#         try:
+#             data = json.load(open(filename))
+#         except FileNotFoundError:
+#             data = {}
+#         func(filename)
+#         print("Файл сохранён")
+#
+#     return wrap
+#
+#
+# class CountryCapital:
+#     def __init__(self, country, capital):
+#         self.country = country
+#         self.capital = capital
+#         data[self.country] = self.capital
+#
+#     def __str__(self):
+#         return f'{self.country}: {self.capital}'
+#
+#     @staticmethod
+#     @load_data
+#     def add_country(file_name):
+#         new_country = input('Введите название страны: ')
+#         new_capital = input('Введите название столицы: ')
+#         # try:
+#         #     data1 = json.load(open(file_name))
+#         # except FileNotFoundError:
+#         #     data1 = {}
+#
+#         data[new_country] = new_capital
+#
+#         with open(file_name, 'w') as f:
+#             json.dump(data, f, indent=2, ensure_ascii=False)
+#
+#     @staticmethod
+#     @load_data
+#     def delete_country(file_name):
+#         del_country = input('Введите название страны: ')
+#         # try:
+#         #     data1 = json.load(open(file_name))
+#         # except FileNotFoundError:
+#         #     data1 = {}
+#
+#         if del_country in data:
+#             del data[del_country]
+#
+#             with open(file_name, 'w') as f:
+#                 json.dump(data, f, indent=2, ensure_ascii=False)
+#         else:
+#             print('Такой страны в базе нет.')
+#
+#     @staticmethod
+#     @load_data
+#     def search_data(file_name):
+#         country = input('Введите название страны: ')
+#         # try:
+#         #     data1 = json.load(open(file_name))
+#         # except FileNotFoundError:
+#         #     data1 = {}
+#
+#         if country in data:
+#             print(f"Страна {country} столица {data[country]} есть в словаре")
+#         else:
+#             print(f'Страна {country} нет в словаре')
+#
+#     @staticmethod
+#     @load_data
+#     def edit_data(file_name):
+#         country = input('Введите страну для корректировки: ')
+#         new_capital = input("Введите новое название столицы: ")
+#
+#         # try:
+#         #     data1 = json.load(open(file_name))
+#         # except FileNotFoundError:
+#         #     data1 = {}
+#
+#         if country in data:
+#             data[country] = new_capital
+#             with open(file_name, 'w') as f:
+#                 json.dump(data, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def load_from_file(file_name):
+#         with open(file_name) as f:
+#             print(json.load(f))
+#
+#
+# file = 'list_capital.json'
+# index = ''
+# while True:
+#     index = input('Выбор действия:\n1 - добавление данных\n'
+#                   '2 - удаление данных\n3 - поиск данных\n4 - редактирование данных\n'
+#                   '5 - просмотр данных\n6 - завершение работы\nВвод: ')
+#
+#     if index == '1':
+#         CountryCapital.add_country(file)
+#     elif index == '2':
+#         CountryCapital.delete_country(file)
+#     elif index == '3':
+#         CountryCapital.search_data(file)
+#     elif index == '4':
+#         CountryCapital.edit_data(file)
+#     elif index == '5':
+#         CountryCapital.load_from_file(file)
+#     elif index == '6':
+#         break
+#     else:
+#         print("Введён некорректный номер")
+
+
+# csv (Comma Separated Values - переменные, разделённые запятыми)
+
+import csv
+
+with open("data.csv") as f:
+    file_reader = csv.reader(f, delimiter=';')
+    count = 0
+    for row in file_reader:
+        if count == 0:
+            print(f"Файл содержит столбцы: {', '.join(row)}")
+        else:
+            print(f"\t{row[0]} - {row[1]}. Родился в {row[2]} году.")
+        count += 1
+        print(f'Всего в файле {count} строки')
+
