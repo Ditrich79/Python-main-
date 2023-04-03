@@ -1099,3 +1099,185 @@
 # for p, *name in pets:
 #     result.setdefault(tuple(name), []).append(p)
 # print(result)
+
+# lst = [word.strip('.,!?:;-') for word in input().lower().split()]
+# result = dict()
+# result2 = dict()
+# for word in lst:
+#     result[word] = result.get(word, 0) + 1
+# min_num = min(result.values())
+# for key, value in result.items():
+#     if value == min_num:
+#         result2[key] = result2.get(key, value)
+# print(min(result2))
+
+# lst = [w for w in input().split()]
+# result = {}
+# for w in lst:
+#     result[w] = result.get(w, 0) + 1
+# print(result)
+
+# word = input().split()
+# lst = []
+# result = {}
+#
+# for i in word:
+#     if i not in lst:
+#         lst.append(i)
+#     else:
+#         result[i] = result.get(i, 0) + 1
+#         lst.append(i + '_' + str(result[i]))
+# print(*lst)
+
+# result = {}
+# for i in range(int(input())):
+#     key, value = input().split(': ')
+#     result[key.lower()] = value
+# for j in range(int(input())):
+#     word = input().lower()
+#     print(result.get(word, 'Не найдено'))
+
+# result1 = {}
+# for char in input():
+#     result1[char] = result1.get(char, 0) + 1
+#
+# result2 = {}
+# for char in input():
+#     result2[char] = result2.get(char, 0) + 1
+#
+# if result1 == result2:
+#     print('YES')
+# else:
+#     print('NO')
+
+# lst1 = sorted([i for i in input().lower() if i.isalpha()])
+# lst2 = sorted([i for i in input().lower() if i.isalpha()])
+#
+# result = dict(zip(range(len(lst1)), lst1))
+# result2 = dict(zip(range(len(lst2)), lst2))
+#
+# if result == result2:
+#     print('YES')
+# else:
+#     print('NO')
+
+
+# result = {}
+# for i in range(int(input())):
+#     key, value = input().split(' ')
+#     result[key] = value
+#
+# word = input()
+#
+# for key, value in result.items():
+#     if key == word:
+#         print(value)
+#     elif value == word:
+#         print(key)
+
+# result = {}
+# for i in range(int(input())):
+#     key, *value = input().split()
+#     result[key] = value
+#
+# for i in range(int(input())):
+#     city = input()
+#     for key, value in result.items():
+#         if city in value:
+#             print(key)
+
+# result = {}
+# for i in range(int(input())):
+#     phone, name = input().lower().split()
+#     result[name] = result.get(name, []) + [phone]
+#
+# for i in range(int(input())):
+#     names = input().lower()
+#     print(*result.get(names, ['абонент не найден']))
+
+# word = input()
+# result = {}
+#
+# for i in range(int(input())):
+#     key, value = input().split(': ')
+#     result[int(value)] = key
+#
+# for s in word:
+#     print(result[word.count(s)], end='')
+
+# numbers = [34, 10, -4, 6, 10, 23, -90, 100, 21, -35, -95, 1, 36, -38, -19, 1, 6, 87]
+#
+# result = {i: numbers[i]**2 for i in range(len(numbers))}
+# print(result)
+
+# colors = {'c1': 'Red', 'c2': 'Grey', 'c3': None, 'c4': 'Green', 'c5': 'Yellow', 'c6': 'Pink', 'c7': 'Orange',
+#           'c8': None, 'c9': 'White', 'c10': 'Black', 'c11': 'Violet', 'c12': 'Gold', 'c13': None,
+#           'c14': 'Amber', 'c15': 'Azure', 'c16': 'Beige', 'c17': 'Bronze', 'c18': None, 'c19': 'Lilac',
+#           'c20': 'Pearl', 'c21': None, 'c22': 'Sand', 'c23': None}
+#
+# result = {i: colors[i] for i in colors if colors[i]}
+# print(result)
+
+# favorite_numbers = {'timur': 17, 'ruslan': 7, 'larisa': 19, 'roman': 123, 'rebecca': 293, 'ronald': 76, 'dorothy': 62,
+#                     'harold': 36, 'matt': 314, 'kim': 451, 'rosaly': 18, 'rustam': 89, 'soltan': 111, 'amir': 654,
+#                     'dima': 390, 'amiran': 777, 'geor': 999, 'sveta': 75, 'rita': 909, 'kirill': 404, 'olga': 271,
+#                     'anna': 55, 'madlen': 876}
+#
+# result = {i: favorite_numbers[i] for i in favorite_numbers if 100 > favorite_numbers[i] > 10}
+# print(result)
+
+# months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August',
+#           9: 'September', 10: 'October', 11: 'November', 12: 'December'}
+#
+# result = {key: value for value, key in months.items()}
+# print(result)
+
+# s = '1:men 2:kind 90:number 0:sun 34:book 56:mountain 87:wood 54:car 3:island 88:power 7:box 17:star 101:ice'
+#
+# result = {int(k): v for k, v in [i.split(':') for i in s.split()]}
+# print(result)
+
+# numbers = [34, 10, 4, 6, 10, 23, 90, 100, 21, 35, 95, 1, 36, 38, 19, 1, 6, 87, 1000, 13456, 360]
+#
+# result = {i: sorted([y for y in range(1, i + 1) if i % y == 0]) for i in numbers}
+# print(result)
+
+# words = ['hello', 'bye', 'yes', 'no', 'python', 'apple', 'maybe', 'stepik', 'beegeek']
+#
+# result = {word: [ord(i) for i in word] for word in words}
+# print(result)
+
+# letters = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I', 9: 'J', 10: 'K', 11: 'L', 12: 'M',
+#            13: 'N', 14: 'O', 15: 'P', 16: 'Q', 17: 'R', 18: 'S', 19: 'T', 20: 'U', 21: 'V', 22: 'W', 23: 'X',
+#            24: 'Y', 26: 'Z'}
+#
+# remove_keys = [1, 5, 7, 12, 17, 19, 21, 24]
+#
+# # result = {key: letters[key] for key in remove_keys}
+# result = {key: values for key, values in letters.items() if key not in remove_keys}
+# print(result)
+
+# students = {'Timur': (170, 75), 'Ruslan': (180, 105), 'Soltan': (192, 68), 'Roman': (175, 70), 'Madlen': (160, 50),
+#             'Stefani': (165, 70), 'Tom': (190, 90), 'Jerry': (180, 87), 'Anna': (172, 67), 'Scott': (168, 78),
+#             'John': (186, 79), 'Alex': (195, 120), 'Max': (200, 110), 'Barak': (180, 89), 'Donald': (170, 80),
+#             'Rustam': (186, 100), 'Alice': (159, 59), 'Rita': (170, 80), 'Mary': (175, 69), 'Jane': (190, 80)}
+#
+# result = {key: value for key, value in students.items() if value[0] > 167 and value[1] < 75}
+# print(result)
+
+# tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9), (10, 11, 12), (13, 14, 15), (16, 17, 18), (19, 20, 21), (22, 23, 24),
+#           (25, 26, 27), (28, 29, 30), (31, 32, 33), (34, 35, 36)]
+#
+# result = {i[0]: (i[1], i[2]) for i in tuples}
+# print(result)
+
+# student_ids = ['S001', 'S002', 'S003', 'S004', 'S005', 'S006', 'S007', 'S008', 'S009', 'S010', 'S011', 'S012', 'S013']
+# student_names = ['Camila Rodriguez', 'Juan Cruz', 'Dan Richards', 'Sam Boyle', 'Batista Cesare', 'Francesco Totti',
+#                  'Khalid Hussain', 'Ethan Hawke', 'David Bowman', 'James Milner', 'Michael Owen', 'Gary Oldman',
+#                  'Tom Hardy']
+# student_grades = [86, 98, 89, 92, 45, 67, 89, 90, 100, 98, 10, 96, 93]
+#
+# # result = [{student_ids[i]: {student_names[i]: student_grades[i]}} for i in range(len(student_ids))]
+# result = [{a: {b: c}} for a, b, c in zip(student_ids, student_names, student_grades)]
+# print(result)
+

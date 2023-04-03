@@ -445,40 +445,117 @@ import pickle
 #     main()
 
 
-# Эта программа демонстрирует расконсервацию объектов.
-# Главная функция.
-def main():
-    end_of_file = False  # Для обозначения конца файла.
+# # Эта программа демонстрирует расконсервацию объектов.
+# # Главная функция.
+# def main():
+#     end_of_file = False  # Для обозначения конца файла.
+#
+#     # Открыть файл для двоичного чтения.
+#     input_file = open('info.dat', 'rb')
+#
+#     # Прочитать файл до конца.
+#     while not end_of_file:
+#         try:
+#             # Расконсервировать следующий объект.
+#             person = pickle.load(input_file)
+#
+#             # Показать объект.
+#             display_data(person)
+#         except EOFError:
+#             # Установить флаг, чтобы обозначить, что
+#             # был достигнут конец файла.
+#             end_of_file = True
+#
+#     # Закрыть файл.
+#     input_file.close()
+#
+#
+# # Функция display_data показывает данные о человеке
+# # в словаре, который передан в качестве аргумента.
+# def display_data(person):
+#     print('Имя: ', person['имя'])
+#     print('Возраст: ', person['возраст'])
+#     print('Масса: ', person['масса'])
+#     print()
+#
+#
+# # Вызвать главную функцию.
+# if __name__ == '__main__':
+#     main()
 
-    # Открыть файл для двоичного чтения.
-    input_file = open('info.dat', 'rb')
 
-    # Прочитать файл до конца.
-    while not end_of_file:
-        try:
-            # Расконсервировать следующий объект.
-            person = pickle.load(input_file)
+# class Pet:
+#     def __init__(self, name, animal_type, age):
+#         self.__name = name
+#         self.__animal_type = animal_type
+#         self.__age = age
+#
+#     def set_name(self, new_name):
+#         self.__name = new_name
+#
+#     def set_animal_type(self, new_animal_type):
+#         self.__animal_type = new_animal_type
+#
+#     def set_age(self, new_age):
+#         self.__age = new_age
+#
+#     def get_name(self):
+#         return self.__name
+#
+#     def get_animal_type(self):
+#         return self.__animal_type
+#
+#     def get_age(self):
+#         return self.__age
+#
+#     def __str__(self):
+#         return f'Имя животного: {self.__name}; тип: {self.__animal_type}; возраст: {self.__age} лет'
+#
+#
+# a1 = Pet('Гриша', 'попугай', 5)
+# print(a1)
+# a2 = Pet('Фиса', 'кошка', 3)
+# print(a2)
+# a2.set_name('Маруся')
+# print(a2)
+# print(a1.get_animal_type())
 
-            # Показать объект.
-            display_data(person)
-        except EOFError:
-            # Установить флаг, чтобы обозначить, что
-            # был достигнут конец файла.
-            end_of_file = True
 
-    # Закрыть файл.
-    input_file.close()
+# class Car:
+#     def __init__(self, year_model, make):
+#         self.__year_model = year_model
+#         self.__make = make
+#         self.__speed = 0
+#
+#     def accelerate(self):
+#         return self.__speed + 5
+#
+#     def break_(self):
+#         return self.__speed - 5
+#
+#     def get_speed(self):
+#         return self.__speed
+#
+#     def range(self):
+#         return self.accelerate() * 5
+#
+#     def stop(self):
+#         return self.accelerate() / 5
+#
+#     def __str__(self):
+#         return f'Год выпуска автомобиля: {self.__year_model}, марка: {self.__make}, скорость: {self.__speed}'
+#
+#
+# # def main():
+# #     y_model = int(input('Введите год выпуска автомобиля: '))
+# #     make = input('Введите марку автомобиля: ')
+# #     speed = input('Укажите скорость автомобиля: ')
+# #     car = Car(y_model, make)
+#
+# c1 = Car(1997, "Шевроле Камаро")
+# print(c1)
+# print(c1.accelerate())
+# print(c1.range())
+# print(c1.stop())
 
 
-# Функция display_data показывает данные о человеке
-# в словаре, который передан в качестве аргумента.
-def display_data(person):
-    print('Имя: ', person['имя'])
-    print('Возраст: ', person['возраст'])
-    print('Масса: ', person['масса'])
-    print()
-
-
-# Вызвать главную функцию.
-if __name__ == '__main__':
-    main()
