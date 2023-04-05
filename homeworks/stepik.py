@@ -1281,3 +1281,90 @@
 # result = [{a: {b: c}} for a, b, c in zip(student_ids, student_names, student_grades)]
 # print(result)
 
+# numbers = [9, 8, 32, 1, 10, 1, 10, 23, 1, 4, 10, 4, 2, 2, 2, 2, 1, 10, 1, 2, 2, 32, 23, 23]
+#
+# result = {}
+# for num in numbers:
+#     result[num] = result.get(num, 0) + 1
+# print(result)
+
+# my_dict = {'C1': [10, 20, 30, 7, 6, 23, 90], 'C2': [20, 30, 40, 1, 2, 3, 90, 12], 'C3': [12, 34, 20, 21],
+#            'C4': [22, 54, 209, 21, 7], 'C5': [2, 4, 29, 21, 19], 'C6': [4, 6, 7, 10, 55], 'C7': [4, 8, 12, 23, 42],
+#            'C8': [3, 14, 15, 26, 48], 'C9': [2, 7, 18, 28, 18, 28]}
+#
+# my_dict2 = {key: [i for i in value if i <= 20] for key, value in my_dict.items()}
+# print(my_dict2)
+
+# emails = {'nosu.edu': ['timyr', 'joseph', 'svetlana.gaeva', 'larisa.mamuk'],
+#           'gmail.com': ['ruslan.chaika', 'rustam.mini', 'stepik-best'],
+#           'msu.edu': ['apple.fruit', 'beegeek', 'beegeek.school'],
+#           'yandex.ru': ['surface', 'google'],
+#           'hse.edu': ['tomas-henders', 'cream.soda', 'zivert'],
+#           'mail.ru': ['angel.down', 'joanne', 'the.fame.moster']}
+#
+# lst = sorted([j + "@" + key for key, value in emails.items() for j in value])
+# print(*lst, sep="\n")
+
+# DNA_RNA = {"G": "C", "C": "G", "T": "A", "A": "U"}
+# result = [DNA_RNA[i] for i in input()]
+# print(*result, sep="")
+
+# st = input().split()
+# result = {}
+#
+# for i in st:
+#     result[i] = result.get(i, 0) + 1
+#     print(result[i], end=' ')
+
+# scrabble = {
+#     1: "AEILNORSTU",
+#     2: "DG",
+#     3: "BCMP",
+#     4: "FHVWY",
+#     5: "K",
+#     8: "JX",
+#     10: "QZ"
+# }
+# word = input().upper()
+# result = [key for letter in word for key, value in scrabble.items() if letter in value]
+# print(sum(result))
+
+# def build_query_string(params):
+#     return '&'.join([f"{key}={value}" for key, value in sorted(params.items())])
+#
+#
+# print(build_query_string({'name': 'timur', 'age': 28}))
+
+# def merge(values):      # values - это список словарей
+#     solve = {}
+#     for i in values:
+#         for key in i:
+#             solve.setdefault(key, set()).add(i[key])
+#     return solve
+
+# result = {}
+# dict_operations = {'W': 'write', 'R': 'read', 'X': 'execute'}
+#
+# for _ in range(int(input())):
+#     x = input().split()
+#     result[x[0]] = [dict_operations[i] for i in x[1:]]
+#
+# for _ in range(int(input())):
+#     x = input().split()
+#     if x[0] in result[x[1]]:
+#         print("OK")
+#     else:
+#         print("Access denied")
+
+# result = {}
+#
+# for _ in range(int(input())):
+#     name, product, count = input().split()
+#     result.setdefault(name, {})
+#     result[name][product] = result[name].get(product, 0) + int(count)
+#
+# for key, value in sorted(result.items()):
+#     print(f"{key}:")
+#     for i in sorted(value):
+#         print(i, value[i])
+
