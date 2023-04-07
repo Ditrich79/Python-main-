@@ -1,7 +1,7 @@
 # number = 123456789.12345
 # print(f'{number:,.2f}')
 # print(f'{number:,.3F}')
-
+import csv
 # discount = 0.5
 # print(f'{discount:.0%}')  # символ % умножает число на 100 и выводит его со знаком %
 
@@ -559,3 +559,59 @@ import pickle
 # print(c1.stop())
 
 
+import requests
+from bs4 import BeautifulSoup
+
+
+def get_html(url):
+    res = requests.get(url)
+    return res.text
+
+
+def write_csv(data):
+    with open('books.csv', 'a') as file:
+        write = csv.writer(file, delimiter=";", lineterminator="\r")
+        write.writerow((data['names'], data['author'], data['description'], data['rating']))
+
+
+def get_data(html):
+    soup = BeautifulSoup(html, "lxml")
+    p1 = soup.find_all("div", class_="item_block item full_block")
+    for plugin in p1:
+        try:
+            names = plugin.find("div", class_="book_name").text
+        except ValueError:
+            names = ''
+
+        try:
+            description = plugin.find("div", class_="dscr").text
+        except ValueError:
+            description = ''
+
+        try:
+            author = plugin.find("a", class_="genre").text
+        except ValueError:
+            author = ''
+
+        try:
+            rating = plugin.find("div", class_="rating_count").text
+        except ValueError:
+            rating = ''
+
+        data_base = {
+            'names': names,
+            'description': description,
+            'author': author,
+            'rating': rating
+        }
+        write_csv(data_base)
+
+
+def main():
+    for i in range(0, 3):
+        url = f"https://avidreaders.ru/books/{i}/"
+        get_data(get_html(url))
+
+
+if __name__ == '__main__':
+    main()
