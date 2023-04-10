@@ -1095,7 +1095,7 @@
 # print(res)
 # print(res.tm_year)
 #
-# print(time.strftime("Сегодня: %B %d, %Y"))
+# print(time.strftime("Сегодня: %B, %d, %Y"))
 # print(time.strftime("%d/%m/%Y, %H:%M:%S", time.localtime(2563124656)))
 
 # pause = 5
@@ -7249,10 +7249,11 @@ import os.path
 
 
 import socket
+from view import index, blog
 
 URLS = {
-    '/': 'index page',
-    '/blog': 'blog page'
+    '/': index,
+    '/blog': blog
 }
 
 
@@ -7276,7 +7277,7 @@ def generate_content(code, url):
         return '<h1>404</h1><h3>Not Found</h3>'
     if code == 405:
         return '<h1>404</h1><h3>Method Not Allowed</h3>'
-    return URLS[url]
+    return URLS[url]()
 
 
 def generate_response(request):

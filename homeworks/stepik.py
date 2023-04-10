@@ -1492,54 +1492,189 @@
 #     main()
 
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
+# import csv
+#
+#
+# class Parser:
+#     html = ""
+#     result = {}
+#
+#     def __init__(self, url, path):
+#         self.url = url
+#         self.path = path
+#
+#     def get_html(self):
+#         req = requests.get(self.url).text
+#         self.html = BeautifulSoup(req, 'lxml')
+#
+#     def get_data(self):
+#         base = self.html.find_all("div", class_="card_info")
+#         for plugin in base:
+#             names = plugin.find("div", class_="book_name").text
+#             description = plugin.find("div", class_="dscr").text
+#             author = plugin.find("a", class_="genre").text
+#             rating = plugin.find("div", class_="rating_count").text
+#
+#             self.result = ({
+#                 'names': names,
+#                 'description': description,
+#                 'author': author,
+#                 'rating': rating
+#             })
+#
+#     def write_csv(self):
+#         with open('books.csv', 'a') as file:
+#             write = csv.writer(file, delimiter=";", lineterminator="\r")
+#             write.writerow((self.result['names'], self.result['author'], self.result['description'],
+#                             self.result['rating']))
+#
+#     def run(self):
+#         self.get_html()
+#         self.get_data()
+#         self.write_csv()
+#
+#
+# def main():
+#     pars = Parser('https://avidreaders.ru/books/', 'books2.csv')
+#     pars.get_data()
+#     pars.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# area = [3.456789, 5.784569, 4.001256, 7.987426, 1.4523689, 8.7412594]
+#
+# res = list(map(round, area, [2, 2, 2, 2, 2, 2]))
+# print(res)
 
 
-class Parser:
-    html = ""
-    result = {}
-
-    def __init__(self, url, path):
-        self.url = url
-        self.path = path
-
-    def get_html(self):
-        req = requests.get(self.url).text
-        self.html = BeautifulSoup(req, 'lxml')
-
-    def get_data(self):
-        base = self.html.find_all("div", class_="card_info")
-        for plugin in base:
-            names = plugin.find("div", class_="book_name").text
-            description = plugin.find("div", class_="dscr").text
-            author = plugin.find("a", class_="genre").text
-            rating = plugin.find("div", class_="rating_count").text
-
-            self.result = ({
-                'names': names,
-                'description': description,
-                'author': author,
-                'rating': rating
-            })
-
-    def write_csv(self):
-        with open('books.csv', 'a') as file:
-            write = csv.writer(file, delimiter=";", lineterminator="\r")
-            write.writerow((self.result['names'], self.result['author'], self.result['description'],
-                            self.result['rating']))
-
-    def run(self):
-        self.get_html()
-        self.get_data()
-        self.write_csv()
+# Генератор случайного пароля
+# import random
+#
+# length = int(input())    # длина пароля
+#
+# for i in range(length):
+#     val = random.randint(0, 1)
+#     if val == 0:
+#         dig = random.randint(65, 90)
+#     elif val == 1:
+#         dig = random.randint(97, 122)
+#     ch = chr(dig)
+#     print(ch, end='')
 
 
-def main():
-    pars = Parser('https://avidreaders.ru/books/', 'books2.csv')
-    pars.get_data()
-    pars.run()
+# import random
+#
+# s = set()
+# for i in range(7):
+#     val = random.randint(1, 49)
+#     s.add(val)
+# print(*sorted(s))
+
+# s = set()
+#
+# while len(s) < 7:
+#     s.add(random.randint(1, 49))
+#
+# print(*sorted(s))
 
 
-if __name__ == '__main__':
-    main()
+# import random
+#
+#
+# def generate_ip():
+#     return f'{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}.{random.randint(0, 255)}'
+
+# import random
+# import string
+#
+#
+# def generate_index():
+#     a = string.ascii_uppercase
+#     st = ''.join(random.sample(a, 2))
+#     st2 = ''.join(random.sample(a, 2))
+#     dig = random.randint(0, 99)
+#     dig2 = random.randint(0, 99)
+#     return f'{st}{dig}_{dig2}{st2}'
+#
+#
+# print(generate_index())
+
+
+# matrix = [[1, 2, 3, 4],
+#           [5, 6, 7, 8],
+#           [9, 10, 11, 12],
+#           [13, 14, 15, 16]]
+#
+# for row in matrix:
+#     random.shuffle(row)
+
+
+# my_cards = set()
+# while len(my_cards) != 100:
+#     my_cards.add(random.randint(1000000, 9999999))
+#
+# print(*my_cards, sep='\n')
+
+# import random
+#
+# word = input()
+# lst = list(word)
+# random.shuffle(lst)
+# lst2 = ''.join(lst)
+# print(lst2)
+
+# import random
+# from string import *
+#
+#
+# def generate_password(length):
+#     letters = ''.join((set(ascii_letters) | set(digits)) - set('lI1oO0'))
+#     return ''.join(random.sample(letters, length))
+#
+#
+# def generate_passwords(count, length):
+#     return [generate_password(length) for i in range(count)]
+#
+#
+# n, m = int(input()), int(input())
+# print(*generate_passwords(n, m), sep='\n')
+
+
+# import random
+# import string
+#
+#
+# def generate_password(length):
+#     upper_case = [i for i in string.ascii_uppercase if i not in 'IO']
+#     lower_case = [i for i in string.ascii_lowercase if i not in 'lo']
+#     digits = list(string.digits[2:])
+#     chars = upper_case + lower_case + digits
+#
+#     res = [random.choice(i) for i in (upper_case, lower_case, digits)]
+#     res += [random.choice(chars) for i in range(length - 3)]
+#     return ''.join(res)
+#
+#
+# def generate_passwords(count, length):
+#     return [generate_password(length) for _ in range(count)]
+#
+#
+# n, m = int(input()), int(input())
+# print(*generate_passwords(n, m), sep='\n')
+
+# from decimal import *
+# # Decimal числа, разделенные символом пробела, хранятся в строковой переменной s. Дополните приведенный код, чтобы он
+# # вывел сумму наибольшего и наименьшего Decimal числа.
+# s = '0.77 4.03 9.06 3.80 7.08 5.88 0.23 4.65 2.79 0.90 4.23 2.15 3.24 8.57 0.10 8.57 1.49 5.64 3.63 8.36 1.56 6.67 ' \
+#     '1.46 5.26 4.83 7.23 1.22 1.02 7.82 9.97 5.40 9.79 9.82 2.78 2.96 0.07 1.72 7.24 7.84 9.23 1.71 6.24 5.78 5.37 ' \
+#     '0.03 9.60 8.86 2.73 5.83 6.50'
+# numbers = [Decimal(i) for i in s.split()]
+#
+# maximum = max(numbers)
+# minimum = min(numbers)
+# print(minimum + maximum)
+

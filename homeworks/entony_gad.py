@@ -559,59 +559,278 @@ import pickle
 # print(c1.stop())
 
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def get_html(url):
+#     res = requests.get(url)
+#     return res.text
+#
+#
+# def write_csv(data):
+#     with open('books.csv', 'a') as file:
+#         write = csv.writer(file, delimiter=";", lineterminator="\r")
+#         write.writerow((data['names'], data['author'], data['description'], data['rating']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find_all("div", class_="item_block item full_block")
+#     for plugin in p1:
+#         try:
+#             names = plugin.find("div", class_="book_name").text
+#         except ValueError:
+#             names = ''
+#
+#         try:
+#             description = plugin.find("div", class_="dscr").text
+#         except ValueError:
+#             description = ''
+#
+#         try:
+#             author = plugin.find("a", class_="genre").text
+#         except ValueError:
+#             author = ''
+#
+#         try:
+#             rating = plugin.find("div", class_="rating_count").text
+#         except ValueError:
+#             rating = ''
+#
+#         data_base = {
+#             'names': names,
+#             'description': description,
+#             'author': author,
+#             'rating': rating
+#         }
+#         write_csv(data_base)
+#
+#
+# def main():
+#     for i in range(0, 3):
+#         url = f"https://avidreaders.ru/books/{i}/"
+#         get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
-def get_html(url):
-    res = requests.get(url)
-    return res.text
+# class Mammal:
+#     def __init__(self, species):
+#         self.__species = species
+#
+#     def show_species(self):
+#         print('Я -', self.__species)
+#
+#     def make_sound(self):
+#         print('Гррррррр')
+#
+#
+# class Dog(Mammal):
+#     def __init__(self):
+#         Mammal.__init__(self, 'собака')
+#
+#     def make_sound(self):
+#         print('Гав-гав')
+#
+#
+# class Cat(Mammal):
+#     def __init__(self):
+#         Mammal.__init__(self, 'кот')
+#
+#     def make_sound(self):
+#         print('Мяу!')
+#
+#
+# m = Mammal('млекопитающее')
+# m.show_species()
+# m.make_sound()
+# d = Dog()
+# d.show_species()
+# d.make_sound()
+# c = Cat()
+# c.show_species()
+# c.make_sound()
 
 
-def write_csv(data):
-    with open('books.csv', 'a') as file:
-        write = csv.writer(file, delimiter=";", lineterminator="\r")
-        write.writerow((data['names'], data['author'], data['description'], data['rating']))
+# def main():
+#     message(5)
+#
+#
+# def message(times):
+#     if times > 0:
+#         print('Это - рекурсивная функция.')
+#         message(times - 1)
+#
+#
+# if __name__ == '__main__':
+#     main()
+#
+
+# def main():
+#     num = int(input('Введите неотрицательное число: '))
+#     fac = factorial(num)
+#     print(f'Факториал числа {num} равняется {fac}.')
+#
+#
+# def factorial(number):
+#     if number == 0:
+#         return 1
+#     else:
+#         return number * factorial(number - 1)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# Ханойские башни
+# def main():
+#     num_disks = 3
+#     from_peg = 1
+#     to_peg = 3
+#     temp_peg = 2
+#
+#     move_discs(num_disks, from_peg, to_peg, temp_peg)
+#     print('Все кольца перемещены.')
+#
+#
+# def move_discs(num, from_peg, to_peg, temp_peg):
+#     if num > 0:
+#         move_discs(num - 1, from_peg, temp_peg, to_peg)
+#         print(f'Переместить кольцо со стержня {from_peg} на стержень {to_peg}')
+#         move_discs(num - 1, temp_peg, to_peg, from_peg)
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# def main(n):
+#     if n > 0:
+#         print('*' * n)
+#         main(n - 1)
+#
+#
+# main(10)
+
+# print(format(0.5, '.0%'))
 
 
-def get_data(html):
-    soup = BeautifulSoup(html, "lxml")
-    p1 = soup.find_all("div", class_="item_block item full_block")
-    for plugin in p1:
-        try:
-            names = plugin.find("div", class_="book_name").text
-        except ValueError:
-            names = ''
+# class Employer:
+#     def __init__(self, name, age):
+#         self.__name = name
+#         self.__age = age
+#         self.check_age(age)
+#         self.show_info()
+#
+#     @staticmethod
+#     def show_info():
+#         print('This is Employer class')
+#
+#     def __str__(self):
+#         return f'Name: {self.__name}, age: {self.__age}.'
+#
+#     @property
+#     def name(self):
+#         return self.__name
+#
+#     @name.setter
+#     def name(self, new_name):
+#         self.__name = new_name
+#
+#     @property
+#     def age(self):
+#         return self.__age
+#
+#     @age.setter
+#     def age(self, new_age):
+#         self.__age = new_age
+#
+#     @staticmethod
+#     def check_age(age):
+#         if not isinstance(age, int):
+#             raise TypeError(f'The value must be integer.')
+#
+#
+# e = Employer("Vasja", 35)
+# print(e)
+# e2 = Employer('Petya', 40)
+# print(e2)
+#
+#
+# class President(Employer):
+#     def __init__(self, name, age, car):
+#         super().__init__(name, age)
+#         super().check_age(age)
+#         self.__car = car
+#
+#     def show_info(self):
+#         print('This is President class.')
+#
+#     def __str__(self):
+#         return f'Name: {self.name}, Age: {self.age}, Car: {self.__car}'
+#
+#     @property
+#     def car(self):
+#         return self.__car
+#
+#     @car.setter
+#     def car(self, new_car):
+#         self.__car = new_car
+#
+#
+# p = President('Dima', 43, 'Mercedes')
+# print(p)
+# p.car = "Audi"
+# print(p)
 
-        try:
-            description = plugin.find("div", class_="dscr").text
-        except ValueError:
-            description = ''
 
-        try:
-            author = plugin.find("a", class_="genre").text
-        except ValueError:
-            author = ''
+# class MathCalculations:
+#     count = 0
+#
+#     def __init__(self, a, b, c):
+#         self.__a = a
+#         self.__b = b
+#         self.__c = c
+#
+#     def __str__(self):
+#         print(f'Сторона А: {self.__a}, сторона B: {self.__b}, сторона С: {self.__c}.')
+#
+#     @property
+#     def a(self):
+#         return self.__a
+#
+#     @a.setter
+#     def a(self, a):
+#         self.__a = a
+#
+#     @property
+#     def b(self):
+#         return self.__b
+#
+#     @b.setter
+#     def b(self, b):
+#         self.__b = b
+#
+#     @property
+#     def c(self):
+#         return self.__c
+#
+#     @c.setter
+#     def c(self, c):
+#         self.__c = c
+#
+#     @staticmethod
+#     def get_square_area(a):
+#         return a * a
+#
+#     @staticmethod
+#     def get_rectangle_area(a, b):
+#         return a * b
+#
+#
+# m = MathCalculations(4, 5, 3)
+# print(m.get_square_area(5))
+# print(m.get_rectangle_area(8, 7))
 
-        try:
-            rating = plugin.find("div", class_="rating_count").text
-        except ValueError:
-            rating = ''
-
-        data_base = {
-            'names': names,
-            'description': description,
-            'author': author,
-            'rating': rating
-        }
-        write_csv(data_base)
-
-
-def main():
-    for i in range(0, 3):
-        url = f"https://avidreaders.ru/books/{i}/"
-        get_data(get_html(url))
-
-
-if __name__ == '__main__':
-    main()
