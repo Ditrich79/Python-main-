@@ -1678,3 +1678,6 @@
 # minimum = min(numbers)
 # print(minimum + maximum)
 
+# import os
+#
+# os.mkdir(r"F:\python projects\movies")
