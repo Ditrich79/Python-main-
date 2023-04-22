@@ -7378,3 +7378,4 @@ with sqlite3.connect('db_4.db') as con:
 
     # res2 = cur.fetchmany(2)
     # print(res2)
+
