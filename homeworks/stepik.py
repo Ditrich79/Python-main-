@@ -1681,3 +1681,64 @@
 # import os
 #
 # os.mkdir(r"F:\python projects\movies")
+
+# numbers = [(10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100), (1, 2, 99), (89, 9, 34),
+#            (10, 20, 30, -2), (50, 40, 50), (34, 78, 65), (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4),
+#            (90, 1, -45, -21)]
+#
+#
+# def compare_avg(a):
+#     return sum(a) / len(a)
+#
+#
+# print(min(numbers, key=compare_avg))
+# print(max(numbers, key=compare_avg))
+
+
+# def print_products(*args):
+#     args = [i for i in args if type(i) is str and i != '']
+#     if args:
+#         for num, value in enumerate(args):
+#             print(f'{num+1}) {value}')
+#         return ''
+#     print("Нет продуктов")
+#
+#
+# print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# print_products([4], {}, 1, 2, {'Beegeek'}, '')
+
+
+# def print_products(*args):
+#     counter = 0
+#     for i in args:
+#         if type(i) is str and i:
+#             counter += 1
+#             print(f'{counter}) {i}')
+#     if counter == 0:
+#         print("Нет продуктов")
+#
+#
+# print_products('Бананы', [1, 2], ('Stepik',), 'Яблоки', '', 'Макароны', 5, True)
+# print_products([4], {}, 1, 2, {'Beegeek'}, '')
+
+
+# def info_kwargs(**kwargs):
+#     for key, value in sorted(kwargs.items()):
+#         print(f'{key}: {value}')
+#
+#
+# info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
+
+# points = [(-1, 1), (5, 6), (12, 0), (4, 3), (0, 1), (-3, 2), (0, 0), (-1, 3), (2, 0), (3, 0), (-9, 1), (3, 6), (8, 8)]
+#
+#
+# def get_points(x):
+#     return (x[0] ** 2 + x[1] ** 2) ** 0.5
+#
+#
+# print(sorted(points, key=get_points))
+
+
+# a, b = int(input()), int(input())
+# print(fr'{a}\n + \n{b}\n = \n{a + b}')
+
