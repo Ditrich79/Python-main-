@@ -1742,3 +1742,21 @@
 # a, b = int(input()), int(input())
 # print(fr'{a}\n + \n{b}\n = \n{a + b}')
 
+import re
+
+# match = re.match(input(), input())
+# print(match.group(0))
+# print(match.start(0))
+# print(match.end(0))
+# print(match.pos)
+# print(match.endpos)
+# print(match.re)
+# print(match.string)
+
+words = input()
+regex = r"#[a-z]*"
+result = re.search(regex, words)
+if result:
+    print(result.group(0))
+
+
