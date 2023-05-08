@@ -1742,7 +1742,7 @@
 # a, b = int(input()), int(input())
 # print(fr'{a}\n + \n{b}\n = \n{a + b}')
 
-import re
+# import re
 
 # match = re.match(input(), input())
 # print(match.group(0))
@@ -1753,10 +1753,420 @@ import re
 # print(match.re)
 # print(match.string)
 
-words = input()
-regex = r"#[a-z]*"
-result = re.search(regex, words)
-if result:
-    print(result.group(0))
+# words = input()
+# regex = r"#[a-z]*"
+# result = re.search(regex, words)
+# if result:
+#     print(result.group(0))
 
 
+# pattern = r'[Кк]од'
+#
+# found = False
+# for i in range(4):
+#     word = re.search(pattern, input())
+#     if word is not None:
+#         print(f'{i + 1} {word.start()}')
+#         found = True
+# if not found:
+#     print('код не найден')
+
+# pattern = r'(?<=Activation.key:.)[\w]{5}-[\w]{5}-[\w]{5}-[\w]{5}-[\w]{5}'
+#
+# for i in range(5):
+#     password = re.search(pattern, input())
+#     if password:
+#         print(password.group())
+
+# pattern = r't\=[0-9\.\+]+'
+# key = re.search(pattern, input())
+# if key:
+#     print(key.group())
+
+# pattern = r'[A-Za-z]{1,}'
+# word = re.match(pattern, input())
+# if word:
+#     print(f"Первое слово в предложении: {word.group()}")
+
+# pattern = r'^([a-z]+.){12,24}'
+# word = re.match(pattern, input())
+# if word:
+#     print("возможно, это seed-фраза")
+
+# pattern = r'[\w]+(?=\@)'
+# sentence = re.match(pattern, input())
+# if sentence:
+#     print(sentence.group())
+
+# pattern = r'[\d]{13,}'
+# account = re.fullmatch(pattern, input())
+# if account:
+#     print("True")
+# else:
+#     print("False")
+#
+# print(bool(re.fullmatch(r'\d{13,}', input())))
+
+# print(bool(re.fullmatch(r'[A-Za-z0-9@#$%^&*()_+!?-]{8,}', input())))
+
+# print(bool(re.fullmatch(r'\+?[0-9]+[ ]?(\()?[0-9]{3}(?(1)\)|)[ ]?[0-9]{3}(?: |-)?[0-9]{2}(?: |-)?[0-9]{2}', input())))
+# print(bool(re.fullmatch(r'\+?(\d[( )-]{0,2}){11,}', input())))
+
+# print(bool(re.fullmatch(r'(-?\d*(?:x\^\d+|x)?\+?\b)+', input())))
+
+# pattern = r'\w+'
+# word = re.finditer(pattern, input())
+# for i in word:
+#     print(i.group())
+
+# pattern = r'\b\w{5}\b'
+# word = re.finditer(pattern, input())
+# for i in word:
+#     print(i.group())
+
+# [print(i.group()) for i in re.finditer(r'\d+\,\d+\s₽', input())]
+
+# pattern = r'https://imgur.com/[0-9A-Za-z]{7}'
+# word = re.findall(pattern, input())
+# for i in word:
+#     print(i)
+#
+# for i in re.findall(r'https://imgur.com/[a-zA-Z0-9]{7}', input()):
+#     print(i)
+
+# for res in re.findall(r'\b[a-zA-Z0-9_-]+\@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,3}\b', input()):
+#     print(res)
+
+# for res in re.findall(r'((\d{2}(?P<n>[\./])\d{2}(?P=n)\d{4})|(\d{4}(?P<m>[\./])\d{2}(?P=m)\d{2}))', input()):
+#     print(res[0])
+
+# for i in re.findall(r'[0-1]\d\:[0-5]\d|2[0-3]\:[0-5]\d', input()):
+#     print(i)
+
+# import re
+
+# res = re.findall(r'(?<=\<a class=\"link\" href=\")(.*?)(?=\")|(?<=\<a target=\"_blank\" href=\")(.*?)(?=\")', input())
+# lst = list(map(lambda x: x[0] if len(x[0]) > 3 else x[1], res))
+#
+# for i in lst:
+#     print(i)
+
+# pattern = r'[.?!]'
+# result = re.split(pattern, input())
+# print(result)
+
+# pattern = r'[.?!, ]'
+# result = re.split(pattern, input())
+# print(result)
+
+# pattern = r'(?:Категория:\s[А-Яа-яЁё\s]+\\n)'
+# result = re.split(pattern, input())
+# print(result)
+
+# pattern = r'[aeioyuAEIOUауоыиэяюёеАУОЫИЭЯЮЁЕ]'
+# replace = '!'
+# result = re.sub(pattern, replace, input())
+# print(result)
+
+# pattern = r'(?:<.+?>)'
+# print(re.sub(pattern, '', input()))
+
+# sname, name, pname = input().split()
+# sentence = input()
+# pattern = fr'({sname}[а-яё]*\s{name[0]}\.\s{pname[0]}\.)|({sname}[а-яё]*\s{name[0:3]}[^\s]*\s{pname}[^\s]*)'
+# print(re.sub(pattern, 'ФИО', sentence))
+#
+# f, i, o = input().split()
+# print(re.sub(fr'{f}\w*\s{i[0]}.\s{o[0]}.|{f}\w*\s{i[:-1]}\w*\s{o}\w*', 'ФИО', input()))
+
+# pattern = r'[.?!,:]'
+# result = re.subn(pattern, '', input())
+# print(result[1])
+
+# pattern = r'\d'
+# print(re.subn(pattern, 'X', input()))
+
+# pattern = r'<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕ' \
+#           r'ЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ !"#$%&\'()*+,-./0123456789:;'
+# print(re.escape(pattern))
+
+# pattern = input()
+# print(re.escape(pattern))
+
+# pattern = r'(?P<Протокол>http[s]?)+:\/\/(?P<Домен>[a-z.\d]*?)\/[a-z\/\d_-]*(?P<Параметры>\?[^# ]*)?' \
+#           r'(?P<Якорь>[#][a-z]*)?'
+# match = re.match(pattern, input())
+# print(match.groupdict())
+
+# regex = r'(<|</)([a-z0-9]+?.+?)>'
+# result = re.findall(regex, input())
+# print(result)
+
+# lst = str(input())
+# res = re.findall(r'\d([A-z\d])([A-z\d_]*)', lst)
+# print(res)
+
+# regex = r'(?i)привет'
+# res = re.findall(regex, input())
+# print(res)
+
+# import re
+
+
+# with open(r'F:\python projects\numbers.txt', 'r', encoding='utf-8') as file:
+#     print(*map(lambda st_ng: sum(map(int, st_ng.strip().split())), file.readlines()), sep='\n')
+
+# with open(r'F:\python projects\nums.txt', 'r', encoding='utf-8') as file:
+#     count = 0
+#     for line in file:
+#         line.rstrip()
+#         num = re.findall(r'\d+', line)
+#         dig = sum(list(map(int, num)))
+#         count += dig
+#     print(count)
+
+# with open('nums.txt') as f:
+#     print(sum(map(int, re.findall(r'\d+', f.read()))))
+
+# dig = [int(n) for n in input().split()]
+# count = 0
+# for i in range(1, len(dig)):
+#     if dig[i] > dig[i - 1]:
+#         count += 1
+# print(count)
+
+# dig = [int(n) for n in input().split()]
+# for i in range(0, len(dig) - 1, 2):
+#     dig[i], dig[i+1] = dig[i+1], dig[i]
+# print(*dig)
+
+# dig = [int(n) for n in input().split()]
+# dig1 = dig[-1:] + dig[:-1]
+# print(*dig1)
+
+# dig = [int(n) for n in input().split()]
+# count = 0
+# for i in range(len(dig)):
+#     if dig[i] != dig[i - 1]:
+#         count += 1
+# print(count)
+
+# dig = [int(n) for n in input().split()]
+# arr = []
+# for i in range(len(dig)):
+#     if dig[i] not in arr:
+#         arr.append(dig[i])
+# print(len(arr))
+
+
+# st = input().split('О')
+# count = max(map(len, st))
+# print(count)
+
+
+# tim_item = input()
+# rus_item = input()
+# if tim_item == "камень" and rus_item == "ножницы":
+#     print("Тимур")
+# elif tim_item == "ножницы" and rus_item == "бумага":
+#     print("Тимур")
+# elif tim_item == "бумага" and rus_item == "камень":
+#     print("Тимур")
+# elif tim_item == rus_item:
+#     print("ничья")
+# else:
+#     print("Руслан")
+
+# n = int(input())
+# matrix = []
+# for i in range(n):
+#     temp = [int(num) for num in input().split()]
+#     matrix.append(temp)
+#
+#
+# def print_matrix(matrix, n, width=1):
+#     for r in range(n):
+#         for c in range(n):
+#             print(str(matrix[r][c]).ljust(width), end=' ')
+#         print()
+#
+#
+# print_matrix(matrix, n, width=1)
+
+# n = int(input())
+# matrix = [input().split() for _ in range(n)]
+# count = 0
+# for i in range(n):
+#     matrix[i] = int(matrix[i])
+#     matrix[i][i] += count
+#     print(count)
+
+
+# def map1(function, items):
+#     result = []
+#     for item in items:
+#         result.append(function(item))
+#     return result
+#
+#
+# def make_round(x):
+#     return round(x, 2)
+#
+#
+# numbers = [3.56773, 5.57668, 4.00914, 56.24241, 9.01344, 32.12013, 23.22222, 90.09873, 45.45,
+#            314.1528, 2.71828, 1.41546]
+#
+# print(*map1(make_round, numbers), sep='\n')
+
+
+# def map1(function, items):
+#     result = []
+#     for item in items:
+#         result.append(function(item))
+#     return result
+#
+#
+# def filter1(function, items):
+#     result = []
+#     for item in items:
+#         if function(item):
+#             result.append(item)
+#     return result
+#
+#
+# numbers = [1014, 1321, 675, 1215, 56, 1386, 1385, 431, 1058, 486, 1434, 696, 1016, 1084, 424, 1189, 475, 95,
+#            1434, 1462, 815, 776, 657, 1225, 912, 537, 1478, 1176, 544, 488, 668, 944, 207, 266, 1309, 1027,
+#            257, 1374, 1289, 1155, 230, 866, 708, 144, 1434, 1163, 345, 394, 560, 338, 232, 182, 1438, 1127,
+#            928, 1309, 98, 530, 1013, 898, 669, 105, 130, 1363, 947, 72, 1278, 166, 904, 349, 831, 1207, 1496,
+#            370, 725, 926, 175, 959, 1282, 336, 1268, 351, 1439, 186, 273, 1008, 231, 138, 142, 433, 456, 1268,
+#            1018, 1274, 387, 120, 340, 963, 832, 1127]
+#
+#
+# def formula1(x):
+#     return len(str(x)) == 3 and x % 5 == 2
+#
+#
+# def cube(x):
+#     return x ** 3
+#
+#
+# print(*map1(cube, filter1(formula1, numbers)), sep='\n')
+
+
+# def reduce(operation, items, initial_value):
+#     acc = initial_value
+#     for item in items:
+#         acc = operation(acc, item)
+#     return acc
+#
+#
+# numbers = [97, 42, 9, 32, 3, 45, 31, 77, -1, 11, -2, 75, 5, 51, 34, 28, 46, 1, -8, 84, 16, 51, 90, 56, 65, 90, 23,
+#            35, 11, -10, 70, 90, 90, 12, 96, 58, -8, -4, 91, 76, 94, 60, 72, 43, 4, -6, -5, 51, 58, 60, 30, 38, 67,
+#            62, 36, 72, 34, 82, 62, -1, 60, 82, 87, 81, -7, 57, 26, 36, 17, 43, 80, 40, 75, 94, 91, 64, 38, 72, 29,
+#            84, 38, 35, 7, 54, 31, 95, 78, 27, 82, 1, 64, 94, 31, 29, -8, 98, 24, 61, 7, 73]
+#
+#
+# def formula(x, y):
+#     return x + y ** 2
+#
+#
+# print(reduce(formula, numbers, 0))
+
+
+# def map1(function, items):
+#     result = []
+#     for item in items:
+#         result.append(function(item))
+#     return result
+#
+#
+# def filter1(function, items):
+#     result = []
+#     for item in items:
+#         if function(item):
+#             result.append(item)
+#     return result
+#
+#
+# numbers = [77, 293, 28, 242, 213, 285, 71, 286, 144, 276, 61, 298, 280, 214, 156, 227, 228, 51, -4, 202, 58, 99,
+#            270, 219, 94, 253, 53, 235, 9, 158, 49, 183, 166, 205, 183, 266, 180, 6, 279, 200, 208, 231, 178, 201,
+#            260, -35, 152, 115, 79, 284, 181, 92, 286, 98, 271, 259, 258, 196, -8, 43, 2, 128, 143, 43, 297, 229,
+#            60, 254, -9, 5, 187, 220, -8, 111, 285, 5, 263, 187, 192, -9, 268, -9, 23, 71, 135, 7, -161, 65, 135,
+#            29, 148, 242, 33, 35, 211, 5, 161, 46, 159, 23, 169, 23, 172, 184, -7, 228, 129, 274, 73, 197, 272, 54,
+#            278, 26, 280, 13, 171, 2, 79, -2, 183, 10, 236, 276, 4, 29, -10, 41, 269, 94, 279, 129, 39, 92, -63, 263,
+#            219, 57, 18, 236, 291, 234, 10, 250, 0, 64, 172, 216, 30, 15, 229, 205, 123, -105]
+#
+#
+# def formula1(x):
+#     return len(str(abs(x))) == 2 and x % 7 == 0
+#
+#
+# def formula2(x):
+#     return x ** 2
+#
+#
+# print(sum(map1(formula2, filter1(formula1, numbers))))
+
+
+# numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100), (1, 2, 99), (89, 90, 34),
+#            (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+#
+#
+# def compare_by_sum(number):
+#     return number[0] + number[1] + number[2]
+#
+#
+# print(sorted(numbers, key=compare_by_sum))
+
+
+# numbers = [(10, 10, 10), (30, 45, 56), (81, 80, 39), (1, 2, 3), (12, 45, 67), (-2, -4, 100), (1, 2, 99), (89, 90, 34),
+#            (10, 20, 30), (50, 40, 50), (34, 78, 65), (-5, 90, -1)]
+#
+#
+# def sum_dig(number):
+#     return max(number) + min(number)
+#
+#
+# numbers.sort(key=sum_dig)
+#
+# print(numbers)
+
+
+# from fractions import Fraction
+#
+# numbers = ['6.34', '4.08', '3.04', '7.49', '4.45', '5.39', '7.82', '2.76', '0.71', '1.97', '2.54', '3.67', '0.14',
+#            '4.29', '1.84', '4.07', '7.26', '9.37', '8.11', '4.30', '7.16', '2.46', '1.27', '0.29', '5.12', '4.02',
+#            '6.95', '1.62', '2.26', '0.45', '6.91', '7.39', '0.52', '1.88', '8.38', '0.75', '0.32', '4.81', '3.31',
+#            '4.63', '7.84', '2.25', '1.10', '3.35', '2.05', '7.87', '2.40', '1.20', '2.58', '2.46']
+#
+# for i in numbers:
+#     f = Fraction(i)
+#     print(f"{i} = {f}")
+
+# from fractions import Fraction
+#
+# s = '0.78 4.3 9.6 3.88 7.08 5.88 0.23 4.65 2.79 0.90 4.23 2.15 3.24 8.57 0.10 8.57 1.49 5.64 3.63 8.36 1.56 6.67 ' \
+#     '1.46 5.26 4.83 7.13 1.22 1.02 7.82 9.97 5.40 9.79 9.82 2.78 2.96 0.07 1.72 7.24 7.84 9.23 1.71 6.24 5.78 5.37 ' \
+#     '0.03 9.60 8.86 2.73 5.83 6.50 0.123 0.00021'
+# s1 = s.split()
+#
+#
+# m1 = Fraction(min(s1))
+# m2 = Fraction(max(s1))
+# print(m1 + m2)
+
+# a, b = int(input()), int(input())
+# print(Fraction(a, b))
+
+# a, b = input(), input()
+# print(f'{Fraction(a)} + {Fraction(b)} = {Fraction(a) + Fraction(b)}')
+# print(f'{Fraction(a)} - {Fraction(b)} = {Fraction(a) - Fraction(b)}')
+# print(f'{Fraction(a)} * {Fraction(b)} = {Fraction(a) * Fraction(b)}')
+# print(f'{Fraction(a)} / {Fraction(b)} = {Fraction(a) / Fraction(b)}')
+
+# word = input() + ' запретил букву'
+# abv = [chr(i) for i in range(1072, 1104)]
+# for char in abv:
+#     if char in word:
+#         print(word, char)
+#         word = word.replace(char, '').replace('  ', ' ').strip()
