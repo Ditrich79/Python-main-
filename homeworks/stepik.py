@@ -2170,3 +2170,20 @@
 #     if char in word:
 #         print(word, char)
 #         word = word.replace(char, '').replace('  ', ' ').strip()
+
+
+# lst = []
+# for i in range(1, 101):
+#     if i**2 % 10 == 4:
+#         lst.append(i)
+# print(lst)
+
+# n = int(input())
+# a, b = 1, 1
+#
+# for i in range(n):
+#     print(a, end=' ')
+#     a, b = b, a + b
+
+# for i in range(26):
+#     print(chr(ord('A') + i), end=' ')

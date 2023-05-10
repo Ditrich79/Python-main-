@@ -1,7 +1,7 @@
 # number = 123456789.12345
 # print(f'{number:,.2f}')
 # print(f'{number:,.3F}')
-import csv
+
 # discount = 0.5
 # print(f'{discount:.0%}')  # символ % умножает число на 100 и выводит его со знаком %
 
@@ -833,4 +833,5 @@ import pickle
 # m = MathCalculations(4, 5, 3)
 # print(m.get_square_area(5))
 # print(m.get_rectangle_area(8, 7))
+
 
