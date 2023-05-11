@@ -7754,7 +7754,7 @@ from jinja2 import Template
 
 html = """
 {% macro text_input(name, value='', type='text', size='40') %}
-    <input type="{{ type }}" name="{{ name }} value="{{ value}}" size={{ size }}>
+    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size={{ size }}>
 {% endmacro %}
 
 <p>{{ text_input('username') }}</p>
