@@ -2187,3 +2187,132 @@
 
 # for i in range(26):
 #     print(chr(ord('A') + i), end=' ')
+
+# def print_text(txt: str, n: int) -> None:
+#     print(txt * n)
+#
+#
+# print_text('Hello', 5)
+
+
+# with open('words.txt', 'w') as output:
+#     print('stepik', 'beegeek', 'iq-option', sep='*', end='+\n', file=output)
+#     print('python', file=output)
+
+# from random import randint
+# dig = [str(randint(111, 777)) + '\n' for _ in range(25)]
+# with open('random.txt', 'w', encoding='utf-8') as file:
+#     file.writelines(dig)
+
+# with open('input.txt', 'r') as out:
+#     lst = out.readlines()
+#
+# with open('output.txt', 'w') as file:
+#     for count, line in enumerate(lst, start=1):
+#         print(count, line, sep=') ', end='', file=file)
+
+# with open('class_scores.txt', 'r', encoding='utf-8') as file, open('new_scores.txt', 'w', encoding='utf-8') as new:
+#     for line in file:
+#         name, score = line.split()
+#         score = int(score) + 5
+#         if score > 100:
+#             score = 100
+#         print(name, score, file=new)
+
+
+# first_quarter = 0
+# second_quarter = 0
+# third_quarter = 0
+# fourth_quarter = 0
+#
+# for i in range(int(input())):
+#     x, y = list(map(int, input().split()))
+#     if x > 0 and y > 0:
+#         first_quarter += 1
+#     elif x < 0 < y:
+#         second_quarter += 1
+#     elif x < 0 and y < 0:
+#         third_quarter += 1
+#     elif y < 0 < x:
+#         fourth_quarter += 1
+#     elif x == 0 or y == 0:
+#         continue
+# print(f'Первая четверть: {first_quarter}\nВторая четверть: {second_quarter}\nТретья четверть: {third_quarter}\n'
+#       f'Четвертая четверть: {fourth_quarter}')
+
+
+# import re
+#
+# regex = r'\w*a\w*n\w*t\w*o\w*n\w*'
+# lst = []
+#
+# for i in range(int(input())):
+#     s = re.findall(regex, input())
+#     if s:
+#         lst.append(i + 1)
+# print(*lst)
+
+
+# itr = int(input())
+# lst = []
+# flag = "НЕТ"
+# for i in range(itr):
+#     lst.append(int(input()))
+# num = int(input())
+#
+# for j in range(0, itr):
+#     for k in range(0, itr):
+#         if j != k:
+#             if lst[k] * lst[j] == num:
+#                 flag = "ДА"
+#                 break
+# print(flag)
+
+# tim_item = input()
+# rus_item = input()
+# if tim_item == "камень" and (rus_item == "ножницы" or rus_item == "ящерица"):
+#     print("Тимур")
+# elif tim_item == "ножницы" and (rus_item == "бумага" or rus_item == "ящерица"):
+#     print("Тимур")
+# elif tim_item == "бумага" and (rus_item == "камень" or rus_item == "Спок"):
+#     print("Тимур")
+# elif tim_item == "ящерица" and (rus_item == "бумага" or rus_item == "Спок"):
+#     print("Тимур")
+# elif tim_item == "Спок" and (rus_item == "камень" or rus_item == "ножницы"):
+#     print("Тимур")
+# elif tim_item == rus_item:
+#     print("ничья")
+# else:
+#     print("Руслан")
+
+
+# word = input().split()
+# lst = [[word[0]]]
+# for i in range(1, len(word)):
+#     if word[i] == word[i - 1]:
+#         lst[-1].append(word[i])
+#     else:
+#         lst.append([word[i]])
+# print(lst)
+
+
+# num = int(input())
+# description = {1: 'One', 2: 'Two', 3: 'Three'}
+# print(description.get(num, 'Unknown'))
+
+# text = 'footballcyberpunkextraterritorialityconversationalistblockophthalmoscopicinterdependencemamauserfff'
+#
+# result = {}
+# for char in text:
+#     result[char] = result.get(char, 0) + 1
+# print(result)
+
+# iterable = [[1], [2], [3]]
+# result = list(map(len, iterable))
+# print(result)
+
+# listA = [2, 3, 4]
+# listB = [3, 2, 1]
+#
+# result = sum(map(pow, listA, listB))
+# print(result)

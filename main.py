@@ -3069,7 +3069,7 @@
 
 # Регулярные выражения
 
-import re
+# import re
 
 # print(dir(re))
 
@@ -3376,8 +3376,8 @@ import re
 
 
 # Линейный (последовательный) поиск
-from random import randint
-import time
+# from random import randint
+# import time
 
 #
 #
@@ -3724,8 +3724,8 @@ import time
 
 # Модуль OS или OS.PATH
 
-import os
-import os.path
+# import os
+# import os.path
 
 # print(os.getcwd())  # текущая директория
 
@@ -7654,7 +7654,7 @@ import os.path
 
 # pip install jinja2
 
-from jinja2 import Template
+# from jinja2 import Template
 
 
 # name = "Игорь"
@@ -7752,17 +7752,65 @@ from jinja2 import Template
 # print(msg)
 
 
-html = """
-{% macro text_input(name, value='', type='text', size='40') %}
-    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size={{ size }}>
-{% endmacro %}
+# html = """
+# {% macro text_input(name, value='', type='text', size='40') %}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size={{ size }}>
+# {% endmacro %}
+#
+# <p>{{ text_input('username') }}</p>
+# <p>{{ text_input('email', type='password') }}</p>
+# <p>{{ text_input('password') }}</p>
+# """
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
 
-<p>{{ text_input('username') }}</p>
-<p>{{ text_input('email', type='password') }}</p>
-<p>{{ text_input('password') }}</p>
-"""
 
-tm = Template(html)
-msg = tm.render()
+# person = [
+#     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
+#     {'name': 'Никита', 'year': 28, 'weight': 81.3},
+#     {'name': 'Виталий', 'year': 33, 'weight': 93.5},
+# ]
+#
+# html = """
+# {% macro list_users(list_of_user) -%}
+# <ul>
+#     {%- for u in list_of_user %}
+#     <li>{{ u.name }} {{ caller(u) }}</li>
+#     {%- endfor %}
+# </ul>
+# {%- endmacro %}
+#
+# {% call(user) list_users(users) %}
+# <ul>
+#     <li>age: {{ user.year }}</li>
+#     <li>weight: {{ user.weight }}</li>
+# </ul>
+# {% endcall %}
+# """
+#
+#
+# tm = Template(html)
+# msg = tm.render(users=person)
+#
+# print(msg)
 
-print(msg)
+# from jinja2 import Environment, FileSystemLoader
+#
+# person = [
+#     {'name': 'Алексей', 'year': 18, 'weight': 78.5},
+#     {'name': 'Никита', 'year': 28, 'weight': 81.3},
+#     {'name': 'Виталий', 'year': 33, 'weight': 93.5},
+# ]
+# subs = ['Культура', 'Наука', 'Политика', 'Спорт']
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('about.html')
+# msg = tm.render(list_table=subs)
+#
+# print(msg)
+
