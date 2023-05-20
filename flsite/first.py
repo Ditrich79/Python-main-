@@ -5,7 +5,7 @@ from FDataBase import FDataBase
 
 DATABASE = '/tmp/flsk.db'
 DEBUG = True
-SECRET_KEY = '09f0daa02e031192ea487eec6bcadabf724dd4cc'
+SECRET_KEY = '2b71c1ed2dc317653673b285fcbe70da5a616dce'
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'rtertg465464fdfhg8465464hgfhfgh113103'

@@ -1,0 +1,10 @@
+{% include 'header.html' %}
+
+{% macro text_output(text) -%}
+"{{ text }}"
+{%- endmacro -%}
+
+<h1>{{ text_output("Страница с домашним заданием") }}</h1>
+<p>{{ text_output("Домашнее задание выполнено!!!") }}</p>
+
+{% include 'footer.html' %}
