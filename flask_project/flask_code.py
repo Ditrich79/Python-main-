@@ -8,6 +8,7 @@ DEBUG = True
 SECRET_KEY = 'cfb153be392d3bcdf52581874a7840a85f397655'
 
 app = Flask(__name__)
+app.config.from_object(__name__)
 
 app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flask_base.db')))
 
@@ -42,7 +43,8 @@ def get_db():
 def index():
     db = get_db()
     dbase = FDataBase(db)
-    return render_template('index.html', title="главная страница", menu=dbase.get_menu())
+    return render_template('index.html', title="главная страница", menu=dbase.get_menu(),
+                           posts=dbase.get_posts_annonce())
 
 
 @app.route("/add_post", methods=["POST", "GET"])
@@ -61,6 +63,14 @@ def add_post():
             flash('Ошибка добавления статьи', category='error')
 
     return render_template('add_post.html', menu=dbase.get_menu(), title="добавление статьи")
+
+
+@app.route("/post/<int:id_post>")
+def show_post(id_post):
+    db = get_db()
+    dbase = FDataBase(db)
+    title, post = dbase.get_post(id_post)
+    return render_template('post.html', menu=dbase.get_menu(), title=title, post=post)
 
 
 @app.route("/about")

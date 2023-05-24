@@ -40,16 +40,14 @@ ul{
     padding: 0;
 }
 p>a{
-    text-decorator: none;
+    text-decoration: none;
     color: brown;
 }
-li>div{
+li div{
     padding: 10px 20px;
 }
-
 li>p, li div{
     border: 1px solid #CCC;
-
 }
 p.title{
     margin: 0;
