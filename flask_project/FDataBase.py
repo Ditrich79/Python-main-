@@ -19,10 +19,10 @@ class FDataBase:
             print("Ошибка чтения из БД")
         return []
 
-    def add_post(self, title, text):
+    def add_post(self, title, cost, text):
         try:
             tm = math.floor(time.time())
-            self.__cur.execute("INSERT INTO posts VALUES(NULL, ?, ?, ?)", (title, text, tm))
+            self.__cur.execute("INSERT INTO posts VALUES(NULL, ?, ?, ?, ?)", (title, cost, text, tm))
             self.__db.commit()
         except sqlite3.Error as e:
             print("Ошибка добавления статьи в БД " + str(e))
@@ -31,7 +31,7 @@ class FDataBase:
 
     def get_post(self, post_id):
         try:
-            self.__cur.execute(f"SELECT title, text FROM posts WHERE id = {post_id}")
+            self.__cur.execute(f"SELECT title, cost, text FROM posts WHERE id = {post_id}")
             res = self.__cur.fetchone()
             if res:
                 return res
@@ -41,7 +41,7 @@ class FDataBase:
 
     def get_posts_annonce(self):
         try:
-            self.__cur.execute("SELECT id, title, text FROM posts ORDER BY time DESC")
+            self.__cur.execute("SELECT id, title, cost, text FROM posts ORDER BY time DESC")
             res = self.__cur.fetchall()
             if res:
                 return res

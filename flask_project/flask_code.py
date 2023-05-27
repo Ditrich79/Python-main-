@@ -53,30 +53,32 @@ def add_post():
     dbase = FDataBase(db)
 
     if request.method == 'POST':
-        if len(request.form['name']) > 4 and len(request.form['post']) > 10:
-            res = dbase.add_post(request.form['name'], request.form['post'])
+        if len(request.form['name']) > 4 and len(request.form['post']) > 10 and len(request.form['cost']) > 5:
+            res = dbase.add_post(request.form['name'], request.form['post'], request.form['cost'])
             if not res:
-                flash('Ошибка добавления статьи', category='error')
+                flash('Ошибка добавления описания автомобиля', category='error')
             else:
-                flash('Статья добавлена успешно', category='success')
+                flash('Описание автомобиля добавлено успешно', category='success')
         else:
-            flash('Ошибка добавления статьи', category='error')
+            flash('Ошибка добавления описания автомобиля', category='error')
 
-    return render_template('add_post.html', menu=dbase.get_menu(), title="добавление статьи")
+    return render_template('add_post.html', menu=dbase.get_menu(), title="добавление автомобиля")
 
 
 @app.route("/post/<int:id_post>")
 def show_post(id_post):
     db = get_db()
     dbase = FDataBase(db)
-    title, post = dbase.get_post(id_post)
-    return render_template('post.html', menu=dbase.get_menu(), title=title, post=post)
+    title, post, cost = dbase.get_post(id_post)
+    return render_template('post.html', menu=dbase.get_menu(), title=title, post=post, cost=cost)
 
 
 @app.route("/about")
 def about():
     print(url_for("about"))
-    return render_template('about.html', title="о нас", menu=menu)
+    db = get_db()
+    dbase = FDataBase(db)
+    return render_template('about.html', title="о нас", menu=dbase.get_menu())
 
 
 @app.route("/profile/<username>")

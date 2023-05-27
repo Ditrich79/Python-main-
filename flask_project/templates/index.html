@@ -2,12 +2,14 @@
 
 {% block content %}
 {{ super() }}
-<h2>Содержимое главной страницы</h2>
-<ul>
+<h2>Автомобили представленные в продаже:</h2>
+<ul class="main">
     {% for p in posts %}
     <li>
-        <p class="title"><a href="{{ url_for('show_post', id_post=p.id) }}">{{ p.title }}</a></p>
-        <div class="annonce">{{ p.text[:240] }}</div>
+        <p class="title"><a href="{{ url_for('show_post', id_post=p.id) }}">{{ p.title }} </a></p>
+        <div class="cost">{{ p.cost }}</div>
+        <div class="annonce">{{ p.text[:240] | striptags }}<br><br>
+        <a class="button" href="{{ url_for('show_post', id_post=p.id) }}">Купить</a></div>
     </li>
     {% endfor %}
 </ul>
