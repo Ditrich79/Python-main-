@@ -60,3 +60,27 @@ a:hover{
     text-align: initial;
     color: #000000cc;
 }
+.menu{
+    background: deepskyblue;
+    padding: 10px;
+    border-bottom: 4px solid white;
+}
+.menu .wrap2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu a{
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 20px;
+}
+.menu ul{
+    display: flex;
+    list-style: none;
+    margin-right: 60px;
+}
+.menu li{
+    margin-left: 60px;
+}
