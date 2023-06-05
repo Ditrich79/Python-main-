@@ -2323,3 +2323,36 @@
 # words3 = ['apple', 'pineapple', 'orange', 'persimmon', 'pomegranate']
 #
 # print(len(list(zip(words1, words2, words3))))
+
+
+# from math import *
+#
+#
+# def get_res(n, f):
+#     funcs = {'квадрат': n ** 2,
+#              'куб': n ** 3,
+#              'корень': n ** 0.5,
+#              'модуль': abs(n),
+#              'синус': sin(n)}
+#     return funcs[f]
+#
+#
+# a, b = int(input()), input().lower()
+# print(get_res(a, b))
+
+
+# numbers = [10, 30, 20, 50, 40, 60, 70, 80]
+#
+# total = 0
+# for index, number in enumerate(numbers, 1):
+#     if index % 2 == 0:
+#         total += number
+# print(total)
+
+# list1 = [1, 2, 3, 4, 5]
+# list2 = [5, 4, 3, 2, 1]
+#
+# result = 0
+# for x, y in zip(list1, list2):
+#     result += x*y
+# print(result)
