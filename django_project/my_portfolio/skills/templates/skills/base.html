@@ -3,22 +3,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'skills/favicon2.ico' %}">
 </head>
 <body>
+    {% if user.is_authenticated %}
     <div class="menu">
         <div class="wrap2">
             <div class="logo">
                 <a href="{% url 'index' %}"><img src="{% static 'skills/logo.png' %}" alt=""></a>
             </div>
             <ul>
+                <li class="logo2">Пользователь: {{ user.username }}</li>
                 <li><a href="{% url 'index' %}">Главная</a></li>
                 <li><a href="{% static 'skills/rezyume-hudozhnik.pdf' %}" target="_blank">Резюме</a></li>
+                <li>
+                    <form action="{% url 'logoutuser' %}" method="post">
+                        {% csrf_token %}
+                        <button class="top">Выйти</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
+    {% else %}
+    <div class="menu">
+        <div class="wrap2">
+            <div class="logo">
+                <a href="{% url 'index' %}"><img src="{% static 'skills/logo.png' %}" alt=""></a>
+            </div>
+            <ul>
+                <li><a href="{% url 'signupuser' %}">Зарегистрироваться</a></li>
+                <li><a href="{% url 'loginuser' %}">Войти</a></li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
     <div class="content">
         <div class="wrap">
             {% block content %}
