@@ -1,0 +1,14 @@
+{% extends 'skills/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Создание картины:</h1>
+
+<div>{{ error }}</div>
+<form method="post" class="bg">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="center"><button class="btn">Создать</button></div>
+</form>
+
+{% endblock %}

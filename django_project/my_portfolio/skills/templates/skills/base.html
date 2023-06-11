@@ -16,6 +16,8 @@
             </div>
             <ul>
                 <li class="logo2">Пользователь: {{ user.username }}</li>
+                <li><a href="{% url 'createtodo' %}">Создание картины</a></li>
+                <li><a href="{% url 'completedtodos' %}">Нарисованные картины</a></li>
                 <li><a href="{% url 'index' %}">Главная</a></li>
                 <li><a href="{% static 'skills/rezyume-hudozhnik.pdf' %}" target="_blank">Резюме</a></li>
                 <li>
