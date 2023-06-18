@@ -2463,3 +2463,55 @@
 
 
 # print(*map(lambda x: 255 - int(x), input().split()))
+
+
+# countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
+# capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
+# population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+#
+# for capital, country, population in zip(capitals, countries, population):
+#     print(f'{capital} is the capital of {country}, population equal {population} people.')
+
+
+# abscissas = [float(i) for i in input().split()]
+# ordinates = [float(i) for i in input().split()]
+# applicates = [float(i) for i in input().split()]
+#
+# print(all(map(lambda x: x[0]**2 + x[1]**2 + x[2]**2 <= 4, zip(abscissas, ordinates, applicates))))
+
+
+# print(all(map(lambda x: x.isdigit() and 0 <= int(x) <= 255, input().split('.'))))
+
+
+# result = [x for x in range(int(input()), int(input()))]
+# print(all(map(lambda a: a != 0 and a % a == 0, result)))
+
+# a, b = int(input()), int(input())
+#
+# for i in range(a, b+1):
+#     digits = [int(d) for d in str(i)]
+#     if all(map(lambda x: x != 0 and i % x == 0, digits)):
+#         print(i, end=' ')
+
+
+# word = input()
+#
+# print('YES' if all((any(x.isdigit() for x in word),
+#                     any(x.islower() for x in word),
+#                     any(x.isupper() for x in word),
+#                     len(word) >= 7)) else 'NO')
+
+
+# from functools import reduce
+#
+#
+# result = lambda k, x: reduce(lambda s, a: s * x + a, k)
+#
+# print(result(map(int, input().split()), int(input())))
+
+
+# students = []
+#
+# for i in range(int(input())):
+#     students.append(any(['5' in input() for y in range(int(input()))]))
+# print('YES' if all(students) else 'NO')
