@@ -2515,3 +2515,155 @@
 # for i in range(int(input())):
 #     students.append(any(['5' in input() for y in range(int(input()))]))
 # print('YES' if all(students) else 'NO')
+
+
+# def generate_letter(mail, name, date, time, place, teacher='Тимур Гуев', number=17):
+#     return f"""To: {mail}
+# Приветствую, {name}!
+# Вам назначен экзамен, который пройдет {date}, в {time}.
+# По адресу: {place}.
+# Экзамен будет проводить {teacher} в кабинете {number}.
+# Желаем удачи на экзамене!"""
+#
+#
+# print(generate_letter('lara@yandex.ru', 'Лариса', '10 декабря', '12:00', 'Часова 23, корпус 2'))
+
+
+# def pretty_print(data, side='-', delimiter='|'):
+#     main = delimiter + " " + f' {delimiter} '.join(map(str, data)) + " " + delimiter
+#     secondary = " " + (len(main) - 2) * side + " "
+#     print(secondary)
+#     print(main)
+#     print(secondary)
+#
+#
+# pretty_print(['abc', 'def', 'ghi'], side='*', delimiter='#')
+
+
+# data = [['p', 'y', 't', 'h', 'o', 'n'], ['s', 't', 'e', 'p', 'i', 'k']]
+# result = list(map(lambda x: '.'.join(x), data))
+# print(result[1])
+
+# result = list(filter(str.swapcase, ['a', '1', '', 'b', '2']))
+#
+# print(result)
+
+# print(list(filter(None, ['', 1, 7, 'beegeek', None, False, 0])))
+
+
+# from functools import reduce
+#
+# numbers = [1, 2, 3]
+# result = reduce(lambda x, y: x + y, numbers)
+# print(result)
+
+
+# from functools import reduce
+#
+# numbers = [1, 2, 3]
+# result = reduce(lambda a, b: a * b, numbers, 10)
+# print(result)
+
+
+# def concat(*args, sep=' '):
+#     return sep.join(map(str, args))
+#
+#
+# print(concat('hello', 'python', 'and', 'stepik', sep='*'))
+
+
+# from functools import reduce
+#
+#
+# def product_of_odds(data):
+#     return reduce(lambda x, s: x * s, filter(lambda x: x % 2 == 1, data), 1)
+
+
+# words = 'the world is mine take a look what you have started'.split()
+#
+# print(*list(map(lambda x: f'"{x}"', words)))
+
+
+# numbers = [18, 191, 9009, 5665, 78, 77, 45, 23, 19991, 908, 8976, 6565, 5665, 10, 1000, 908, 909, 232, 45654, 786]
+# print(*list(filter(lambda x: str(x) != str(x)[::-1], numbers)))
+
+
+# numbers = [(10, -2, 3, 4), (-13, 56), (1, 9, 2), (-1, -9, -45, 32), (-1, 5, 1), (17, 0, 1), (0, 1), (3,), (39, 12),
+#            (11, -23), (10, -100, 21, 32), (3, -8), (1, 1)]
+#
+# sorted_numbers = sorted(numbers, key=lambda x: sum(x)/len(x), reverse=True)
+#
+# print(sorted_numbers)
+
+
+# def mul7(x):
+#     return x * 7
+#
+#
+# def add2(x, y):
+#     return x + y
+#
+#
+# def add3(x, y, z):
+#     return x + y + z
+#
+#
+# def call(funk, *args):
+#     return funk(*args)
+#
+#
+# print(call(mul7, 10))
+# print(call(add2, 2, 7))
+# print(call(add3, 10, 30, 40))
+# print(call(bool, 0))
+
+
+# def add3(x):
+#     return x + 3
+#
+#
+# def mul7(x):
+#     return x * 7
+#
+#
+# def compose(f, g):
+#     return lambda x: f(g(x))
+#
+#
+# print(compose(mul7, add3)(1))
+# print(compose(add3, mul7)(2))
+# print(compose(mul7, str)(3))
+# print(compose(str, mul7)(5))
+
+
+# from operator import *
+#
+#
+# def arithmetic_operation(operation):
+#     result = {'+': add, '-': sub, '*': mul, '/': truediv}
+#     return result[operation]
+#
+#
+# print(add(10, 20))
+# print(div(20, 5))
+
+
+# print(*sorted(input().split(), key=lambda x: x.lower()))
+
+
+# def gematria(word):
+#     return sum(map(lambda x: ord(x.upper()) - ord('A'), word)), word
+#
+#
+# words = [input() for i in range(int(input()))]
+#
+# print(*sorted(words, key=gematria), sep='\n')
+
+
+# def funk(ip):
+#     lst_ip = [int(i) for i in ip.split('.')]
+#     return lst_ip[0] * 256 ** 3 + lst_ip[1] * 256 ** 2 + lst_ip[2] * 256 + lst_ip[3]
+#
+#
+# print(*sorted([input() for i in range(int(input()))], key=funk), sep="\n")
+
