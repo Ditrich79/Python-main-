@@ -30,7 +30,7 @@ class AddPostForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['cat'].empty_label = 'Категория не выбрана'
+        self.fields['cat'].empty_label = "Категория не выбрана"
 
     def clean_title(self):
         title = self.cleaned_data['title']

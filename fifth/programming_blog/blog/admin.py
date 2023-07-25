@@ -27,13 +27,13 @@ class BlogAdmin(admin.ModelAdmin):
 
     def get_html_photo(self, obj):
         if obj.photo:
-            return mark_safe(f"<img src='{obj.photo.url}' width='50'>")
+            return mark_safe(f"<img src='{obj.photo.url}' width='70'>")
 
     def get_photo(self, obj):
         if obj.photo:
             return mark_safe(f"<img src='{obj.photo.url}' width='200'>")
 
-    get_html_photo.short_description = 'Миниатюра'
+    get_html_photo.short_description = "Миниатюра"
     get_photo.short_description = 'Миниатюра'
 
 

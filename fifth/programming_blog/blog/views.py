@@ -19,9 +19,6 @@ class BlogHome(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Главная страница'
-        # context['cat_selected'] = 0
-        # context['menu'] = menu
         c_def = self.get_user_context(title='Главная страница')
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -31,14 +28,12 @@ class BlogHome(DataMixin, ListView):
 
 class ShowPost(DataMixin, DetailView):
     model = Blog
-    template_name = "blog/post.html"
+    template_name = 'blog/post.html'
     context_object_name = 'post'
     slug_url_kwarg = 'post_slug'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = context['post']
-        # context['menu'] = menu
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -54,9 +49,6 @@ class BlogCategory(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Категория - ' + str(context['posts'][0].cat)
-        # context['menu'] = menu
-        # context['cat_selected'] = context['posts'][0].cat_id
         c = Category.objects.get(slug=self.kwargs['cat_slug'])
         c_def = self.get_user_context(title='Категория - ' + str(c.name), cat_selected=c.pk)
         return dict(list(context.items()) + list(c_def.items()))
@@ -71,8 +63,6 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['title'] = 'Добавление статьи'
-        # context['menu'] = menu
         c_def = self.get_user_context(title='Добавление статьи')
         return dict(list(context.items()) + list(c_def.items()))
 
@@ -115,13 +105,13 @@ class ContactFormView(DataMixin, FormView):
 
     def form_valid(self, form):
         print(form.cleaned_data)
-        subject = 'Message'
+        subject = "Message"
         body = {
             'name': form.cleaned_data['name'],
             'email': form.cleaned_data['email'],
             'content': form.cleaned_data['content'],
         }
-        message = "\n".join(body.values())  # ['имя', 'email', 'content']
+        message = "\n".join(body.values())  # 'имя' \n 'email' \n 'контент'
         try:
             send_mail(subject, message, form.cleaned_data['email'], ['admin@localhost'])
         except BadHeaderError:
