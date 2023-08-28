@@ -2667,3 +2667,11 @@
 #
 # print(*sorted([input() for i in range(int(input()))], key=funk), sep="\n")
 
+# s = input().upper()
+# for c in ('Аденин:', 'Гуанин:', 'Цитозин:', 'Тимин:'):
+#     print(c, s.count(c[0]))
+
+# for i in range(26):
+#     print(chr(ord('A') + i), end='')
+
+
