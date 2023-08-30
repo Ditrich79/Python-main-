@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block css %}<link href="{% static 'css/products.css' %}" rel="stylesheet">{% endblock %}
+{% block css %} <link href="{% static 'css/products.css' %}" rel="stylesheet">{% endblock %}
 
 {% block content %}
 
@@ -12,7 +12,6 @@
     <div class="row">
 
         {% include 'products/category.html' %}
-
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
@@ -23,20 +22,19 @@
                     <div class="center">
                         {% for img in product.photo_set.all %}
                         <img src="{{ img.add_photo.url }}" alt="" class="small">
-                        {% endfor %}
+                          {% endfor %}
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <h1 class="title">{{ product.name }}</h1>
                     <h4>{{ product.short_description }}</h4>
                     <h2 class="price">{{ product.price }} руб.</h2>
-                    <button type="button" class="btn
-btn-outline-success basket">Отправить в корзину
-                            </button>
+                     <a href="{% url 'basket_add' product.id %}" class="btn btn-outline-success">Отправить в
+                                корзину</a><br><br>
 <!--                    <h4 class="basket"><a href="#">В КОРЗИНУ</a></h4>-->
                     <h5 class="quantity">В наличии: {{ product.quantity }} шт.</h5>
                     <div>
-		            {{ product.description|safe }}
+					{{ product.description|safe }}
 					</div>
                 </div>
             </div>           
