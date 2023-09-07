@@ -2674,4 +2674,53 @@
 # for i in range(26):
 #     print(chr(ord('A') + i), end='')
 
+# o = {'a': 10, 'b': 10}
+# n = {}
+#
+# for i, j in o.items():
+#     n[j] = i
+#
+# print(n)
 
+# d = [1, 1, 2]
+# print(len(set(d)))
+
+# dict = {{{'Socrat': 'Empty'}: {'Plato': 'A lot of material'}}: 'again'}
+# key = {'Socrat': 'Empty'}
+# print(dict[key]['Plato'])
+
+# for i in 'str':
+#     print(i.upper(), end='.')
+
+# c = 'some str'
+# print(c[-3:9] + " " + c[0:5])
+
+# t_1 = (1,2,3)
+# t_2 = (4,5,6)
+# t_3 = t_1 + t_2
+# print(t_1 < t_2)
+# print(t_2 < t_3)
+# print(t_1 < t_3)
+
+# p = True
+#
+#
+# def fun_1():
+#     p = None
+#
+#     def fun_2():
+#         global p
+#         p = 'py'
+#
+#     fun_2()
+#
+# fun_1()
+# print(p)
+
+# for i in 'hello world':
+#     if i == 'o':
+#         break
+#     print(i * 2, end='')
+
+a = 'str'
+print(len(a))
