@@ -2722,5 +2722,19 @@
 #         break
 #     print(i * 2, end='')
 
-a = 'str'
-print(len(a))
+# a = 'str'
+# print(len(a))
+
+
+# a = 10
+# b = 5
+# print(a = b)
+
+# x = 5
+# print('x =', x + 3)
+
+# d = {1: 'one', 3: 'three', 2: 'two', '4': 'four'}
+# d.pop('4')
+# d.setdefault(5, 'fife')
+# d.sorted()
+# print(d)
