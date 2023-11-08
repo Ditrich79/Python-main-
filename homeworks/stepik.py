@@ -2738,3 +2738,23 @@
 # d.setdefault(5, 'fife')
 # d.sorted()
 # print(d)
+
+# a = {1: 1, 2: 2}
+#
+#
+# def b(d={}):
+#     d[1] = 2
+#
+#     return d
+#
+#
+# print(b(a))
+
+# j = (i for i in range(10))
+# i = 5
+# print(j)
+
+# j = [10 for i in range(10)]
+# # print(j)
+# y = j[::]
+# print(y)
