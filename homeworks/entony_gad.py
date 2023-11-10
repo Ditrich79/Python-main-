@@ -401,7 +401,6 @@
 # Эта программа демонстрирует консервацию объектов
 import pickle
 
-
 #
 #
 # # Главная функция.
@@ -835,3 +834,155 @@ import pickle
 # print(m.get_rectangle_area(8, 7))
 
 
+# from tkinter import *
+#
+# window = Tk()
+# window.title("Desktop Application for IT club in the 359 lab")
+#
+# text1 = Label(window, text="Hello, Brogrammers and Prosisters! This our first program, "
+#                            "so be sure that we can accomplish this year without any doubts!")
+# text1.pack()
+# window.mainloop()
+
+
+# from tkinter import *
+#
+# window = Tk()
+# window.title("Application 2")
+#
+# topFrame = Frame(window)
+# bottomFrame = Frame(window)
+# topFrame.pack()
+# bottomFrame.pack()
+#
+# text1 = Label(topFrame, text="This application demonstrates frame layout")
+# button1 = Button(bottomFrame, text="Button 1", fg="green")
+# button2 = Button(bottomFrame, text="Button 2", fg="red")
+# button3 = Button(bottomFrame, text="Button 3", fg="blue")
+#
+# text1.pack()
+# button1.pack(side=LEFT)
+# button2.pack(side=LEFT)
+# button3.pack(side=LEFT)
+#
+# window.mainloop()
+
+
+# from tkinter import *
+#
+#
+# window = Tk()
+# window.title('Application 3')
+#
+# topFrame = Frame(window)
+# leftFrame = Frame(window)
+# bottomFrame = Frame(window)
+# topFrame.pack()
+# leftFrame.pack()
+# bottomFrame.pack()
+#
+# text = Label(topFrame, text="This application demonstrates frame layout")
+# text.pack()
+#
+# button1 = Button(leftFrame, text='Button 1', fg='green')
+# button2 = Button(leftFrame, text='Button 2', fg='red')
+# button1.pack(side=LEFT)
+# button2.pack(side=LEFT)
+#
+# button3 = Button(bottomFrame, text='Button 3', fg='blue')
+# button4 = Button(bottomFrame, text='Button 4', fg='magenta')
+# button3.pack(side=LEFT)
+# button4.pack(side=LEFT)
+#
+# window.mainloop()
+
+
+# from tkinter import *
+#
+#
+# window = Tk()
+# window.title('Application 4')
+#
+# topFrame = Frame(window)
+# leftFrame = Frame(window)
+# rightFrame = Frame(window)
+# bottomFrame = Frame(window)
+# topFrame.pack()
+# leftFrame.pack()
+# rightFrame.pack()
+# bottomFrame.pack()
+#
+# text_top = Label(topFrame, text='TEXT')
+# text_top.pack()
+#
+# button1 = Button(leftFrame, text='Button 1', fg='red')
+# button1.pack(side=LEFT)
+# button2 = Button(leftFrame, text='Button 2', fg='yellow')
+# button2.pack(side=LEFT)
+# button3 = Button(leftFrame, text='Button 3', fg='blue')
+# button3.pack(side=LEFT)
+#
+# button4 = Button(rightFrame, text='Button 4', fg='green')
+# button4.pack(side=LEFT)
+# button5 = Button(rightFrame, text='Button 5', fg='magenta')
+# button5.pack(side=LEFT)
+# button6 = Button(rightFrame, text='Button 6', fg='white')
+# button6.pack(side=LEFT)
+#
+# button7 = Button(bottomFrame, text='Button 7', fg='cyan')
+# button7.pack(side=LEFT)
+# button8 = Button(bottomFrame, text='Button 8', fg='green')
+# button8.pack(side=LEFT)
+# button9 = Button(bottomFrame, text='Button 9', fg='blue')
+# button9.pack(side=LEFT)
+#
+# window.mainloop()
+
+
+# from tkinter import *
+#
+#
+# window = Tk()
+# window.title('Application 3')
+#
+# topFrame = Frame(window)
+# leftFrame = Frame(window)
+# bottomFrame = Frame(window)
+# topFrame.pack()
+# leftFrame.pack()
+# bottomFrame.pack()
+#
+# text1 = Label(topFrame, text="Text 1")
+# text1.pack()
+# text2 = Label(leftFrame, text='Text 2')
+# text2.pack(side=RIGHT)
+# text3 = Label(bottomFrame, text='Text 2')
+# text3.pack(side=RIGHT)
+#
+# button1 = Button(leftFrame, text='Button 1', fg='green')
+# button2 = Button(leftFrame, text='Button 2', fg='red')
+# button1.pack(side=LEFT)
+# button2.pack(side=LEFT)
+#
+# button3 = Button(bottomFrame, text='Button 3', fg='blue')
+# button4 = Button(bottomFrame, text='Button 4', fg='magenta')
+# button3.pack(side=LEFT)
+# button4.pack(side=LEFT)
+#
+# window.mainloop()
+
+# from tkinter import *
+#
+# window = Tk()
+# window.title("Clicking application")
+# window.geometry("600x350")
+#
+#
+# def clicked():
+#     print('Gutten Tag!')
+#
+#
+# button1 = Button(window, text="Click me!", command=clicked)
+# button1.pack()
+#
+# window.mainloop()
