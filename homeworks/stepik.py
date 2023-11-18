@@ -2768,4 +2768,52 @@
 #         if lst[1].count(c) > len(lst[1]) * 0.07:
 #             print(f'{c} goat', file=answer)
 
-            
+# n = int(input())
+# s = []
+# for i in range(n + 1):
+#     row = [1] * (i + 1)
+#     for j in range(i + 1):
+#         if j != i and j != 0:
+#             row[j] = s[i - 1][j - 1] + s[i - 1][j]
+#     s.append(row)
+# print(s[n] if n != 0 else [1])
+
+# n = int(input())
+# P = []
+# for i in range(0, n):
+#     row = [1] * (i + 1)
+#     for j in range(i + 1):
+#         if j != 0 and j != i:
+#             row[j] = P[i - 1][j - 1] + P[i - 1][j]
+#     P.append(row)
+#
+# for r in P:
+#     print(*r)
+
+# di_ct = {
+#     "0": "zero",
+#     "1": "one",
+#     "2": "two",
+#     "3": "three",
+#     "4": "four",
+#     "5": "five",
+#     "6": "six",
+#     "7": "seven",
+#     "8": "eight",
+#     "9": "nine"
+# }
+# for i in input():
+#     print(di_ct[i], end=' ')
+
+# import re
+#
+#
+# def get_right(word):
+#     pat = r'[^where]'
+#     return re.match(pat, word)
+#
+#
+# lst = ['where is my money?', 'i need more', 'i do not listen you', 'where am i']
+# where_words = list(filter(get_right, lst))
+# print(where_words)
+
