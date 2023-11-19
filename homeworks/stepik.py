@@ -2817,3 +2817,33 @@
 # where_words = list(filter(get_right, lst))
 # print(where_words)
 
+# count_lines = 0
+# count_letters = 0
+# count_words = 0
+# with open(r'C:\Users\Dimon\Downloads\file.txt', 'r', encoding='utf-8') as files:
+#     for file in files:
+#         count_lines += 1
+#         line = file.split()
+#         for i in line:
+#             count_words += 1
+#             for j in i:
+#                 if j.isalpha():
+#                     count_letters += 1
+#     print(f'Input file contains:\n{count_letters} letters\n{count_words} words\n{count_lines} lines')
+
+# import random
+#
+# random_first_names = []
+# random_last_names = []
+#
+# with open(r'C:\Users\Dimon\Downloads\first_names.txt', 'r', encoding='utf-8') as first_names, open(r'C:\Users\Dimon\Downloads\last_names.txt', 'r', encoding='utf-8') as last_names:
+#     for line in first_names:
+#         first = first_names.readline().rstrip()
+#         random_first_names.append(first)
+#         last = last_names.readline().rstrip()
+#         random_last_names.append(last)
+#     for choice in range(3):
+#         fir = random.choice(random_first_names)
+#         las = random.choice(random_last_names)
+#         print(f'{fir} {las}')
+

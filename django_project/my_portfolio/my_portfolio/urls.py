@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 from skills import views
+from skills.views import TodoAPIView, SkillsAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +33,8 @@ urlpatterns = [
     path('todo/<int:todo_pk>/complete', views.completetodo, name='completetodo'),
     path('todo/<int:todo_pk>/delete', views.deletetodo, name='deletetodo'),
     path('completed', views.completedtodos, name='completedtodos'),
+    path('api/v1/todolist/', TodoAPIView.as_view()),
+    path('api/v1/skillslist/', SkillsAPIView.as_view())
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

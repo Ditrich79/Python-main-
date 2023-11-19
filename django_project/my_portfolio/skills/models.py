@@ -8,6 +8,13 @@ class Skills(models.Model):
     image = models.ImageField(upload_to='skills/images/')
     url = models.URLField(blank=True)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'навык'
+        verbose_name_plural = 'Навыки'
+
 
 class Todo(models.Model):
     title = models.CharField(max_length=100)
@@ -19,3 +26,7 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'задачу'
+        verbose_name_plural = 'Задачи'

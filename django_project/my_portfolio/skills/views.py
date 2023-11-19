@@ -8,6 +8,8 @@ from .forms import TodoForm
 from .models import Todo
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from rest_framework import generics
+from .serializers import TodoSerializer, SkillsSerializer
 
 
 def home(request):
@@ -117,3 +119,13 @@ def deletetodo(request, todo_pk):
 def completedtodos(request):
     todos = Todo.objects.filter(user=request.user, date_completed__isnull=False).order_by('-date_completed')
     return render(request, 'skills/completedtodos.html', {'todos': todos})
+
+
+class TodoAPIView(generics.ListAPIView):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+
+class SkillsAPIView(generics.ListAPIView):
+    queryset = Skills.objects.all()
+    serializer_class = SkillsSerializer
