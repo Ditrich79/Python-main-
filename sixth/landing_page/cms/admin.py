@@ -15,4 +15,5 @@ class CmsAdmin(admin.ModelAdmin):
 
     get_img.short_description = "Миниатюра"
 
+
 admin.site.register(CmsSlider, CmsAdmin)

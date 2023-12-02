@@ -2847,3 +2847,21 @@
 #         las = random.choice(random_last_names)
 #         print(f'{fir} {las}')
 
+
+# with open(r'C:\Users\Dimon\Downloads\population.txt', 'r', encoding='utf-8') as countries:
+#     choosen_countries = [line.split('\t') for line in countries]
+#     for country in choosen_countries:
+#         if country[0].startswith('G') and int(country[1]) > 500000:
+#             print(country[0])
+
+
+# from collections import Counter
+# import sys
+#
+# my_trees = ['maple', 'oak', 'elm', 'maple', 'elm', 'elm', 'oak', 'oak']
+# count = Counter(my_trees)
+#
+# for key in count.items():
+#     print(*key, file=sys.stderr)
+
+
