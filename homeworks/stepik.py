@@ -2865,3 +2865,16 @@
 #     print(*key, file=sys.stderr)
 
 
+# import csv
+#
+#
+# def read_csv():
+#     with open(r'C:\Users\Dimon\Downloads\data.csv', 'r', newline='') as csv_file:
+#         reader = csv.DictReader(csv_file)
+#         lst = []
+#         for row in reader:
+#             lst.append(row)
+#         print(lst)
+#
+#
+# read_csv()
