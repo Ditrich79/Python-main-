@@ -2878,3 +2878,45 @@
 #
 #
 # read_csv()
+
+# x = 78.34
+# print(round(x) % 3 == 0)
+
+
+# N = int(input())
+#
+#
+# def get_rec_n(n):
+#     if n > 0:
+#         get_rec_n(n-1)
+#         print(n)
+#
+#
+# get_rec_n(N)
+
+
+# get_str = input().split()
+# get_dig = list(map(int, get_str))
+#
+#
+# def get_rec_sum(value):
+#     if len(value) == 1:
+#         return value[0]
+#     else:
+#         return value[0] + get_rec_sum(value[1:])
+#
+#
+# get_rec_sum(get_dig)
+
+
+# n = int(input())
+#
+#
+# def fact_rec(value):
+#     if value <= 1:
+#         return value
+#     else:
+#         return value * fact_rec(value - 1)
+#
+#
+# print(fact_rec(n))
