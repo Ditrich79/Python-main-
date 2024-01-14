@@ -2920,3 +2920,120 @@
 #
 #
 # print(fact_rec(n))
+
+
+# class Gun:
+#     def shoot(self):
+#         print('pif')
+#
+#
+# gun = Gun()
+# gun.shoot()
+# gun.shoot()
+# gun.shoot()
+
+# class User:
+#     def __init__(self, name, friends=0):
+#         self.name = name
+#         self.friends = friends
+#
+#     def add_friends(self, n):
+#         self.friends += n
+#
+#
+# user = User('Timur')
+#
+# user.add_friends(2)
+# user.add_friends(2)
+# user.add_friends(3)
+#
+# print(user.friends)
+
+
+# class House:
+#     def __init__(self, color: str, rooms: int):
+#         self.color = color
+#         self.rooms = rooms
+#
+#     def paint(self, new_color: str):
+#         self.color = new_color
+#
+#     def add_rooms(self, n: int):
+#         self.rooms += n
+#
+#
+# house = House('white', 4)
+#
+# house.paint('black')
+# house.add_rooms(1)
+#
+# print(house.color)
+# print(house.rooms)
+
+
+# from math import pi
+#
+#
+# class Circle:
+#     def __init__(self, radius: int):
+#         self.radius = radius
+#         self.diameter = radius * 2
+#         self.area = pi * radius ** 2
+#
+#
+# circle = Circle(5)
+#
+# print(circle.radius)
+# print(circle.diameter)
+# print(circle.area)
+
+
+# class Bee:
+#     def __init__(self, x: int = 0, y: int = 0):
+#         self.x = x
+#         self.y = y
+#
+#     def move_up(self, n: int):
+#         self.y += n
+#
+#     def move_down(self, n: int):
+#         self.y -= n
+#
+#     def move_right(self, n: int):
+#         self.x += n
+#
+#     def move_left(self, n: int):
+#         self.x -= n
+#
+#
+# bee = Bee()
+#
+# bee.move_right(2)
+# bee.move_right(2)
+# bee.move_up(3)
+# bee.move_left(1)
+# bee.move_down(1)
+#
+# print(bee.x, bee.y)
+
+
+# class Gun:
+#     def __init__(self):
+#         self.shoot_counter = True
+#
+#     def shoot(self):
+#         if self.shoot_counter:
+#             print('pif')
+#             self.shoot_counter = False
+#         else:
+#             print('paf')
+#             self.shoot_counter = True
+#
+#
+# gun = Gun()
+#
+# gun.shoot()
+# gun.shoot()
+# gun.shoot()
+# gun.shoot()
+
