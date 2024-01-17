@@ -3037,3 +3037,154 @@
 # gun.shoot()
 # gun.shoot()
 
+
+# class Gun:
+#     def __init__(self):
+#         self.shoot_counter = True
+#         self.shot_number = 0
+#
+#     def shoot(self):
+#         if self.shoot_counter:
+#             print('pif')
+#             self.shoot_counter = False
+#             self.shot_number += 1
+#         else:
+#             print('paf')
+#             self.shoot_counter = True
+#             self.shot_number += 1
+#
+#     def shots_count(self):
+#         return self.shot_number
+#
+#     def shots_reset(self):
+#         self.__dict__['shoot_counter'] = True
+#         self.__dict__['shot_number'] = 0
+
+
+# gun = Gun()
+#
+# gun.shoot()
+# gun.shoot()
+# print(gun.shots_count())
+# gun.shots_reset()
+# print(gun.shots_count())
+# gun.shoot()
+# print(gun.shots_count())
+
+
+# gun = Gun()
+#
+# print(gun.shots_count())
+# gun.shoot()
+# print(gun.shots_count())
+# gun.shoot()
+# print(gun.shots_count())
+
+# gun = Gun()
+#
+# gun.shoot()
+# print(gun.shots_count())
+# gun.shots_reset()
+# print(gun.shots_count())
+# gun.shoot()
+# gun.shoot()
+
+
+# class Scales:
+#     right = 0
+#     left = 0
+#
+#     def add_right(self, r_weight: int):
+#         self.right += r_weight
+#         return self.right
+#
+#     def add_left(self, l_weight: int):
+#         self.left += l_weight
+#         return self.left
+#
+#     def get_result(self):
+#         if self.right == self.left:
+#             return "Весы в равновесии"
+#         elif self.right > self.left:
+#             return "Правая чаша тяжелее"
+#         elif self.right < self.left:
+#             return "Левая чаша тяжелее"
+
+
+# scales = Scales()
+#
+# scales.add_right(1)
+# scales.add_right(1)
+# scales.add_left(2)
+#
+# print(scales.get_result())
+
+# scales = Scales()
+#
+# scales.add_right(1)
+# scales.add_left(2)
+#
+# print(scales.get_result())
+
+# scales = Scales()
+#
+# scales.add_right(2)
+# scales.add_left(1)
+#
+# print(scales.get_result())
+
+# from math import sqrt
+#
+#
+# class Vector:
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#
+#     def abs(self):
+#         return sqrt(self.x ** 2 + self.y ** 2)
+#
+#
+# vector = Vector()
+#
+# print(vector.x, vector.y)
+# print(vector.abs())
+
+
+class Numbers:
+    digits = []
+    lst_even = []
+    lst_odd = []
+
+    def add_number(self, number: int):
+        return self.digits.append(number)
+
+    def get_even(self):
+        for digit in self.digits:
+            if digit % 2 == 0:
+                self.lst_even.append(digit)
+        return self.lst_even
+
+    def get_odd(self):
+        for digit in self.digits:
+            if digit % 2 != 0:
+                self.lst_odd.append(digit)
+        return self.lst_odd
+
+
+numbers = Numbers()
+
+numbers.add_number(1)
+numbers.add_number(2)
+numbers.add_number(3)
+numbers.add_number(4)
+
+even = numbers.get_even()
+odd = numbers.get_odd()
+print(numbers.get_even())
+print(numbers.get_odd())
+
+even.append(None)
+odd.append(None)
+print(numbers.get_even())
+print(numbers.get_odd())
