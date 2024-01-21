@@ -3151,40 +3151,50 @@
 # print(vector.abs())
 
 
-class Numbers:
-    digits = []
-    lst_even = []
-    lst_odd = []
+# class Numbers:
+#     digits = []
+#
+#     def add_number(self, number: int):
+#         return self.digits.append(number)
+#
+#     def get_even(self):
+#         self.lst_even = []
+#         for digit in self.digits:
+#             if digit % 2 == 0:
+#                 self.lst_even.append(digit)
+#         return self.lst_even
+#
+#     def get_odd(self):
+#         self.lst_odd = []
+#         for digit in self.digits:
+#             if digit % 2 != 0:
+#                 self.lst_odd.append(digit)
+#         return self.lst_odd
+#
+#
+# numbers = Numbers()
+#
+# numbers.add_number(1)
+# numbers.add_number(2)
+# numbers.add_number(3)
+# numbers.add_number(4)
+#
+# even = numbers.get_even()
+# odd = numbers.get_odd()
+# print(numbers.get_even())
+# print(numbers.get_odd())
+#
+# even.append(None)
+# odd.append(None)
+# print(numbers.get_even())
+# print(numbers.get_odd())
 
-    def add_number(self, number: int):
-        return self.digits.append(number)
 
-    def get_even(self):
-        for digit in self.digits:
-            if digit % 2 == 0:
-                self.lst_even.append(digit)
-        return self.lst_even
+class TextHandler:
 
-    def get_odd(self):
-        for digit in self.digits:
-            if digit % 2 != 0:
-                self.lst_odd.append(digit)
-        return self.lst_odd
+    def add_words(self, text: str):
+        lst = text.split()
+        return lst
 
-
-numbers = Numbers()
-
-numbers.add_number(1)
-numbers.add_number(2)
-numbers.add_number(3)
-numbers.add_number(4)
-
-even = numbers.get_even()
-odd = numbers.get_odd()
-print(numbers.get_even())
-print(numbers.get_odd())
-
-even.append(None)
-odd.append(None)
-print(numbers.get_even())
-print(numbers.get_odd())
+    def get_shortest_words(self, shot: str):
+        shortest_words =

@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/fifth/programming_blog" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/sixth/landing_page" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/GUI_APS/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
