@@ -5,7 +5,7 @@
 # a = 0
 # do_something()
 # print(a)
-
+import math
 # a = 1
 #
 # def do_something():
@@ -3190,11 +3190,259 @@
 # print(numbers.get_odd())
 
 
-class TextHandler:
+# class TextHandler:
+#     words = []
+#
+#     def add_words(self, text):
+#         for word in text.split():
+#             self.words.append(word)
+#
+#     def get_shortest_words(self):
+#         shortest = list([word for word in self.words if len(word) == min(map(len, self.words))])
+#         return shortest
+#
+#     def get_longest_words(self):
+#         longest = list([word for word in self.words if len(word) == max(map(len, self.words))])
+#         return longest
+#
+#
+# texthandler = TextHandler()
+#
+# texthandler.add_words('do not be sorry')
+# texthandler.add_words('be')
+# texthandler.add_words('better')
+#
+# print(texthandler.get_shortest_words())
+# print(texthandler.get_longest_words())
 
-    def add_words(self, text: str):
-        lst = text.split()
-        return lst
 
-    def get_shortest_words(self, shot: str):
-        shortest_words =
+# class Todo:
+#     def __init__(self):
+#         self.things = []
+#
+#     def add(self, name: str, priority: int):
+#         kort = (name, priority)
+#         self.things.append(kort)
+#         return self.things
+#
+#     def get_by_priority(self, n: int):
+#         names_of_things = []
+#         for key in self.things:
+#             if key[1] == n:
+#                 names_of_things.append(key[0])
+#                 return names_of_things
+#
+#     def get_low_priority(self):
+#         min_priority = min([task[1] for task in self.things], default=0)
+#         result = []
+#         for task in self.things:
+#             if task[1] == min_priority:
+#                 result.append(task[0])
+#         return result
+#
+#     def get_high_priority(self):
+#         max_priority = max([task[1] for task in self.things], default=0)
+#         result = []
+#         for task in self.things:
+#             if task[1] == max_priority:
+#                 result.append(task[0])
+#         return result
+#
+#
+# todo = Todo()
+# todo.add('помыться', 1)
+# todo.add('поесть', 2)
+# todo.add('поспать', 3)
+# print(todo.things)
+# print(todo.get_by_priority(2))
+# print(todo.get_by_priority(3))
+# print(todo.get_low_priority())
+# print(todo.get_high_priority())
+
+
+# class Postman:
+#     def __init__(self):
+#         self.delivery_data = []
+#
+#     def add_delivery(self, street: str, house: int, flat: int):
+#         result = (street, house, flat)
+#         self.delivery_data.append(result)
+#         return self.delivery_data
+#
+#     def get_houses_for_street(self, street: str):
+#         houses = []
+#         for data in self.delivery_data:
+#             if data[0] == street:
+#                 houses.append(data[1])
+#         houses2 = dict.fromkeys(houses)
+#         houses3 = list(houses2.keys())
+#         return houses3
+#
+#     def get_flats_for_house(self, street: str, house: int):
+#         flats = []
+#         for data in self.delivery_data:
+#             if data[0] == street and data[1] == house:
+#                 flats.append(data[2])
+#         flats2 = set(flats)
+#         flats3 = list(flats2)
+#         return flats3
+#
+#
+# postman = Postman()
+#
+# postman.add_delivery('Советская', 151, 74)
+# postman.add_delivery('Советская', 151, 75)
+# postman.add_delivery('Советская', 90, 2)
+# postman.add_delivery('Советская', 151, 74)
+#
+# print(postman.get_houses_for_street('Советская'))
+# print(postman.get_flats_for_house('Советская', 151))
+
+
+# postman = Postman()
+#
+# delivery_data = [('Тульская', 149, 35), ('Запорожская', 19, 26), ('Сосновая', 33, 17), ('Высотная', 91, 44),
+#                  ('Шишкина', 143, 8), ('Иванова', 60, 38), ('Веселая', 115, 19), ('Учительская', 37, 70),
+#                  ('М.Горького', 167, 57), ('Северная', 128, 44), ('Железнодорожная', 121, 28), ('Пригородная', 39, 2),
+#                  ('Одесская', 176, 34), ('Высоцкого', 100, 24), ('Цветочная', 168, 49), ('Павлова', 35, 62),
+#                  ('Шолохова', 177, 8), ('Баумана', 27, 96), ('Димитрова', 170, 37), ('Папанина', 85, 59),
+#                  ('40 лет Победы', 167, 56), ('Весенняя', 165, 63), ('Дарвина', 77, 39), ('Лунная', 200, 79),
+#                  ('Иванова', 104, 20), ('Комсомольская', 38, 74), ('Дарвина', 149, 44), ('Льва Толстого', 174, 85),
+#                  ('Победы', 64, 45), ('Новоселов', 128, 22)]
+#
+# for delivery in delivery_data:
+#     postman.add_delivery(*delivery)
+#
+# print(postman.get_houses_for_street('Дарвина'))
+# print(postman.get_flats_for_house('Новоселов', 128))
+
+
+# class Wordplay:
+#     def __init__(self, words=None):
+#         if words is None:
+#             words = []
+#         self.words = words
+#
+#     def add_word(self, word):
+#         if word not in self.words:
+#             self.words.append(word)
+#
+#     def words_with_length(self, n):
+#         return [word for word in self.words if len(word) == n]
+#
+#     def only(self, *letters):
+#         words = [word for word in self.words if set(word) == set(letters)]
+#         return words
+#
+#     def avoid(self, *letters):
+#         words = [word for word in self.words if not any(letter in word for letter in letters)]
+#         return words
+#
+#
+# wordplay = Wordplay(['bee', 'geek', 'cool', 'stepik'])
+#
+# wordplay.add_word('python')
+# print(wordplay.words_with_length(4))
+
+
+# from math import pi
+# #
+# #
+# # class Circle:
+# #     def __init__(self, radius: int):
+# #         self._radius = radius
+# #         self._diameter = 2 * radius
+# #         self._area = pi * (radius ** 2)
+# #
+# #     def get_radius(self):
+# #         return self._radius
+# #
+# #     def get_diameter(self):
+# #         return self._diameter
+# #
+# #     def get_area(self):
+# #         return self._area
+# #
+# #
+# # circle = Circle(1)
+# #
+# # print(circle.get_radius())
+# # print(circle.get_diameter())
+# # print(round(circle.get_area()))
+
+
+# class BankAccount:
+#     def __init__(self, balance=0):
+#         self._balance = balance
+#
+#     def get_balance(self):
+#         return self._balance
+#
+#     def deposit(self, amount):
+#         if isinstance(amount, (int, float)):
+#             self._balance += amount
+#
+#     def withdraw(self, amount):
+#         if self._balance >= amount and isinstance(amount, (int, float)):
+#             self._balance -= amount
+#         else:
+#             raise ValueError('На счете недостаточно средств')
+#
+#     def transfer(self, account, amount):
+#         if isinstance(account, BankAccount) and isinstance(amount, (int, float)):
+#             if self._balance >= amount:
+#                 self._balance -= amount
+#                 account._balance += amount
+#             else:
+#                 raise ValueError("На счете недостаточно средств")
+#
+#
+# account1 = BankAccount(100)
+# account2 = BankAccount(200)
+#
+# try:
+#     account1.transfer(account2, 150)
+# except ValueError as e:
+#     print(e)
+
+
+# class User:
+#     def __init__(self, name: str, age: int):
+#         if isinstance(name, str) and name.isalpha():
+#             self._name = name
+#         else:
+#             raise ValueError("Некорректное имя")
+#
+#         if isinstance(age, int) and 0 <= age <= 110:
+#             self._age = age
+#         else:
+#             raise ValueError("Некорректный возраст")
+#
+#     def get_name(self):
+#         return self._name
+#
+#     def set_name(self, new_name: str):
+#         if isinstance(new_name, str) and new_name.isalpha():
+#             self._name = new_name
+#         else:
+#             raise ValueError("Некорректное имя")
+#
+#     def get_age(self):
+#         return self._age
+#
+#     def set_age(self, new_age: int):
+#         if isinstance(new_age, int) and 0 <= new_age <= 110:
+#             self._age = new_age
+#         else:
+#             raise ValueError("Некорректный возраст")
+#
+#
+# invalid_names = (-1, True, '', [], '123456', 'Меган906090')
+#
+# for name in invalid_names:
+#     try:
+#         user = User(name, 37)
+#     except ValueError as e:
+#         print(e)
+
+
