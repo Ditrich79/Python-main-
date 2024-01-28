@@ -10,6 +10,7 @@ def main(page: ft.Page):
     user_data = ft.TextField(label='Укажите город', width=400)
     weather_data = ft.Text('')
     feels = ft.Text('')
+    weather_info = ft.Text('')
 
     def get_info(event):
         if len(user_data.value) < 2:
@@ -21,8 +22,10 @@ def main(page: ft.Page):
         # print(result)
         temperature = result['main']['temp']
         feels_like = result['main']['feels_like']
-        feels.value = 'Чувствуется как: ' + str(feels_like) + ' °C'
-        weather_data.value = 'Погода: ' + str(temperature) + ' °C'
+        weather = result['weather'][0]['description']
+        feels.value = 'Чувствуется как: ' + str(round(feels_like, 0)) + ' °C'
+        weather_data.value = 'Температура: ' + str(round(temperature, 0)) + ' °C'
+        weather_info.value = 'Погода: ' + str(weather)
         page.update()
 
     def change_theme(e):
@@ -52,6 +55,12 @@ def main(page: ft.Page):
         ft.Row(
             [
                 feels
+            ],
+            alignment=ft.MainAxisAlignment.CENTER
+        ),
+        ft.Row(
+            [
+                weather_info
             ],
             alignment=ft.MainAxisAlignment.CENTER
         ),
