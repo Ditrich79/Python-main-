@@ -3446,3 +3446,94 @@ import math
 #         print(e)
 
 
+# class Rectangle:
+#     def __init__(self, length: int, width: int):
+#         self.length = length
+#         self.width = width
+#
+#     def perimeter(self):
+#         return 2 * (self.length + self.width)
+#
+#     def area(self):
+#         return self.length * self.width
+#
+#     perimeter = property(perimeter)
+#     area = property(area)
+#
+#
+# rectangle = Rectangle(4, 5)
+#
+# print(rectangle.length)
+# print(rectangle.width)
+# print(rectangle.perimeter)
+# print(rectangle.area)
+
+
+# class HourClock:
+#     def __init__(self, hours: int):
+#         if isinstance(hours, int) and 1 <= hours <= 12:
+#             self._hours = hours
+#         else:
+#             raise ValueError("Некорректное время")
+#
+#     def get_hours(self):
+#         return self._hours
+#
+#     def set_hours(self, hours: int):
+#         if isinstance(hours, int) and 1 <= hours <= 12:
+#             self._hours = hours
+#         else:
+#             raise ValueError("Некорректное время")
+#
+#     hours = property(get_hours, set_hours)
+#
+#
+# time = HourClock(7)
+#
+# print(time.hours)
+# time.hours = 9
+# print(time.hours)
+
+
+# class Person:
+#     def __init__(self, name: str, surname: str):
+#         self.name = name
+#         self.surname = surname
+#
+#     def get_info(self):
+#         return self.name + ' ' + self.surname
+#
+#     def set_info(self, info):
+#         self.name, self.surname = info.split()
+#
+#     fullname = property(get_info, set_info)
+#
+#
+# person = Person('Меган', 'Фокс')
+#
+# print(person.name)
+# print(person.surname)
+# print(person.fullname)
+
+
+# class Person:
+#     def __init__(self, name: str, surname: str):
+#         self.name = name
+#         self.surname = surname
+#
+#     @property
+#     def fullname(self):
+#         return self.name + ' ' + self.surname
+#
+#     @fullname.setter
+#     def fullname(self, info):
+#         self.name, self.surname = info.split()
+#
+#
+# person = Person('Mike', 'Pondsmith')
+#
+# print(person.name)
+# print(person.surname)
+# print(person.fullname)
+
+
