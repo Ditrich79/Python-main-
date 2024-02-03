@@ -6,6 +6,8 @@
 # do_something()
 # print(a)
 import math
+
+
 # a = 1
 #
 # def do_something():
@@ -3536,4 +3538,325 @@ import math
 # print(person.surname)
 # print(person.fullname)
 
+
+# class Account:
+#     def __init__(self, login, password):
+#         self._login = login
+#         self._password = hash_function(password)
+#
+#     @property
+#     def login(self):
+#         return self._login
+#
+#     @login.setter
+#     def login(self, login):
+#         raise AttributeError('Изменение логина невозможно')
+#
+#     @property
+#     def password(self):
+#         return self._password
+#
+#     @password.setter
+#     def password(self, new_password):
+#         new_hash = hash_function(new_password)
+#         self._password = new_hash
+#
+#
+# def hash_function(password):
+#     hash_value = 0
+#     for char, index in zip(password, range(len(password))):
+#         hash_value += ord(char) * index
+#     return hash_value % 10 ** 9
+#
+#
+# account = Account('hannymad', 'cakeisalie')
+#
+# print(account.login)
+# print(account.password)
+
+
+# class Color:
+#     def __init__(self, hexcode):
+#         self.r = int(hexcode[1:3], 16)
+#         self.g = int(hexcode[3:5], 16)
+#         self.b = int(hexcode[5:7], 16)
+#         self.__hexcode = hexcode
+#
+#     def get_rgb(self):
+#         return int(self.r), int(self.g), int(self.b)
+#
+#     @property
+#     def hexcode(self):
+#         return self.__hexcode
+#
+#     @hexcode.setter
+#     def hexcode(self, value):
+#         if len(value) == 7 and value[0] == '#':
+#             value = int(value, 16)
+#             self.__hexcode = value
+#             self.r = int(value[1:3], 16)
+#             self.g = int(value[3:5], 16)
+#             self.b = int(value[5:7], 16)
+#             # red, green, blue = divmod(value, 256), divmod(value, 65536)
+#             # self.r, self.g, self.b = red[0], green[0], blue[0]
+#         else:
+#             raise ValueError("Invalid hex code")
+
+# class Color:
+#     def __init__(self, hexcode):
+#         self.r = int(hexcode[1:3], 16)
+#         self.g = int(hexcode[3:5], 16)
+#         self.b = int(hexcode[5:7], 16)
+#         self.__hexcode = hexcode
+#
+#     @property
+#     def hexcode(self):
+#         return self.__hexcode
+#
+#     @hexcode.setter
+#     def hexcode(self, value):
+#         if len(value) != 7 or value[0] != '#':
+#             raise ValueError("Invalid hex code")
+#
+#         r, g, b = int(value[1:3], 16), int(value[3:5], 16), int(value[5:7], 16)
+#         self.r = r if r <= 256 else 255
+#         self.g = g if g <= 256 else 255
+#         self.b = b if b <= 256 else 255
+#         self.__hexcode = value
+
+
+# color = Color('0000FF')
+#
+# print(color.hexcode)
+# print(color.r)
+# print(color.g)
+# print(color.b)
+
+
+# class Circle:
+#     def __init__(self, radius: int):
+#         self.radius = radius
+#
+#     @classmethod
+#     def from_diameter(cls, diameter):
+#         return cls(diameter / 2)
+#
+#
+# circle = Circle(5)
+#
+# print(circle.radius)
+
+
+# class Rectangle:
+#     def __init__(self, length: int, width: int):
+#         self.length = length
+#         self.width = width
+#
+#     @classmethod
+#     def square(cls, side: int):
+#         return cls(side, side)
+#
+#
+# rectangle = Rectangle(4, 5)
+#
+# print(rectangle.length)
+# print(rectangle.width)
+
+
+# class QuadraticPolynomial:
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     @classmethod
+#     def from_iterable(cls):
+#         return cls([a, b, c])
+
+
+# class Pet:
+#     pets = []
+#
+#     def __init__(self, name):
+#         self.name = name
+#         Pet.pets.append(self)
+#
+#     @classmethod
+#     def first_pet(cls):
+#         if cls.pets:
+#             return cls.pets[0]
+#         else:
+#             return None
+#
+#     @classmethod
+#     def last_pet(cls):
+#         if cls.pets:
+#             return cls.pets[-1]
+#         else:
+#             return None
+#
+#     @classmethod
+#     def num_of_pets(cls):
+#         return len(cls.pets)
+#
+#
+# pet1 = Pet('Ratchet')
+# pet2 = Pet('Clank')
+# pet3 = Pet('Rivet')
+#
+# print(Pet.first_pet().name)
+# print(Pet.last_pet().name)
+# print(Pet.num_of_pets())
+
+
+# class StrExtension:
+#
+#     @staticmethod
+#     def remove_vowels(s):
+#         vowels = "aeiouyAEIOUY"
+#         new_string = ""
+#         for char in s:
+#             if char not in vowels:
+#                 new_string += char
+#         return new_string
+#
+#     @staticmethod
+#     def leave_alpha(s):
+#         alpha_characters = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+#         new_string = "".join([char for char in s if char in alpha_characters])
+#         return new_string
+#
+#     @staticmethod
+#     def replace_all(string, chars, char):
+#         string = string
+#         chars = chars
+#         char = char
+#
+#         result = ""
+#         for c in string:
+#             if c in chars:
+#                 result += char
+#             else:
+#                 result += c
+#         return result
+#
+#
+# print(StrExtension.replace_all('Python', 'Ptn', '-'))
+# print(StrExtension.replace_all('Stepik', 'stk', '#'))
+
+# from functools import singledispatchmethod
+#
+#
+# class Processor:
+#
+#     @singledispatchmethod
+#     @staticmethod
+#     def process(data):
+#         raise TypeError('Аргумент переданного типа не поддерживается')
+#
+#     @process.register(int)
+#     @staticmethod
+#     def _from_int(data):
+#         return data * 2
+#
+#     @process.register(float)
+#     @staticmethod
+#     def _from_float(data):
+#         return data * 2
+#
+#     @process.register(str)
+#     @staticmethod
+#     def _from_str(data):
+#         return data.upper()
+#
+#     @process.register(list)
+#     @staticmethod
+#     def _from_list(data):
+#         return sorted(data)
+#
+#     @process.register(tuple)
+#     @staticmethod
+#     def _from_tuple(data):
+#         return tuple(sorted(data))
+#
+#
+# print(Processor.process(10))
+# print(Processor.process(5.2))
+# print(Processor.process('hello'))
+# print(Processor.process((4, 3, 2, 1)))
+# print(Processor.process([3, 2, 1]))
+
+# from functools import singledispatchmethod
+#
+#
+# class Negator:
+#
+#     @singledispatchmethod
+#     @staticmethod
+#     def neg(a):
+#         print('Аргумент переданного типа не поддерживается')
+#
+#     @neg.register(int)
+#     @staticmethod
+#     def _int(a):
+#         return -a
+#
+#     @neg.register(float)
+#     @staticmethod
+#     def _float(a):
+#         return -a
+#
+#     @neg.register(bool)
+#     @staticmethod
+#     def _bool(a):
+#         return not a
+#
+#
+# try:
+#     Negator.neg('number')
+# except TypeError as e:
+#     print(e)
+
+# from functools import singledispatchmethod
+#
+#
+# class Formatter:
+#
+#     @singledispatchmethod
+#     @staticmethod
+#     def format(obj):
+#         print('Аргумент переданного типа не поддерживается')
+#
+#     @format.register(int)
+#     @staticmethod
+#     def _from_int(obj):
+#         print(f'Целое число: {obj}')
+#
+#     @format.register(float)
+#     @staticmethod
+#     def _from_float(obj):
+#         print(f'Вещественное число: {obj}')
+#
+#     @format.register(list)
+#     @staticmethod
+#     def _from_list(obj):
+#         print(f'Элементы списка: {", ".join(map(str, obj))}')
+#
+#     @format.register(tuple)
+#     @staticmethod
+#     def _from_tuple(obj):
+#         print(f'Элементы кортежа: {", ".join(map(str, obj))}')
+#
+#     @format.register(dict)
+#     @staticmethod
+#     def _from_dict(obj):
+#         print('Пары словаря: ', end='')
+#         print(*obj.items(), sep=', ')
+#
+#
+# # Formatter.format(1337)
+# # Formatter.format(20.77)
+# # Formatter.format([10, 20, 30, 40, 50])
+# # Formatter.format(([1, 3], [2, 4, 6]))
+# Formatter.format({'Cuphead': 1, 'Mugman': 3})
 
