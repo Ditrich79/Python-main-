@@ -3860,3 +3860,81 @@ import math
 # # Formatter.format(([1, 3], [2, 4, 6]))
 # Formatter.format({'Cuphead': 1, 'Mugman': 3})
 
+
+# class Config:
+#     _instance = None
+#
+#     def __new__(cls, *args, **kwargs):
+#         if cls._instance is None:
+#             cls._instance = object.__new__(cls)
+#         return cls._instance
+#
+#     def __init__(self):
+#         self.program_name = 'GenerationPy'
+#         self.environment = 'release'
+#         self.loglevel = 'verbose'
+#         self.version = '1.0.0'
+#
+#
+# config = Config()
+# print('program_name' in config.__dict__)
+# print('environment' in config.__dict__)
+# print('loglevel' in config.__dict__)
+# print('version' in config.__dict__)
+
+
+# class Book:
+#     def __init__(self, title, author, year):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+#
+#     def __str__(self):
+#         return f'{self.title} ({self.author}, {self.year})'
+#
+#     def __repr__(self):
+#         return f"Book('{self.title}', '{self.author}', {self.year})"
+#
+#
+# book = Book('Изучаем Python', 'Марк Лутц', 2021)
+#
+# print(book)
+# print(repr(book))
+
+
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+#
+#     def __str__(self):
+#         return f"Rectangle({self.length}, {self.width})"
+#
+#     def __repr__(self):
+#         return f"Rectangle({self.length}, {self.width})"
+#
+#
+# rectangle1 = Rectangle(1, 2)
+# rectangle2 = Rectangle(3, 4)
+#
+# print(rectangle1)
+# print(repr(rectangle2))
+
+
+# import re
+#
+#
+# def is_integer(string):
+#     pattern = r'\-?\d+'
+#     result = re.fullmatch(pattern, string)
+#     if result:
+#         return True
+#     else:
+#         return False
+#
+#
+# print(is_integer('-43'))
+# print(is_integer('199'))
+# print(is_integer('5f'))
+
+
