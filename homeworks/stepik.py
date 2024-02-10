@@ -3938,3 +3938,72 @@ import math
 # print(is_integer('5f'))
 
 
+# class Vector:
+#     def __init__(self, x: int, y: int):
+#         self.x = x
+#         self.y = y
+#
+#     def __repr__(self):
+#         return f"Vector({self.x}, {self.y})"
+#
+#     def __str__(self):
+#         return f"Вектор на плоскости с координатами({self.x}, {self.y})"
+#
+#
+# vectors = [Vector(1, 2), Vector(3, 4)]
+#
+# print(vectors)
+
+# from functools import singledispatchmethod
+#
+#
+# class IPAddress:
+#     @singledispatchmethod
+#     def __init__(self, ipaddress):
+#         self.ipaddress = ipaddress
+#
+#     @__init__.register(list)
+#     @__init__.register(tuple)
+#     def to_list_tuple(self, obj):
+#         self.ipaddress = obj
+#
+#     def __str__(self):
+#         if isinstance(self.ipaddress, list) or isinstance(self.ipaddress, tuple):
+#             return f"{'.'.join(map(str, self.ipaddress))}"
+#         return f'{self.ipaddress}'
+#
+#     def __repr__(self):
+#         if isinstance(self.ipaddress, list) or isinstance(self.ipaddress, tuple):
+#             return f"IPAddress('{'.'.join(map(str, self.ipaddress))}')"
+#         return f"IPAddress('{self.ipaddress}')"
+#
+#
+# ip = IPAddress('8.8.1.1')
+#
+# print(str(ip))
+# print(repr(ip))
+
+
+# class PhoneNumber:
+#     def __init__(self, phone_number):
+#         self.phone_number = phone_number
+#
+#     def __str__(self):
+#         for char in self.phone_number:
+#             if char == ' ':
+#                 return f"({self.phone_number[0:3]}) {self.phone_number[4:7]}-{self.phone_number[8:]}"
+#         return f"({self.phone_number[0:3]}) {self.phone_number[3:6]}-{self.phone_number[6:]}"
+#
+#     def __repr__(self):
+#         for char in self.phone_number:
+#             if char == ' ':
+#                 return f"PhoneNumber('{self.phone_number[0:3]}{self.phone_number[4:7]}{self.phone_number[8:]}')"
+#         return f"PhoneNumber('{self.phone_number}')"
+#
+#
+# phone = PhoneNumber('9173963385')
+#
+# print(str(phone))
+# print(repr(phone))
+
+
