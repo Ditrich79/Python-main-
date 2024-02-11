@@ -7,7 +7,6 @@
 # print(a)
 import math
 
-
 # a = 1
 #
 # def do_something():
@@ -4006,4 +4005,132 @@ import math
 # print(str(phone))
 # print(repr(phone))
 
+
+# class Vector:
+#     def __init__(self, x: float, y: float) -> None:
+#         self.x = x
+#         self.y = y
+#
+#     def __repr__(self) -> str:
+#         return f"Vector({self.x!r}, {self.y!r})"
+#
+#     def __eq__(self, other: object) -> bool:
+#         if isinstance(other, tuple) and len(other) == 2:
+#             return self.x == other[0] and self.y == other[1]
+#         elif isinstance(other, Vector):
+#             return (self.x, self.y) == (other.x, other.y)
+#         else:
+#             return NotImplemented
+#
+#
+# vector = Vector(0, 1)
+#
+# print(vector.__eq__(1))
+# print(vector.__ne__(1.1))
+# print(vector.__gt__(range(5)))
+# print(vector.__lt__([1, 2, 3]))
+# print(vector.__ge__({4, 5, 6}))
+# print(vector.__le__({1: 'one'}))
+
+
+# from functools import total_ordering
+#
+#
+# @total_ordering
+# class Word:
+#     def __init__(self, word: str) -> None:
+#         self.word = word
+#
+#     def __repr__(self):
+#         return f"Word('{self.word}')"
+#
+#     def __str__(self):
+#         return self.word.capitalize()
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Word):
+#             return len(self.word) == len(other.word)
+#         return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, Word):
+#             return len(self.word) < len(other.word)
+#         return NotImplemented
+#
+#
+# print(Word('bee') == Word('hey'))
+# print(Word('bee') < Word('geek'))
+# print(Word('bee') > Word('geek'))
+# print(Word('bee') <= Word('geek'))
+# print(Word('bee') >= Word('gee'))
+
+# from functools import total_ordering
+# from datetime import date
+#
+#
+# @total_ordering
+# class Month:
+#     def __init__(self, year, month):
+#         self.year = year
+#         self.month = month
+#
+#     def __repr__(self):
+#         return f"Month({self.year}, {self.month})"
+#
+#     def __str__(self):
+#         return f"{self.year}-{self.month}"
+#
+#     def __eq__(self, other):
+#         if isinstance(other, tuple) and len(other) == 2:
+#             return self.year == other[0] or self.month == other[1]
+#         elif isinstance(other, Month):
+#             return date(self.year, self.month, 1) == date(other.year, other.month, 1)
+#         else:
+#             return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, tuple) and len(other) == 2:
+#             return self.year < other[0] or self.month < other[1]
+#         elif isinstance(other, Month):
+#             return date(self.year, self.month, 1) < date(other.year, other.month, 1)
+#         else:
+#             return NotImplemented
+#
+#
+# print(Month(1999, 12) == (1999, 12))
+# print(Month(1999, 12) < (2000, 1))
+# print(Month(1999, 12) > (2000, 1))
+# print(Month(1999, 12) <= (1999, 12))
+# print(Month(1999, 12) >= (2000, 1))
+
+
+# from functools import total_ordering
+#
+#
+# @total_ordering
+# class Version:
+#     def __init__(self, version: str) -> None:
+#         self.version = version.split('.')
+#         self.version = [int(x) for x in self.version]
+#
+#     def __repr__(self):
+#         return f"Version('{'.'.join(str(x) for x in self.version)}')"
+#
+#     def __str__(self):
+#         return f"{'.'.join(str(x) for x in self.version)}"
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Version):
+#             return self.version == other.version
+#         return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, Version):
+#             return self.version < other.version
+#         return NotImplemented
+#
+#
+# print(Version('3') == Version('3.0'))
+# print(Version('3') == Version('3.0.0'))
+# print(Version('3.0') == Version('3.0.0'))
 
