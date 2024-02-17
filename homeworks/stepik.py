@@ -7,6 +7,7 @@
 # print(a)
 import math
 
+
 # a = 1
 #
 # def do_something():
@@ -4134,3 +4135,262 @@ import math
 # print(Version('3') == Version('3.0.0'))
 # print(Version('3.0') == Version('3.0.0'))
 
+
+# class ReversibleString:
+#     def __init__(self, string: int):
+#         self.string = string
+#
+#     def __str__(self):
+#         return f'{self.string}'
+#
+#     def __neg__(self):
+#         return ReversibleString(self.string[::-1])
+#
+#
+# string = ReversibleString('python')
+#
+# print(string)
+# print(-string)
+
+
+# class Money:
+#     def __init__(self, amount):
+#         self.amount = amount
+#
+#     def __str__(self):
+#         return f'{self.amount} руб.'
+#
+#     def __pos__(self):
+#         return Money(abs(self.amount))
+#
+#     def __neg__(self):
+#         if self.amount < 0:
+#             return Money(self.amount)
+#         return Money(-self.amount)
+#
+#
+# money = Money(-100)
+#
+# print(money)
+# print(+money)
+# print(-money)
+
+
+# import math
+#
+#
+# class Vector:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return "({0}, {1})".format(self.x, self.y)
+#
+#     def __repr__(self):
+#         return 'Vector({0}, {1})'.format(self.x, self.y)
+#
+#     def __abs__(self):
+#         length = math.sqrt(self.x ** 2 + self.y ** 2)
+#         return length
+#
+#     def __pos__(self):
+#         return Vector(self.x, self.y)
+#
+#     def __neg__(self):
+#         return Vector(-self.x, -self.y)
+#
+#
+# vector = Vector(3, -4)
+#
+# print(+vector)
+# print(-vector)
+# print(abs(vector))
+
+
+# class ColoredPoint:
+#     def __init__(self, x, y, color=(0, 0, 0)):
+#         self.x = x
+#         self.y = y
+#         self.color = color
+#
+#     def __repr__(self):
+#         return f"ColoredPoint({self.x}, {self.y}, {self.color})"
+#
+#     def __str__(self):
+#         return f"({self.x}, {self.y})"
+#
+#     def __pos__(self):
+#         return ColoredPoint(self.x, self.y, self.color)
+#
+#     def __neg__(self):
+#         return ColoredPoint(-self.x, -self.y, self.color)
+#
+#     def __invert__(self):
+#         return ColoredPoint(self.y, self.x, (255 - self.color[0], 255 - self.color[1], 255 - self.color[2]))
+#
+#
+# point1 = ColoredPoint(2, -3)
+# point2 = ColoredPoint(10, 20, (34, 45, 67))
+#
+# print(point1.color)
+# print(point2.color)
+
+
+# class FoodInfo:
+#     def __init__(self, proteins, fats, carbohydrates):
+#         self.proteins = proteins
+#         self.fats = fats
+#         self.carbohydrates = carbohydrates
+#
+#     def __repr__(self):
+#         return f"FoodInfo({self.proteins}, {self.fats}, {self.carbohydrates})"
+#
+#     def __add__(self, other):
+#         if isinstance(other, FoodInfo):
+#             return FoodInfo(self.proteins + other.proteins, self.fats + other.fats,
+#                             self.carbohydrates + other.carbohydrates)
+#         return NotImplemented
+#
+#     def __mul__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(self.proteins * other, self.fats * other, self.carbohydrates * other)
+#         return NotImplemented
+#
+#     def __truediv__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(self.proteins / other, self.fats / other, self.carbohydrates / other)
+#         return NotImplemented
+#
+#     def __floordiv__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(self.proteins // other, self.fats // other, self.carbohydrates // other)
+#         return NotImplemented
+#
+#
+# food1 = FoodInfo(10, 20, 30)
+#
+# try:
+#     food2 = (5, 10, 15) + food1
+# except TypeError:
+#     print('Некорректный тип данных')
+
+
+# class Vector:
+#     def __init__(self, x: int | float, y: int | float) -> None:
+#         self.x = x
+#         self.y = y
+#
+#     def __repr__(self):
+#         return f"Vector({self.x}, {self.y})"
+#
+#     def __add__(self, other):
+#         if isinstance(other, Vector):
+#             return Vector(self.x + other.x, self.y + other.y)
+#         return NotImplemented
+#
+#     def __sub__(self, other):
+#         if isinstance(other, Vector):
+#             return Vector(self.x - other.x, self.y - other.y)
+#         return NotImplemented
+#
+#     def __mul__(self, other):
+#         if isinstance(other, int | float):
+#             return Vector(self.x * other, self.y * other)
+#         return NotImplemented
+#
+#     def __rmul__(self, other):
+#         if isinstance(other, int | float):
+#             return Vector(other * self.x, other * self.y)
+#         return NotImplemented
+#
+#     def __truediv__(self, other):
+#         if isinstance(other, int | float):
+#             return Vector(self.x / other, self.y / other)
+#         return NotImplemented
+#
+#
+# a = Vector(3, 4)
+#
+# print(a * 2)
+# print(2 * a)
+# print(a / 2)
+
+
+# class SuperString:
+#     def __init__(self, string):
+#         self.string = string
+#
+#     def __str__(self):
+#         return f'{self.string}'
+#
+#     def __add__(self, other):
+#         if isinstance(other, SuperString):
+#             return SuperString(self.string + other.string)
+#         return NotImplemented
+#
+#     def __mul__(self, other):
+#         if isinstance(other, int | float):
+#             return SuperString(self.string * other)
+#         return NotImplemented
+#
+#     def __rmul__(self, other):
+#         if isinstance(other, int | float):
+#             return SuperString(other * self.string)
+#         return NotImplemented
+#
+#     def __truediv__(self, other):
+#         if isinstance(other, int | float):
+#             m = len(self.string) // other
+#             return SuperString(self.string[:m])
+#         return NotImplemented
+#
+#     def __lshift__(self, other):
+#         if other == 0:
+#             return SuperString(self.string)
+#         elif isinstance(other, int):
+#             return SuperString(self.string[:-other])
+#         else:
+#             return NotImplemented
+#
+#     def __rshift__(self, other):
+#         if other == 0:
+#             return SuperString(self.string)
+#         elif isinstance(other, int):
+#             return SuperString(self.string[other:])
+#         else:
+#             return NotImplemented
+#
+#
+# superstring = SuperString('bee')
+# print(superstring.__add__([]))
+# print(superstring.__mul__(()))
+# print(superstring.__truediv__({}))
+# print(superstring.__lshift__(set()))
+# print(superstring.__rshift__('geek'))
+
+
+class Time:
+    def __int__(self, hours, minutes):
+        self.hours = hours % 24
+        self.minutes = minutes % 60
+
+    def __str__(self):
+        return f'{self.hours:02d}:{self.minutes:02d}'
+
+    def __add__(self, other):
+        if isinstance(other, Time):
+            return Time(self.hours + other.hours, self.minutes + other.minutes)
+        return NotImplemented
+
+    def __iadd__(self, other):
+        self.hours += other.hours
+        self.minutes += other.minutes
+        return self
+
+
+time1 = Time(2, 30)
+time2 = Time(3, 10)
+
+print(time1 + time2)
+print(time2 + time1)
