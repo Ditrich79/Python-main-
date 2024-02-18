@@ -5,9 +5,8 @@
 # a = 0
 # do_something()
 # print(a)
-import math
-
-
+# import math
+import random
 # a = 1
 #
 # def do_something():
@@ -4370,27 +4369,83 @@ import math
 # print(superstring.__rshift__('geek'))
 
 
-class Time:
-    def __int__(self, hours, minutes):
-        self.hours = hours % 24
-        self.minutes = minutes % 60
+# class Time:
+#     def __init__(self, hours: int, minutes: int) -> None:
+#         self.hours = (hours % 24) + (minutes // 60)
+#         self.minutes = minutes % 60
+#
+#     def __str__(self):
+#         return f'{self.hours:02d}:{self.minutes:02d}'
+#
+#     def __add__(self, other):
+#         if isinstance(other, Time):
+#             return Time(self.hours + other.hours, self.minutes + other.minutes)
+#         return NotImplemented
+#
+#     def __iadd__(self, other):
+#         if isinstance(other, Time):
+#             self.hours += other.hours
+#             self.minutes += other.minutes
+#             return self
+#         return NotImplemented
+#
+#
+# t = Time(40, 80)
+# print(t.__add__([]))
+# print(t.__iadd__('bee'))
 
-    def __str__(self):
-        return f'{self.hours:02d}:{self.minutes:02d}'
 
-    def __add__(self, other):
-        if isinstance(other, Time):
-            return Time(self.hours + other.hours, self.minutes + other.minutes)
-        return NotImplemented
+# class Calculator:
+#     def __call__(self, a: int | float, b: int | float, operation: str):
+#         if operation == '+':
+#             return a + b
+#         elif operation == '-':
+#             return a - b
+#         elif operation == '*':
+#             return a * b
+#         elif operation == '/':
+#             if b == 0:
+#                 raise ValueError('Деление на ноль невозможно')
+#             else:
+#                 return a / b
+#
+#
+# calculator = Calculator()
+#
+# print(calculator(10, 5, '+'))
+# print(calculator(10, 5, '-'))
+# print(calculator(10, 5, '*'))
+# print(calculator(10, 5, '/'))
 
-    def __iadd__(self, other):
-        self.hours += other.hours
-        self.minutes += other.minutes
-        return self
+
+# class RaiseTo:
+#     def __init__(self, degree: int) -> None:
+#         self.degree = degree
+#
+#     def __call__(self, x: int):
+#         return x ** self.degree
+#
+#
+# raise_to_two = RaiseTo(2)
+#
+# print(raise_to_two(2))
+# print(raise_to_two(3))
+# print(raise_to_two(4))
+
+import random
 
 
-time1 = Time(2, 30)
-time2 = Time(3, 10)
+class Dice:
+    def __init__(self, sides: int | list):
+        self.sides = sides
 
-print(time1 + time2)
-print(time2 + time1)
+    def __call__(self):
+        return random.randint(0, 6)
+
+
+kingdice = Dice(2)
+
+print(kingdice() in [1, 2, 3, 4, 5, 6])
+print(kingdice() in [3, 4])
+print(kingdice() in [7, 8, 9, 10])
+
