@@ -7,6 +7,8 @@
 # print(a)
 # import math
 import random
+
+
 # a = 1
 #
 # def do_something():
@@ -4432,20 +4434,113 @@ import random
 # print(raise_to_two(3))
 # print(raise_to_two(4))
 
-import random
+
+# class Dice:
+#     def __init__(self, sides: int | list):
+#         self.sides = sides
+#
+#     def __call__(self):
+#         return 1
+#
+#
+# kingdice = Dice(100)
+#
+# for _ in range(100):
+#     print(kingdice() in range(1, 101))
 
 
-class Dice:
-    def __init__(self, sides: int | list):
-        self.sides = sides
+# class QuadraticPolynomial:
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def __call__(self, x):
+#         return self.a * x ** 2 + self.b * x + self.c
+#
+#
+# func = QuadraticPolynomial(1, 2, 1)
+#
+# print(func(1))
+# print(func(2))
 
-    def __call__(self):
-        return random.randint(0, 6)
+
+# class Strip:
+#     def __init__(self, chars: str) -> None:
+#         self.chars = chars
+#
+#     def __call__(self, string: str):
+#         return string.strip(self.chars)
+#
+#
+# strip = Strip('!? ')
+#
+# print(strip('     ?beegeek!'))
+# print(strip('!bee?geek!'))
 
 
-kingdice = Dice(2)
+# class Filter:
+#     def __init__(self, predicate):
+#         if predicate is not None:
+#             self.predicate = predicate
+#         else:
+#             self.predicate = bool
+#
+#     def __call__(self, iterable):
+#         result = []
+#         for element in iterable:
+#             if self.predicate(element) is True:
+#                 result.append(element)
+#         return result
+#
+#
+# non_empty = Filter(None)
+#
+# sequence = ([], False, 1, (), 'Linus Torvalds', {5, 6, 7}, True, {}, set(), '')
+# print(non_empty(sequence))
 
-print(kingdice() in [1, 2, 3, 4, 5, 6])
-print(kingdice() in [3, 4])
-print(kingdice() in [7, 8, 9, 10])
+# from datetime import date
+#
+#
+# class DateFormatter:
+#     def __init__(self, country_code):
+#         self.country_code = country_code
+#
+#     def __call__(self, d):
+#         formats = {
+#             'ru': '%d.%m.%Y',
+#             'us': '%m-%d-%Y',
+#             'ca': '%Y-%m-%d',
+#             'br': '%d/%m/%Y',
+#             'fr': '%d.%m.%Y',
+#             'pt': '%d-%m-%Y'
+#         }
+#         return date.strftime(d, formats[self.country_code])
+#
+#
+# fr_format = DateFormatter('fr')
+#
+# print(fr_format(date(2022, 11, 7)))
+
+
+# class CountCalls:
+#     def __init__(self, func, calls=0):
+#         self.calls = calls
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         if self.func:
+#             self.calls += 1
+#             return self.func(*args, **kwargs)
+#
+#
+# @CountCalls
+# def add(a, b):
+#     return a + b
+#
+#
+# print(add(1, 2))
+# print(add(2, 3))
+# print(add.calls)
+
 
