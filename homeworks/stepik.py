@@ -4543,4 +4543,68 @@ import random
 # print(add(2, 3))
 # print(add.calls)
 
+# from math import sqrt
+#
+#
+# class Vector:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return f"({self.x}, {self.y})"
+#
+#     def __bool__(self):
+#         if self.x != 0 or self.y != 0:
+#             return True
+#         else:
+#             return False
+#
+#     def __int__(self):
+#         return int(sqrt(self.x ** 2 + self.y ** 2))
+#
+#     def __float__(self):
+#         return float(sqrt(self.x ** 2 + self.y ** 2))
+#
+#     def __complex__(self):
+#         return complex(self.x, self.y)
+#
+#
+# print(bool(Vector(1, 2)))
+# print(bool(Vector(1, 0)))
+# print(bool(Vector(0, 1)))
+# print(bool(Vector(0, 0)))
 
+
+# class Temperature:
+#     def __init__(self, temperature):
+#         self.temperature = temperature
+#
+#     def to_fahrenheit(self):
+#         return 9/5 * self.temperature + 32
+#
+#     @classmethod
+#     def from_fahrenheit(cls, temperature):
+#         return cls(5/9 * (temperature - 32))
+#
+#     def __str__(self):
+#         return f'{round(self.temperature, 2)}°C'
+#
+#     def __bool__(self):
+#         if self.temperature > 0:
+#             return True
+#         return False
+#
+#     def __int__(self):
+#         return int(self.temperature)
+#
+#     def __float__(self):
+#         return float(self.temperature)
+#
+#
+# t = Temperature.from_fahrenheit(41)
+#
+# print(t)
+# print(int(t))
+# print(float(t))
+# print(t.to_fahrenheit())
