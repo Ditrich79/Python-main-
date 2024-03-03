@@ -4608,3 +4608,149 @@ import random
 # print(int(t))
 # print(float(t))
 # print(t.to_fahrenheit())
+
+
+# class Item:
+#     def __init__(self, name, price, quantity):
+#         self.name = name
+#         self.price = price
+#         self.quantity = quantity
+#
+#     def __getattribute__(self, name):
+#         if name == 'total':
+#             return self.price * self.quantity
+#         elif name == 'name':
+#             return self.__dict__[name].title()
+#         return object.__getattribute__(self, name)
+#
+#
+# course = Item('pygen', 3900, 2)
+#
+# print(course.name)
+# print(course.price)
+# print(course.quantity)
+# print(course.total)
+
+
+# class Logger:
+#     def __setattr__(self, name, value):
+#         print(f'Изменение значения атрибута {name} на {value}')
+#         object.__setattr__(self, name, value)
+#
+#     def __delattr__(self, name):
+#         print(f'Удаление атрибута {name}')
+#         object.__delattr__(self, name)
+#
+#
+# obj = Logger()
+#
+# obj.name = 'pygen'
+# obj.rating = '5*'
+# obj.ceo = 'Timur'
+# del obj.rating
+# obj.rating = '6*'
+
+
+# class Ord:
+#     def __getattr__(self, char):
+#         return ord(char)
+#
+#
+# obj = Ord()
+# chars = ['|', 'j', 'S', 'g', 'v', 'Y', 'L', 'z', 'a', '3', 'p', '\\', '>', "'", '_', 'I', '!', '=', '#', '(', 'U', 'J',
+#          'h', 't', '`', '{', 'B', '\n', '&', 'P', 'e', '[', 'i', 'E', 'f', '8', 'V', ':', 'O', 'o', '$', ')', 'l', 'W',
+#          ';', '^', 'K', '?', '7', '}', 'q', ']', 'M', 'C', '9', 'c', 'T', '*', 'y', 's', '\r', '2', 'k', '-', 'Z', '.',
+#          '\t', 'D', '\x0c', '@', '"', '~', '6', '0', ' ', '1', 'b', 'R', '4', 'Q', 'r', 'G', '5', 'u', 'N', '+', 'd',
+#          'F', 'x', 'A', '<', '/', '%', 'm', ',', 'n', '\x0b', 'X', 'H', 'w']
+#
+# for char in chars:
+#     print(getattr(obj, char))
+
+
+# class DefaultObject:
+#     def __init__(self, default=None, **kwargs):
+#         self.default = default
+#         for key, value in kwargs.items():
+#             self.__setattr__(key, value)
+#
+#     def __getattr__(self, item):
+#         if item not in self.__dict__:
+#             return self.default
+#         else:
+#             return self.__dict__[item]
+#
+#
+# god = DefaultObject(default=0, name='Tyr', mythology='scandinavian')
+#
+# print(god.name)
+# print(god.mythology)
+# print(god.age)
+
+
+# class NonNegativeObject:
+#     def __init__(self, **kwargs):
+#         for key, value in kwargs.items():
+#             if isinstance(value, (int, float)) and value < 0:
+#                 kwargs[key] = abs(value)
+#                 self.__dict__.update(kwargs)
+#             self.__setattr__(key, value)
+#
+#     def __getattr__(self, item):
+#         return self.__dict__[item]
+#
+# # class NonNegativeObject:
+# #     def __init__(self, **kwargs):
+# #         for key, value in kwargs.items():
+# #             if isinstance(value, (int, float)) and value < 0:
+# #                 kwargs[key] = abs(value)
+# #                 self.__dict__.update(kwargs)
+# #             self.__setattr__(key, value)
+#
+#     # def __getattr__(self, item):
+#     #     return self.__dict__[item]
+#
+#
+# digits = [(41, -46.982, -50.885), (-31.33, 37, -15), (-64.524, -19, 72), (-95.638, -73.587, 60),
+#           (36.306, -62.569, 24.661), (-80.629, -58.157, 33.249), (-77, 69, -45), (-12.582, 70.973, 30), (6, -88, 93),
+#           (25, -13, -85.357), (19, -12.808, -10), (-77.629, 44.438, -24.381), (-99, -59.473, 79), (-74, 34, -45.838),
+#           (67.211, 44.514, -15.8), (-67.386, -35, -98), (64.87, 31, -26), (12.768, 5, 29), (-13, -62, -14),
+#           (-25.556, -21.151, 12.877), (-31, -31, 56), (3, -79, -98.841), (14, 77.955, 79), (45, -97, 86),
+#           (20.738, 8.901, 88), (-88.291, -93.351, 10.693), (-93, -73.704, -2), (-68.639, -16, -92.5), (-15, 78.87, 26),
+#           (-11.582, 22, -78), (-24, 68, -1.309), (-76.477, 0, -34.691), (30, -45.51, 62.84), (77, 5, -56.421),
+#           (-30.478, -93, 98), (3.342, -34.798, 40), (-53.95, 77.961, 55.11), (-18.11, 99.845, -31), (6, 10, -61.407),
+#           (-45.454, -6.931, 43), (66, -28, -80), (-22, 38, 90), (-32.58, 25.981, -23.347), (49.949, -85, 76.6),
+#           (-28, 44.367, -27), (33, 95.999, -14.2), (39.526, -53.18, -68.35), (-4, 93.902, -51.103),
+#           (-69.535, -1, 15.489), (0, 21.938, -51.44), (-83.872, 49.79, 51), (48, 83.347, 57.603),
+#           (50.694, -49, -41.915), (-99, 55, -79), (56, -31, 41.341), (47.974, 8.197, -54.329), (-30.535, -15, -7.709),
+#           (40.297, -68.63, 17), (8, 91.741, -93), (25, -26.69, 5.786), (10, -73.356, -99.778), (-47, -93.133, -29),
+#           (3, 84, -70.61), (-84, 82.758, 7), (-70, -12, 21.549), (-9.699, -20, -32.531), (41, 62.337, 29.986),
+#           (-61.581, -95.783, -25.223), (-93.798, 33, 89.562), (-4, -54, -35.218), (77, -16, -43),
+#           (-37.318, -95.341, 35.938), (3, -68, -30.802), (33.251, -73.924, -19.747), (4.9, -83, 75),
+#           (91.819, -83.1, 66), (-42.17, 45, -82), (49, 15.708, 71.726), (21.282, 84, -86), (-79.494, -2, -25.527),
+#           (-30.44, 65, 51), (-23.622, -30, -37), (34, 1.616, 57), (58, -2.4, 10), (85.188, -96, -47),
+#           (-69, 26, -51.598), (-92, -68, 100), (61, 19.734, 42), (-93.316, 16.108, 66.469), (53.174, 30.254, 29),
+#           (-16, 66.949, -52), (17.131, -30.501, 45.32), (88.56, 95, 59.82), (-5, 8.784, 89), (-8, 44, -50),
+#           (-21.625, 33, -14.697), (51, -11.634, 50.436), (38, -53, -25.622), (-12, -54.732, -79.28),
+#           (62, -8.249, -45.204)]
+#
+# for x, y, z in digits:
+#     obj = NonNegativeObject(x=x, y=y, z=z)
+#     print(obj.x, obj.y, obj.z)
+
+
+# class AttrsNumberObject:
+#     def __init__(self, *args, **kwargs):
+#         self.attrs_num = len(kwargs) + 1
+#
+#         for key, value in kwargs.items():
+#             setattr(self, key, value)
+#
+#     def get_attrs_num(self):
+#         return self.attrs_num
+#
+#
+# music_group = AttrsNumberObject(name='Silent Poets', genre='acid jazz')
+#
+# print(music_group.attrs_num)
+
+
