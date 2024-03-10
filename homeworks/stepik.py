@@ -4754,3 +4754,98 @@ import random
 # print(music_group.attrs_num)
 
 
+# def hash_function(obj):
+#     return sum(ord(str(obj[0])) * 1 - ord(str(obj[1])) * 2 + ord(str(obj[2])) * 3 - ord(str(obj[3])) * 4 for character in str(obj)) % 123456791
+#
+#
+# print(hash_function('python'))
+
+
+# class ColoredPoint:
+#     def __init__(self, x, y, color):
+#         self._x = x
+#         self._y = y
+#         self._color = color
+#
+#     def __repr__(self):
+#         return f"ColoredPoint({self.x}, {self.y}, '{self.color}')"
+#
+#     def __eq__(self, other):
+#         if isinstance(other, ColoredPoint):
+#             return self.x == other.x and self.y == other.y and self.color == other.color
+#         return NotImplemented
+#
+#     def __hash__(self):
+#         return hash((self.x, self.y, self.color))
+#
+#     @property
+#     def x(self):
+#         return self._x
+#
+#     @property
+#     def y(self):
+#         return self._y
+#
+#     @property
+#     def color(self):
+#         return self._color
+#
+#
+# point = ColoredPoint(1, 2, 'white')
+#
+# try:
+#     point.color = 'black'
+# except AttributeError as e:
+#     print('Error')
+
+
+# class ProtectedObject:
+#     def __init__(self, **kwargs):
+#         for k, v in kwargs.items():
+#             object.__setattr__(self, k, v)
+#
+#     def __getattr__(self, name):
+#         if name[0] == "_":
+#             raise AttributeError("Доступ к защищенному атрибуту невозможен")
+#         else:
+#             return object().__getattribute__(name)
+#
+#     def __setattr__(self, name, value):
+#         if name[0] == "_":
+#             raise AttributeError("Доступ к защищенному атрибуту невозможен")
+#         else:
+#             object().__setattr__(name, value)
+#
+#     def __delattr__(self, name):
+#         if name[0] == "_":
+#             raise AttributeError("Доступ к защищенному атрибуту невозможен")
+#         else:
+#             object().__delattr__(name)
+#
+#
+# user = ProtectedObject(login='PG_kamiya', _password='alreadybanned')
+#
+# try:
+#     print(user.login)
+#     print(user._password)
+# except AttributeError as e:
+#     print(e)
+
+
+# class NonNegativeObject:
+#     def __init__(self, **kwargs):
+#         for key, value in kwargs.items():
+#             if isinstance(value, (int, float)) and value < 0:
+#                 kwargs[key] = abs(value)
+#                 self.__dict__.update(kwargs)
+#
+#     def __getattr__(self, item):
+#         return object.__getattribute__(self, item)
+#
+#
+# point = NonNegativeObject(x=1, y=-2, z=0, color='black')
+#
+# print(point.x)
+# print(point.y)
+# print(point.z)
+# print(point.color)
