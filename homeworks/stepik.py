@@ -4849,3 +4849,123 @@ import random
 # print(point.y)
 # print(point.z)
 # print(point.color)
+
+
+# def calculate_days(common_days):
+#     years = common_days // 365
+#     months = common_days % 365 // 30
+#     days = common_days % 30
+#
+#     print(f"{years} г. {months} мес. {days} дн.")
+#
+#
+# calculate_days(4806)
+
+
+# def calculate_days(*args):
+#     for i in args:
+#         years = i // 365
+#         months = i % 365 // 30
+#         days = i % 30
+#
+#         print(f"{years} г. {months} мес. {days} дн.")
+#
+#
+# calculate_days(4966, 5638, 4646, 3942, 4390, 4518, 5446, 5606, 4198, 2982, 3142, 5286, 3110, 3366, 5798, 4614, 3686, 4166, 5766)
+
+
+# numbers = [1, 2, 3, 4, 5, 6]
+#
+# evens = filter(lambda num: num % 2 == 0, numbers)
+# print(*evens)
+
+
+# print(dir(zip('bee', 'geek')))
+
+
+# class Order:
+#     def __init__(self, cart, customer):
+#         self.cart = list(cart)          # список покупок
+#         self.customer = customer        # имя покупателя
+#
+#     def __iter__(self):
+#         yield from self.cart            # или с помощью выражения return (elem for elem in self.cart)
+#
+#
+# order = Order(['банан', 'яблоко', 'лимон'], 'Элой')
+#
+# for item in order:
+#     print(item)
+
+
+# class Point:
+#     def __init__(self, x, y, z):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#     def __repr__(self):
+#         return f"Point({self.x}, {self.y}, {self.z})"
+#
+#     def __iter__(self):
+#         return iter([self.x, self.y, self.z])
+#
+#
+# point = Point(1, 2, 3)
+# x, y, z = point
+#
+# print(x, y, z)
+
+
+# class DevelopmentTeam:
+#     def __init__(self):
+#         self.junior_developers = []
+#         self.senior_developers = []
+#
+#     def add_junior(self, *names):
+#         for name in names:
+#             self.junior_developers.append((name, 'junior'))
+#
+#     def add_senior(self, *names):
+#         for name in names:
+#             self.senior_developers.append((name, 'senior'))
+#
+#     def __iter__(self):
+#         yield from self.junior_developers
+#         yield from self.senior_developers
+#
+#
+# beegeek = DevelopmentTeam()
+#
+# beegeek.add_junior('Timur')
+# beegeek.add_junior('Arthur', 'Valery')
+# print(*beegeek, sep='\n')
+
+
+# class AttrsIterator:
+#     def __init__(self, obj):
+#         self._obj = obj
+#         self._attrs = iter((name, getattr(self._obj, name)) for name in dir(self._obj) if not name.startswith("_"))
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         try:
+#             return next(self._attrs)
+#         except StopIteration:
+#             raise StopIteration
+#
+#
+# class User:
+#     def __init__(self, name, surname, age):
+#         self.name = name
+#         self.surname = surname
+#         self.age = age
+#
+#
+# user = User('Debbie', 'Harry', 77)
+# attrsiterator = AttrsIterator(user)
+#
+# print(*attrsiterator)
+
