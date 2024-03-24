@@ -4969,3 +4969,67 @@ import random
 #
 # print(*attrsiterator)
 
+
+# class SkipIterator:
+#     def __init__(self, iterable, n):
+#         self.iterable = iterable
+#         self.n = n
+#         self.index = 0
+#
+#     def __iter__(self):
+#         yield from self.iterable
+#
+#     def __next__(self):
+#         if self.index == self.n:
+#             return StopIteration
+#         self.index += 1
+#         return next(self.iterable, self.n)
+#
+#
+# skipiterator = SkipIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1)   # пропускаем по одному элементу
+#
+# print(*skipiterator)
+
+
+# class ReversedSequence:
+#     def __init__(self, sequence):
+#         self.sequence = sequence
+#
+#     def __len__(self):
+#         return len(self.sequence)
+#
+#     def __getitem__(self, key):
+#         if not isinstance(key, int):
+#             raise TypeError('Индекс должен быть целым числом')
+#         if key < 0 or key >= len(self.sequence):
+#             raise IndexError('Неверный индекс')
+#         return self.sequence[~key]
+#
+#
+# numbers = [1, 2, 3, 4, 5]
+# reversed_numbers = ReversedSequence(numbers)
+#
+# print(reversed_numbers[0])
+# numbers.append(6)
+# print(reversed_numbers[0])
+
+
+class SparseArray:
+    def __init__(self, default):
+        self.default = default
+
+    def __setitem__(self, key, value):
+        self.default[key] = value
+
+    def __getitem__(self, key):
+        return self.default[key]
+
+
+array = SparseArray(0)
+
+array[5] = 1000
+array[12] = 1001
+
+print(array[5])
+print(array[12])
+print(array[13])
