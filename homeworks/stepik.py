@@ -5014,22 +5014,242 @@ import random
 # print(reversed_numbers[0])
 
 
-class SparseArray:
-    def __init__(self, default):
-        self.default = default
+# class SparseArray:
+#     def __init__(self, default):
+#         self.default = default
+#
+#     def __setitem__(self, key, value):
+#         self.default[key] = value
+#
+#     def __getitem__(self, key):
+#         return self.default[key]
+#
+#
+# array = SparseArray(0)
+#
+# array[5] = 1000
+# array[12] = 1001
+#
+# print(array[5])
+# print(array[12])
+# print(array[13])
 
-    def __setitem__(self, key, value):
-        self.default[key] = value
 
-    def __getitem__(self, key):
-        return self.default[key]
+# def print_file_content(filename):
+#     try:
+#         with open(filename, 'r', encoding='utf-8') as file:
+#             print(file.read())
+#     except Exception:
+#         print('Файл не найден')
 
 
-array = SparseArray(0)
+# with open('Precepts_of_Zote.txt', 'w', encoding='utf-8') as file:
+#     file.write('Сражения и путешествия берут своё')
+#
+# print_file_content('Precepts_of_Zote.txt')
 
-array[5] = 1000
-array[12] = 1001
+# print_file_content('Precepts_of_Zote2.txt')
 
-print(array[5])
-print(array[12])
-print(array[13])
+
+# def non_closed_files(files):
+#     return [f for f in files if not f.closed]
+#
+#
+# with (
+#     open('file1.txt', 'w', encoding='utf-8') as file1,
+#     open('file2.txt', 'w', encoding='utf-8') as file2,
+#     open('file3.txt', 'w', encoding='utf-8') as file3
+# ):
+#     file1.write('i am the first file')
+#     file2.write('i am the second file')
+#     file3.write('i am the third file')
+#
+# file1 = open('file1.txt', encoding='utf-8')
+# file3 = open('file3.txt', encoding='utf-8')
+#
+#
+# for file in non_closed_files([file1, file2, file3]):
+#     print(file.read())
+
+
+# def log_for(logfile, date_str):
+#     with open('log_for_' + date_str + '.txt', 'w', encoding='utf-8') as outfile:
+#         for line in open(logfile, 'r', encoding='utf-8'):
+#             if date_str in line:
+#                 continue
+#             events = line.split(": ")
+#             for event in events:
+#                 if event.startswith(" "):
+#                     continue
+#                 outfile.write(event + '\n')
+#
+#
+# with open('log.txt', 'w', encoding='utf-8') as file:
+#     print('2022-01-01 INFO: User logged in', file=file)
+#     print('2022-01-01 ERROR: Invalid input data', file=file)
+#     print('2022-01-02 INFO: User logged out', file=file)
+#     print('2022-01-03 INFO: User registered', file=file)
+#
+# log_for('log.txt', '2022-01-01')
+#
+# with open('log_for_2022-01-01.txt', encoding='utf-8') as file:
+#     print(file.read())
+
+
+# def is_context_manager(obj):
+#     try:
+#         if obj.__enter__ and obj.__exit__:
+#             return True
+#     except AttributeError:
+#         pass
+#
+#     return False
+#
+#
+# print(is_context_manager(open('output.txt', mode='w')))
+
+
+# class Vehicle:
+#     pass
+#
+#
+# class LandVehicle(Vehicle):
+#     pass
+#
+#
+# class WaterVehicle(Vehicle):
+#     pass
+#
+#
+# class AirVehicle(Vehicle):
+#     pass
+#
+#
+# class Car(LandVehicle):
+#     pass
+#
+#
+# class Motorcycle(LandVehicle):
+#     pass
+#
+#
+# class Bicycle(LandVehicle):
+#     pass
+#
+#
+# class Propeller(AirVehicle):
+#     pass
+#
+#
+# class Jet(AirVehicle):
+#     pass
+
+
+# class Shape:
+#     pass
+#
+#
+# class Circle(Shape):
+#     pass
+#
+#
+# class Polygon(Shape):
+#     pass
+#
+#
+# class Quadrilateral(Polygon):
+#     pass
+#
+#
+# class Parallelogram(Quadrilateral):
+#     pass
+#
+#
+# class Rectangle(Parallelogram):
+#     pass
+#
+#
+# class Square(Rectangle):
+#     pass
+#
+#
+# class Triangle(Polygon):
+#     pass
+#
+#
+# class IsoscelesTriangle(Triangle):
+#     pass
+#
+#
+# class EquilateralTriangle(Triangle):
+#     pass
+
+
+# class Animal:
+#     def eat(self):
+#         pass
+#
+#     def sleep(self):
+#         pass
+#
+#
+# class Fish(Animal):
+#     def swim(self):
+#         pass
+#
+#
+# class Bird(Animal):
+#     def lay_eggs(self):
+#         pass
+#
+#
+# class FlyingBird(Bird):
+#     def fly(self):
+#         pass
+
+
+# class User:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def skip_ads(self):
+#         return False
+#
+#
+# class PremiumUser(User):
+#     def skip_ads(self):
+#         return True
+
+
+# class Validator:
+#     def __init__(self, obj):
+#         self.obj = obj
+#
+#     def is_valid(self):
+#         return None
+#
+#
+# class NumberValidator(Validator):
+#     def is_valid(self):
+#         if isinstance(self.obj, (int, float)):
+#             return True
+#         return False
+
+
+# print(issubclass(NumberValidator, Validator))
+# validator1 = Validator('beegeek')
+# validator2 = Validator(1)
+# validator3 = Validator(1.1)
+#
+# print(validator1.is_valid())
+# print(validator2.is_valid())
+# print(validator3.is_valid())
+
+# validator1 = NumberValidator('beegeek')
+# validator2 = NumberValidator(1)
+# validator3 = NumberValidator(1.1)
+#
+# print(validator1.is_valid())
+# print(validator2.is_valid())
+# print(validator3.is_valid())
+
