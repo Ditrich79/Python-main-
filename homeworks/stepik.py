@@ -5253,3 +5253,269 @@ import random
 # print(validator2.is_valid())
 # print(validator3.is_valid())
 
+
+# def count_days(*args):
+#     lst = []
+#     for digit in args:
+#         years = digit // 365
+#         months = digit % 365 // 30
+#         days = digit % 30
+#         lst.append(f"{years} лет, {months} месяцев, {days} дней")
+#     return lst
+#
+#
+# d = count_days(20567, 25897, 21478, 36789, 26984, 30258)
+#
+# with open('days.txt', 'w', encoding='utf-8') as file:
+#     for number, item in enumerate(d):
+#         file.writelines(f'{number+1}) {item}' + '\n')
+
+
+# class Counter:
+#     def __init__(self, start=0):
+#         self.value = start
+#
+#     def inc(self, digit=1):
+#         self.value += digit
+#
+#     def dec(self, digit=1):
+#         if self.value > digit:
+#             self.value -= digit
+#         else:
+#             self.value = 0
+#
+#
+# class NonDecCounter(Counter):
+#     def dec(self, *args):
+#         pass
+#
+#
+# class LimitedCounter(Counter):
+#     def __init__(self, limit=10):
+#         Counter.__init__(self, start=0)
+#         self.limit = limit
+#
+#     def inc(self, digit=1):
+#         if self.value <= self.limit:
+#             self.value += digit
+
+# counter = Counter()
+#
+# print(counter.value)
+# counter.inc()
+# counter.inc(5)
+# print(counter.value)
+# counter.dec()
+# counter.dec(3)
+# print(counter.value)
+# counter.dec(10)
+# print(counter.value)
+
+# counter = NonDecCounter(10)
+#
+# print(counter.value)
+# counter.inc()
+# counter.inc(10)
+# print(counter.value)
+# counter.dec()
+# counter.dec(10)
+# print(counter.value)
+# counter.dec(50)
+# print(counter.value)
+
+
+# counter = LimitedCounter()
+#
+# print(counter.value)
+# counter.inc()
+# counter.inc(4)
+# print(counter.value)
+# counter.dec()
+# counter.dec(2)
+# print(counter.value)
+# counter.inc(20)
+# print(counter.value)
+
+
+# with open(r'F:\warhistory_html\html\first_script.html', 'r', encoding='utf-8') as file:
+#     result = file.read()
+#
+# # print(result)
+# with open(r'F:\работа\скрипт_калькулятора.txt', 'w', encoding='utf-8') as f:
+#     f.write(result)
+
+
+# class BasicPlan:
+#     can_stream = True
+#     can_download = True
+#     has_SD = True
+#     has_HD = False
+#     has_UHD = False
+#     num_of_devices = 1
+#     price = '8.99$'
+#
+#
+# class SilverPlan(BasicPlan):
+#     can_stream = True
+#     can_download = True
+#     has_SD = True
+#     has_HD = True
+#     has_UHD = False
+#     num_of_devices = 2
+#     price = '12.99$'
+#
+#
+# class GoldPlan(BasicPlan):
+#     can_stream = True
+#     can_download = True
+#     has_SD = True
+#     has_HD = True
+#     has_UHD = True
+#     num_of_devices = 4
+#     price = '15.99$'
+#
+#
+# print(BasicPlan.can_stream)
+# print(BasicPlan.can_download)
+# print(BasicPlan.has_SD)
+# print(BasicPlan.has_HD)
+# print(BasicPlan.has_UHD)
+# print(BasicPlan.num_of_devices)
+# print(BasicPlan.price)
+
+
+# class WeatherWarning:
+#     def rain(self):
+#         print('Ожидаются сильные дожди и ливни с грозой')
+#
+#     def snow(self):
+#         print('Ожидается снег и усиление ветра')
+#
+#     def low_temperature(self):
+#         print('Ожидается сильное понижение температуры')
+#
+#
+# class WeatherWarningWithDate(WeatherWarning):
+#     def rain(self, date):
+#         print(date.strftime('%d.%m.%Y'))
+#         super().rain()
+#
+#     def snow(self, date):
+#         print(date.strftime('%d.%m.%Y'))
+#         super().snow()
+#
+#     def low_temperature(self, date):
+#         print(date.strftime('%d.%m.%Y'))
+#         super().low_temperature()
+
+
+# print(issubclass(WeatherWarningWithDate, WeatherWarning))
+# weatherwarning = WeatherWarning()
+#
+# weatherwarning.rain()
+# weatherwarning.snow()
+# weatherwarning.low_temperature()
+
+# from datetime import date
+# weatherwarning = WeatherWarningWithDate()
+# dt = date(2022, 12, 12)
+#
+# weatherwarning.rain(dt)
+# weatherwarning.snow(dt)
+# weatherwarning.low_temperature(dt)
+
+
+# class Triangle:
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+#     def perimeter(self):
+#         return self.a + self.b + self.c
+#
+#
+# class EquilateralTriangle(Triangle):
+#     def __init__(self, side):
+#         super().__init__(side, side, side)
+
+
+# class Counter:
+#     def __init__(self, start=0):
+#         self.value = start
+#
+#     def inc(self, n=1):
+#         self.value += n
+#
+#     def dec(self, n=1):
+#         self.value = max(self.value - n, 0)
+#
+#
+# class DoubledCounter(Counter):
+#     def inc(self, n=1):
+#         self.value += n*2
+#
+#     def dec(self, n=1):
+#         self.value = max(self.value - n*2, 0)
+#
+#
+# counter = DoubledCounter(20)
+#
+# print(counter.value)
+# counter.inc()
+# counter.inc(5)
+# print(counter.value)
+# counter.dec()
+# counter.dec(10)
+# print(counter.value)
+# counter.dec(10)
+# print(counter.value)
+
+
+# class Summator:
+#     def total(self, n):
+#         return n * (n + 1) // 2
+#
+#
+# class SquareSummator(Summator):
+#     def total(self, n):
+#         return n * (n + 1) * (2 * n + 1) // 6
+#
+#
+# class QubeSummator(Summator):
+#     def total(self, n):
+#         return int((n * (n + 1) / 2) ** 2)
+#
+#
+# class CustomSummator(Summator):
+#     def __init__(self, m):
+#         self.m = m
+#
+#     def total(self, n):
+#         return int(sum([i**self.m for i in range(n+1)]))
+#
+#
+# summator2 = CustomSummator(2)
+# summator3 = CustomSummator(3)
+#
+# print(summator2.total(3))    # 1 + 4 + 9
+# print(summator3.total(3))    # 1 + 8 + 27
+
+
+# class UpperPrintString(str):
+#     def __str__(self):
+#         return f'{super().__str__().upper()}'
+#
+#
+# s = UpperPrintString('beegeek')
+# print(list(s))
+
+
+class LowerString(str):
+    def __new__(cls, obj=str()):
+        instance = super().__new__(cls, obj).lower()
+        return instance
+
+
+lowerstring = LowerString()
+print(type(lowerstring))
