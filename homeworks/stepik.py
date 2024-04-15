@@ -5511,11 +5511,109 @@ import random
 # print(list(s))
 
 
-class LowerString(str):
-    def __new__(cls, obj=str()):
-        instance = super().__new__(cls, obj).lower()
-        return instance
+# class LowerString(str):
+#     def __new__(cls, obj=str().lower()):
+#         instance = super().__new__(cls, obj)
+#         return instance
+
+# class LowerString(str):
+#     def __new__(cls, obj=''):
+#         lower_obj = obj.lower() if isinstance(obj, str) else [item.lower() for item in obj]
+#         return super(LowerString, cls).__new__(cls, lower_obj)
+
+# s1 = LowerString('BEEGEEK')
+# s2 = LowerString('BeeGeek')
+#
+# print(s1)
+# print(s2)
+# print(s1 == s2)
+# print(issubclass(LowerString, str))
+
+# print(LowerString(['Bee', 'Geek']))
+# print(LowerString({'A': 1, 'B': 2, 'C': 3}))
+
+# lowerstring = LowerString()
+# print(type(lowerstring))
 
 
-lowerstring = LowerString()
-print(type(lowerstring))
+# class TitledText(str):
+#     def __new__(cls, content=str(), text_title=str()):
+#         instance = super().__new__(cls, content)
+#         instance.text_title = text_title
+#         return instance
+#
+#     def title(self):
+#         return self.text_title
+#
+#
+# titled = TitledText('Сreate a class Soda', 'Homework')
+#
+# print(titled)
+# print(titled.title())
+# print(issubclass(TitledText, str))
+
+
+# class RoundedInt(int):
+#     def __new__(cls, num=int(), even=True):
+#         if even:
+#             rounded_num = num if num % 2 == 0 else num + 1
+#         else:
+#             rounded_num = num if num % 2 != 0 else num + 1
+#         return super(RoundedInt, cls).__new__(cls, rounded_num)
+#
+#
+# print(RoundedInt(7))
+# print(RoundedInt(8))
+# print(RoundedInt(7, False))
+# print(RoundedInt(8, False))
+
+
+# class FuzzyString(str):
+#     def __new__(cls, obj=''):
+#         return super(FuzzyString, cls).__new__(cls, obj)
+#
+#     def __eq__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() == other.casefold()
+#         return NotImplemented
+#
+#     def __ne__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() != other.casefold()
+#         return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() < other.casefold()
+#         return NotImplemented
+#
+#     def __le__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() <= other.casefold()
+#         return NotImplemented
+#
+#     def __gt__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() > other.casefold()
+#         return NotImplemented
+#
+#     def __ge__(self, other):
+#         if isinstance(other, str):
+#             return self.casefold() >= other.casefold()
+#         return NotImplemented
+#
+#     def __contains__(self, item):
+#         if isinstance(item, str):
+#             return item.casefold() in self.casefold()
+#         return NotImplemented
+#
+#
+# s1 = FuzzyString('BeeGeek')
+# s2 = FuzzyString('beegeek')
+#
+# print(s1 == s2)
+# print(s1 in s2)
+# print(s2 in s1)
+# print(s2 not in s1)
+
+
