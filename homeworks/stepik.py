@@ -8,7 +8,6 @@
 # import math
 import random
 
-
 # a = 1
 #
 # def do_something():
@@ -5617,3 +5616,79 @@ import random
 # print(s2 not in s1)
 
 
+# from collections import UserList
+#
+#
+# class DefaultList(UserList):
+#     def __init__(self, iterable=None, default=None):
+#         self.default = default
+#         super().__init__(iterable or [])
+#
+#     def __getitem__(self, index):
+#         try:
+#             return self.data[index]
+#         except IndexError:
+#             return self.default
+#
+#
+# defaultlist = DefaultList([1, 2, 3])
+#
+# print(defaultlist[0])
+# print(defaultlist[-1])
+# print(defaultlist[100])
+# print(defaultlist[-100])
+
+
+# class EasyDict(dict):
+#     # def __init__(self, *args, **kwargs):
+#     #     super().__init__(*args, **kwargs)
+#     #     self.__dict__ = self
+#
+#     def __getattr__(self, key):
+#         try:
+#             return self[key]
+#         except KeyError:
+#             raise AttributeError(f"'EasyDict' object has no attribute '{key}'")
+#
+#
+# easydict = EasyDict({'name': 'Artur', 'city': 'Almetevsk'})
+#
+# easydict.age = 21
+# print(easydict)
+
+
+# from collections import UserDict
+#
+#
+# class TwoWayDict(UserDict):
+#     def __setitem__(self, key, value):
+#         self.data.__setitem__(key, value)
+#         self.data.__setitem__(value, key)
+#
+#
+# twowaydict = TwoWayDict({'apple': 1})
+#
+# twowaydict['banana'] = 2
+#
+# print(twowaydict['apple'])
+# print(twowaydict[1])
+# print(twowaydict['banana'])
+# print(twowaydict[2])
+
+
+# class AdvancedList(list):
+#     def join(self, separator=' '):
+#         return separator.join(map(str, self))
+#
+#     def map(self, func):
+#         for i in range(len(self)):
+#             self[i] = func(self[i])
+#
+#     def filter(self, func):
+#         self[:] = [x for x in self if func(x)]
+#
+#
+# advancedlist = AdvancedList([1, 2, 3, 4, 5])
+#
+# print(advancedlist.join())
+# print(advancedlist.join('-'))
