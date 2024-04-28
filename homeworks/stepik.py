@@ -5692,3 +5692,237 @@ import random
 #
 # print(advancedlist.join())
 # print(advancedlist.join('-'))
+
+
+from collections import UserList
+
+
+# class NumberList(UserList):
+#     def __init__(self, iterable=None):
+#         if iterable is not None:
+#             for el in iterable:
+#                 if not isinstance(el, (int, float)):
+#                     raise TypeError("Элементами экземпляра класса NumberList должны быть числа")
+#         self.data = list(iterable) if iterable else []
+#
+#     def _check_num_type(self, value):
+#         if not isinstance(value, (int, float)):
+#             raise TypeError("Элементами экземпляра класса NumberList должны быть числа")
+#
+#     def __setitem__(self, key, value):
+#         self._check_num_type(value)
+#         super().__setitem__(key, value)
+#
+#     def __add__(self, other):
+#         self._check_num_type(other)
+#         return super().__add__(other)
+#
+#     def __iadd__(self, other):
+#         self._check_num_type(other)
+#         return super().__iadd__(other)
+#
+#     def append(self, item):
+#         self._check_num_type(item)
+#         super().append(item)
+#
+#     def extend(self, items):
+#         for item in items:
+#             self._check_num_type(item)
+#         super().extend(items)
+#
+#     def insert(self, i, item):
+#         self._check_num_type(item)
+#         super().insert(i, item)
+#
+#
+# numberlist = NumberList([0, 1.0])
+#
+# numberlist[1] = 1
+# numberlist = numberlist + NumberList([2, 3])
+# numberlist += NumberList([4, 5])
+# print(numberlist)
+
+
+# class ValueDict(dict):
+#     def key_of(self, value):
+#         for key, val in self.items():
+#             if val == value:
+#                 return key
+#         return None
+#
+#     def keys_of(self, value):
+#         return [key for key, val in self.items() if val == value]
+#
+#
+# valuedict = ValueDict({'apple': 1, 'banana': 2, 'orange': 2})
+#
+# print(valuedict.key_of(2))
+# print(*valuedict.keys_of(2))
+
+
+# from collections import UserDict
+#
+#
+# class BirthdayDict(UserDict):
+#     def __setitem__(self, key, value):
+#         if value in self.data.values():
+#             print(f"Хей, {key}, не только ты празднуешь день рождения в этот день!")
+#         super().__setitem__(key, value)
+#
+#     def __getitem__(self, key):
+#         value = self.data.get(key)
+#         if value in self.data.values():
+#             print(f"Хей, {key}, не только ты празднуешь день рождения в этот день!")
+#         return value
+#
+#
+# from datetime import date
+#
+# birthdaydict = BirthdayDict()
+#
+# birthdaydict['Боб'] = date(1987, 6, 15)
+# birthdaydict['Том'] = date(1984, 7, 15)
+# birthdaydict['Мария'] = date(1987, 6, 15)
+
+
+# from abc import ABC, abstractmethod
+#
+#
+# class Middle(ABC):
+#     @abstractmethod
+#     def get_correct_user_votes(self):
+#         pass
+#
+#
+# class Average(Middle):
+#     def __init__(self, user_votes, expert_votes):
+#         self.user_votes = user_votes                   # пользовательские оценки
+#         self.expert_votes = expert_votes               # оценки критиков
+#
+#     def get_correct_user_votes(self):
+#         """Возвращает нормализованный список пользовательских оценок
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.user_votes if 10 < vote < 90]
+#
+#     def get_correct_expert_votes(self):
+#         """Возвращает нормализованный список оценок критиков
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.expert_votes if 5 < vote < 95]
+#
+#     def get_average(self, users=True):
+#         """Возвращает среднее арифметическое пользовательских оценок или
+#         оценок критиков в зависимости от значения параметра users"""
+#         if users:
+#             votes = self.get_correct_user_votes()
+#         else:
+#             votes = self.get_correct_expert_votes()
+#
+#         return sum(votes) / len(votes)
+#
+#
+# class Median(Middle):
+#     def __init__(self, user_votes, expert_votes):
+#         self.user_votes = user_votes                   # пользовательские оценки
+#         self.expert_votes = expert_votes               # оценки критиков
+#
+#     def get_correct_user_votes(self):
+#         """Возвращает нормализованный список пользовательских оценок
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.user_votes if 10 < vote < 90]
+#
+#     def get_correct_expert_votes(self):
+#         """Возвращает нормализованный список оценок критиков
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.expert_votes if 5 < vote < 95]
+#
+#     def get_average(self, users=True):
+#         """Возвращает медиану пользовательских оценок или
+#         оценок критиков в зависимости от значения параметра users"""
+#         if users:
+#             votes = sorted(self.get_correct_user_votes())
+#         else:
+#             votes = sorted(self.get_correct_expert_votes())
+#
+#         return votes[len(votes) // 2]
+#
+#
+# class Harmonic(Middle):
+#     def __init__(self, user_votes, expert_votes):
+#         self.user_votes = user_votes                   # пользовательские оценки
+#         self.expert_votes = expert_votes               # оценки критиков
+#
+#     def get_correct_user_votes(self):
+#         """Возвращает нормализованный список пользовательских оценок
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.user_votes if 10 < vote < 90]
+#
+#     def get_correct_expert_votes(self):
+#         """Возвращает нормализованный список оценок критиков
+#         без слишком низких и слишком высоких значений"""
+#         return [vote for vote in self.expert_votes if 5 < vote < 95]
+#
+#     def get_average(self, users=True):
+#         """Возвращает среднее гармоническое пользовательских оценок или
+#         оценок критиков в зависимости от значения параметра users"""
+#         if users:
+#             votes = self.get_correct_user_votes()
+#         else:
+#             votes = self.get_correct_expert_votes()
+#
+#         return len(votes) / sum(map(lambda vote: 1 / vote, votes))
+#
+#
+# user_votes = [99, 90, 71, 1, 1, 100, 56, 60, 80]
+# expert_votes = [87, 90, 67, 70, 81, 85, 97, 79, 71]
+# average = Average(user_votes, expert_votes)
+#
+# print(average.get_correct_user_votes())
+# print(average.get_correct_expert_votes())
+# print(average.get_average())
+# print(average.get_average(False))
+
+
+# from collections.abc import *
+
+
+# print(isinstance({'one': 1, 'two': 2}, Iterable))
+# print(isinstance({'one': 1, 'two': 2}, Iterator))
+# print(isinstance({'one': 1, 'two': 2}, Reversible))
+# print(isinstance({'one': 1, 'two': 2}, Collection))
+# print(isinstance({'one': 1, 'two': 2}, Sequence))
+# print(isinstance({'one': 1, 'two': 2}, MutableSequence))
+# print(isinstance({'one': 1, 'two': 2}, Mapping))
+# print(isinstance({'one': 1, 'two': 2}, MutableMapping))
+
+# print(reversed('123'))
+# print(reversed((1, 2, 3)))
+# print(reversed(map(abs, [-1, -2, -3])))
+# print(reversed([1, 2, 3]))
+# print(reversed({1, 2, 3}))
+# print(reversed({'one': 1, 'two': 2}))
+
+# def is_iterable(obj):
+#     if isinstance(obj, Iterable):
+#         return True
+#     return False
+#
+#
+# def is_iterator(obj):
+#     if isinstance(obj, Iterator):
+#         return True
+#     return False
+
+# print(is_iterable(123))
+# print(is_iterable([1, 2, 3]))
+# print(is_iterable((1, 2, 3)))
+# print(is_iterable('123'))
+# print(is_iterable(iter('123')))
+# print(is_iterable(map(int, '123')))
+
+# print(is_iterator(123))
+# print(is_iterator([1, 2, 3]))
+# print(is_iterator((1, 2, 3)))
+# print(is_iterator('123'))
+# print(is_iterator(iter('123')))
+# print(is_iterator(map(int, '123')))
+
