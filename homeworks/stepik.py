@@ -5926,3 +5926,157 @@ from collections import UserList
 # print(is_iterator(iter('123')))
 # print(is_iterator(map(int, '123')))
 
+
+# class Knight:
+#     def __init__(self, horizontal, vertical, color):
+#         self.horizontal = horizontal
+#         self.vertical = vertical
+#         self.color = color
+#
+#     def get_char(self):
+#         return 'N'
+#
+#     def can_move(self, new_horizontal, new_vertical):
+#         diff_horizontal = abs(ord(new_horizontal) - ord(self.horizontal))
+#         diff_vertical = abs(new_vertical - self.vertical)
+#         return (diff_horizontal == 2 and diff_vertical == 1) or (diff_horizontal == 1 and diff_vertical == 2)
+#
+#     def move_to(self, new_horizontal, new_vertical):
+#         if self.can_move(new_horizontal, new_vertical):
+#             self.horizontal = new_horizontal
+#             self.vertical = new_vertical
+#
+#     def draw_board(self):
+#         for i in range(8, 0, -1):
+#             for j in range(1, 9):
+#                 if i == self.vertical and j == ord(self.horizontal) - 96:
+#                     print('N', end='')
+#                 elif self.can_move(chr(j + 96), i):
+#                     print('*', end='')
+#                 else:
+#                     print('.', end='')
+#             print()
+
+
+# from abc import ABC, abstractmethod
+#
+#
+# class ChessPiece(ABC):
+#     def __init__(self, horizontal, vertical):
+#         self.horizontal = horizontal
+#         self.vertical = vertical
+#
+#     @abstractmethod
+#     def can_move(self):
+#         pass
+#
+#
+# class King(ChessPiece):
+#     def __init__(self, horizontal, vertical):
+#         super().__init__(horizontal, vertical)
+#
+#     def can_move(self, new_horizontal, new_vertical):
+#         if abs(ord(new_horizontal) - ord(self.horizontal)) <= 1 and abs(new_vertical - self.vertical) == 1:
+#             return True
+#         return False
+#
+#
+# class Knight(ChessPiece):
+#     def __init__(self, horizontal, vertical):
+#         super().__init__(horizontal, vertical)
+#
+#     def can_move(self, new_horizontal, new_vertical):
+#         if (abs(ord(new_horizontal) - ord(self.horizontal)) == 1 and abs(new_vertical - self.vertical) == 2) or (abs(ord(new_horizontal) - ord(self.horizontal)) == 2 and abs(new_vertical - self.vertical) == 1):
+#             return True
+#         return False
+#
+#
+# king = King('a', 1)
+#
+# for horizontal in 'abcdefg':
+#     for vertical in range(1, 9):
+#         print(f'{horizontal}{vertical}', king.can_move(horizontal, vertical))
+
+
+# from collections.abc import Sequence
+#
+#
+# class CustomRange(Sequence):
+#     def __init__(self, *args):
+#         self.elements = []
+#         for arg in args:
+#             if isinstance(arg, int):
+#                 self.elements.append(arg)
+#             elif isinstance(arg, str) and '-' in arg:
+#                 start, end = map(int, arg.split('-'))
+#                 self.elements.extend(list(range(start, end + 1)))
+#
+#     def __len__(self):
+#         return len(self.elements)
+#
+#     def __getitem__(self, index):
+#         return self.elements[index]
+#
+#     def __iter__(self):
+#         return iter(self.elements)
+#
+#     def __reversed__(self):
+#         return reversed(self.elements)
+#
+#     def __contains__(self, item):
+#         return item in self.elements
+#
+#
+# customrange = CustomRange(1, '2-5', 5, '6-8')
+#
+# print(customrange[0])
+# print(customrange[1])
+# print(customrange[2])
+# print(customrange[-1])
+# print(customrange[-2])
+# print(customrange[-3])
+
+
+# class Cat:
+#     pass
+#
+#
+# class Dog:
+#     pass
+#
+#
+# class Kitten(Cat):
+#     pass
+#
+#
+# class Puppy(Dog):
+#     pass
+#
+#
+# class LittleCatDog(Kitten, Puppy):
+#     pass
+#
+#
+# print(LittleCatDog.mro())
+
+
+def get_method_owner(cls, method):
+    if hasattr(cls, method):
+        return cls
+    for base_cls in cls.__bases__:
+        result = get_method_owner(base_cls, method)
+        if result:
+            return result
+    return None
+
+
+class A:
+    def m(self):
+        pass
+
+
+class B(A):
+    pass
+
+
+print(get_method_owner(B, 'm'))
