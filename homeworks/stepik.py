@@ -5694,7 +5694,7 @@ import random
 # print(advancedlist.join('-'))
 
 
-from collections import UserList
+# from collections import UserList
 
 
 # class NumberList(UserList):
@@ -6060,23 +6060,155 @@ from collections import UserList
 # print(LittleCatDog.mro())
 
 
-def get_method_owner(cls, method):
-    if hasattr(cls, method):
-        return cls
-    for base_cls in cls.__bases__:
-        result = get_method_owner(base_cls, method)
-        if result:
-            return result
-    return None
+# def get_method_owner(cls, method):
+#     if hasattr(cls, method):
+#         return cls
+#     for base_cls in cls.__bases__:
+#         result = get_method_owner(base_cls, method)
+#         if result:
+#             return result
+#     return None
+#
+#
+# class A:
+#     def m(self):
+#         pass
+#
+#
+# class B(A):
+#     pass
+#
+#
+# print(get_method_owner(B, 'm'))
 
 
-class A:
-    def m(self):
-        pass
+# class Father:
+#     def __init__(self, mood='neutral'):
+#         self.mood = mood
+#
+#     def greet(self):
+#         return 'Hello!'
+#
+#     def be_strict(self):
+#         self.mood = 'strict'
+#
+#
+# class Mother:
+#     def __init__(self, mood='neutral'):
+#         self.mood = mood
+#
+#     def greet(self):
+#         return 'Hi, honey!'
+#
+#     def be_kind(self):
+#         self.mood = 'kind'
+#
+#
+# class Daughter(Mother, Father):
+#     def __init__(self, mood='neutral'):
+#         super().__init__()
+#         self.mood = mood
+#         self.mother = Mother(mood)
+#
+#     def greet(self):
+#         return self.mother.greet()
+#
+#     def be_kind(self):
+#         self.mood = 'kind'
+#         self.mother.be_kind()
+#
+#     def be_strict(self):
+#         self.mood = 'strict'
+#
+#
+# class Son(Father, Mother):
+#     def __init__(self, mood='neutral'):
+#         super().__init__()
+#         self.mood = mood
+#         self.father = Father(mood)
+#
+#     def greet(self):
+#         return self.father.greet()
+#
+#     def be_strict(self):
+#         self.mood = 'strict'
+#         self.father.be_strict()
+#
+#
+# father = Father()
+# mother = Mother()
+#
+# print(father.mood)
+# print(mother.mood)
+# print(father.greet())
+# print(mother.greet())
 
 
-class B(A):
-    pass
+# class MROHelper:
+#     @staticmethod
+#     def len(cls):
+#         return len(cls.__mro__)
+#
+#     @staticmethod
+#     def class_by_index(cls, n=0):
+#         return cls.__mro__[n] if n < len(cls.__mro__) else None
+#
+#     @staticmethod
+#     def index_by_class(child, parent):
+#         try:
+#             return child.__mro__.index(parent)
+#         except ValueError:
+#             return -1
+#
+#
+# class A:
+#     pass
+#
+#
+# class B(A):
+#     pass
+#
+#
+# class C(A):
+#     pass
+#
+#
+# class D(B, C):
+#     pass
+#
+#
+# print(MROHelper.len(D))
 
 
-print(get_method_owner(B, 'm'))
+# class USADate:
+#     def __init__(self, year, month, day):
+#         self.year = year
+#         self.month = month
+#         self.day = day
+#
+#     def format(self):
+#         return f'{self.month:02}-{self.day:02}-{self.year}'
+#
+#     def iso_format(self):
+#         return f'{self.year}-{self.month:02}-{self.day:02}'
+#
+#
+# class ItalianDate:
+#     def __init__(self, year, month, day):
+#         self.year = year
+#         self.month = month
+#         self.day = day
+#
+#     def format(self):
+#         return f'{self.day:02}/{self.month:02}/{self.year}'
+#
+#     def iso_format(self):
+#         return f'{self.year}-{self.month:02}-{self.day:02}'
+#
+#
+# italiandate = ItalianDate(2023, 4, 6)
+#
+# print(italiandate.format())
+# print(italiandate.iso_format())
+
+
