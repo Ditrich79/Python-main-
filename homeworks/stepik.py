@@ -8,6 +8,7 @@
 # import math
 import random
 
+
 # a = 1
 #
 # def do_something():
@@ -6212,3 +6213,160 @@ import random
 # print(italiandate.iso_format())
 
 
+# class MinStat:
+#     def __init__(self, iterable=None):
+#         self.numbers = list(iterable) if iterable is not None else []
+#
+#     def add(self, number):
+#         self.numbers.append(number)
+#
+#     def result(self):
+#         if not self.numbers:
+#             return None
+#         else:
+#             return min(self.numbers)
+#
+#     def clear(self):
+#         self.numbers = []
+#
+#
+# class MaxStat:
+#     def __init__(self, iterable=None):
+#         self.numbers = list(iterable) if iterable is not None else []
+#
+#     def add(self, number):
+#         self.numbers.append(number)
+#
+#     def result(self):
+#         if not self.numbers:
+#             return None
+#         else:
+#             return max(self.numbers)
+#
+#     def clear(self):
+#         self.numbers = []
+#
+#
+# class AverageStat:
+#     def __init__(self, iterable=None):
+#         self.numbers = list(iterable) if iterable is not None else []
+#
+#     def add(self, number):
+#         self.numbers.append(number)
+#
+#     def result(self):
+#         if not self.numbers:
+#             return None
+#         else:
+#             return sum(self.numbers) / len(self.numbers)
+#
+#     def clear(self):
+#         self.numbers = []
+#
+#
+# minstat = MinStat([1, 2, 4])
+# maxstat = MaxStat([1, 2, 4])
+# averagestat = AverageStat([1, 2, 4])
+#
+# minstat.add(5)
+# maxstat.add(5)
+# averagestat.add(5)
+#
+# print(minstat.result())
+# print(maxstat.result())
+# print(averagestat.result())
+
+
+# class LeftParagraph:
+#     def __init__(self, length):
+#         self.length = length
+#         self.words = []
+#
+#     def add(self, *args):
+#         for word in args:
+#             if len(' '.join(self.words + [word])) <= self.length:
+#                 self.words.append(word)
+#             else:
+#                 self.end()
+#                 self.words.append(word)
+#
+#     def end(self):
+#         print(' '.join(self.words))
+#         self.words = []
+#
+#
+# class RightParagraph:
+#     def __init__(self, length):
+#         self.length = length
+#         self.words = []
+#
+#     def add(self, *args):
+#         for word in args:
+#             if len(' '.join(self.words + [word])) <= self.length:
+#                 self.words.append(word)
+#             else:
+#                 self.end()
+#                 self.words.append(word)
+#
+#     def end(self):
+#         spaces = ' ' * (self.length - sum(map(len, self.words)) - len(self.words) + 1)
+#         print(spaces + ' '.join(self.words))
+#         self.words = []
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def __str__(self):
+#         return f'({self.x}, {self.y})'
+#
+#
+# class Circle:
+#     def __init__(self, radius, center):
+#         self.radius = radius
+#         self.center = Point(center, center)
+#
+#     def __str__(self):
+#         return f'{self.center.x}, r = {self.radius}'
+#
+#
+# point = Point(1, 1)
+# circle = Circle(5, point)
+#
+# print(point)
+# print(circle)
+
+
+class Item:
+    def __init__(self, name: str, price: int):
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f'{self.name}, {self.price}$'
+
+
+class ShoppingCart:
+    def __init__(self, items: Item):
+        self.goods = [items] if items is not None else []
+
+    def add(self, name):
+        self.goods.append(name)
+
+    def total(self):
+        return sum(self.goods)
+
+    def remove(self, name):
+        self.goods.pop(name)
+
+    def __str__(self):
+        return '\n'.join(map(str, self.goods))
+
+
+shopping_cart = ShoppingCart([Item('Yoga Mat', 130)])
+
+shopping_cart.add(Item('Flannel Shirt', 22))
+print(shopping_cart)
+print(shopping_cart.total())
