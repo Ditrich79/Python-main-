@@ -8,7 +8,6 @@
 # import math
 import random
 
-
 # a = 1
 #
 # def do_something():
@@ -6339,34 +6338,174 @@ import random
 # print(circle)
 
 
-class Item:
-    def __init__(self, name: str, price: int):
-        self.name = name
-        self.price = price
+# class Item:
+#     def __init__(self, name: str, price: int):
+#         self.name = name
+#         self.price = price
+#
+#     def __str__(self):
+#         return f'{self.name}, {self.price}$'
+#
+#
+# class ShoppingCart:
+#     def __init__(self, items=None):
+#         if items is None:
+#             self.items = []
+#         else:
+#             self.items = list(items)
+#
+#     def add(self, item):
+#         self.items.append(item)
+#
+#     def total(self):
+#         return sum(item.price for item in self.items)
+#
+#     def remove(self, name):
+#         self.items = [item for item in self.items if item.name != name]
+#
+#     def __str__(self):
+#         return '\n'.join(str(item) for item in self.items)
+#
+#
+# shopping_cart = ShoppingCart([Item('Yoga Mat', 130)])
+#
+# shopping_cart.add(Item('Flannel Shirt', 22))
+# print(shopping_cart)
+# print(shopping_cart.total())
 
-    def __str__(self):
-        return f'{self.name}, {self.price}$'
+# import random
+#
+#
+# class Card:
+#     def __init__(self, suit, rank):
+#         self.suit = suit
+#         self.rank = rank
+#
+#     def __str__(self):
+#         return f'{self.suit}{self.rank}'
+#
+#
+# class Deck:
+#     def __init__(self):
+#         self.cards = [Card(suit, rank) for suit in "♣♢♡♠" for rank in ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A')]
+#
+#     def shuffle(self):
+#         if len(self.cards) < 52:
+#             raise ValueError("Перемешивать можно только полную колоду")
+#         else:
+#             random.shuffle(self.cards)
+#
+#     def deal(self):
+#         if len(self.cards) == 0:
+#             raise ValueError('Все карты разыграны')
+#         else:
+#             return self.cards.pop()
+#
+#     def __str__(self):
+#         return f'Карт в колоде: {len(self.cards)}'
+#
+#
+# deck = Deck()
+#
+# print(deck)
+# print(deck.deal())
+# print(deck.deal())
+# print(deck.deal())
+# print(type(deck.deal()))
+# print(deck)
+
+# from functools import total_ordering
+#
+#
+# @total_ordering
+# class Shape:
+#     __slots__ = ('name', 'color', 'area')
+#
+#     def __init__(self, name, color, area):
+#         self.name = name
+#         self.color = color
+#         self.area = area
+#
+#     def __str__(self):
+#         return f'{self.color} {self.name} ({self.area})'
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Shape):
+#             return self.area == other.area
+#         return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, Shape):
+#             return self.area < other.area
+#         return NotImplemented
+#
+#
+# shape1 = Shape('triangle', 'DarkSlateBlue', 35)
+# shape2 = Shape('circle', 'Silver', 59)
+#
+# print(shape1 >= shape2)
+# print(shape1 <= shape2)
+
+# from enum import Enum
+#
+#
+# class HTTPStatusCodes(Enum):
+#     CONTINUE = 100
+#     OK = 200
+#     USE_PROXY = 305
+#     NOT_FOUND = 404
+#     BAD_GATEWAY = 502
+#
+#     def info(self):
+#         return self.name, self.value
+#
+#     def code_class(self):
+#         ln_rus = {'CONTINUE': 'информация', 'OK': 'успех', 'USE_PROXY': 'перенаправление',
+#                   'NOT_FOUND': 'ошибка клиента', 'BAD_GATEWAY': 'ошибка сервера'}
+#
+#         for key, value in ln_rus.items():
+#             if self.name == key:
+#                 return value
+#
+#
+# print(HTTPStatusCodes.OK.info())
+# print(HTTPStatusCodes.OK.code_class())
 
 
-class ShoppingCart:
-    def __init__(self, items: Item):
-        self.goods = [items] if items is not None else []
+# from enum import Enum
+#
+#
+# class Seasons(Enum):
+#     WINTER = 1
+#     SPRING = 2
+#     SUMMER = 3
+#     FALL = 4
+#
+#     def text_value(self, name):
+#         season_en = {
+#             'WINTER': 'winter',
+#             'SPRING': 'spring',
+#             'SUMMER': 'summer',
+#             'FALL': 'fall'
+#         }
+#
+#         season_ru = {
+#             'WINTER': 'зима',
+#             'SPRING': 'весна',
+#             'SUMMER': 'лето',
+#             'FALL': 'осень'
+#         }
+#
+#         if name == 'en':
+#             for key, value in season_en.items():
+#                 if self.name == key:
+#                     return value
+#         elif name == 'ru':
+#             for key, value in season_ru.items():
+#                 if self.name == key:
+#                     return value
+#
+#
+# print(Seasons.FALL.text_value('ru'))
+# print(Seasons.FALL.text_value('en'))
 
-    def add(self, name):
-        self.goods.append(name)
-
-    def total(self):
-        return sum(self.goods)
-
-    def remove(self, name):
-        self.goods.pop(name)
-
-    def __str__(self):
-        return '\n'.join(map(str, self.goods))
-
-
-shopping_cart = ShoppingCart([Item('Yoga Mat', 130)])
-
-shopping_cart.add(Item('Flannel Shirt', 22))
-print(shopping_cart)
-print(shopping_cart.total())
