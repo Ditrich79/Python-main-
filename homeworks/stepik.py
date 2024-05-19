@@ -6509,3 +6509,94 @@ import random
 # print(Seasons.FALL.text_value('ru'))
 # print(Seasons.FALL.text_value('en'))
 
+
+# from enum import Enum
+# from datetime import date, timedelta
+#
+#
+# class Weekday(Enum):
+#     MONDAY = 0
+#     TUESDAY = 1
+#     WEDNESDAY = 2
+#     THURSDAY = 3
+#     FRIDAY = 4
+#     SATURDAY = 5
+#     SUNDAY = 6
+#
+#
+# class NextDate:
+#     def __init__(self, today, weekday, after_today=False):
+#         self.today = today
+#         self.weekday = weekday
+#         self.after_today = after_today
+#
+#     def date(self):
+#         days_ahead = self.weekday - self.today.weekday
+#         if not self.after_today or days_ahead <= 0:
+#             days_ahead += 7
+#         target_date = self.today + timedelta(days=days_ahead)
+#         return target_date
+#
+#     def days_until(self):
+#         days_ahead = self.weekday - self.today.weekday
+#         if not self.after_today or days_ahead <= 0:
+#             days_ahead += 7
+#         return days_ahead
+
+
+# from enum import Flag
+#
+#
+# class OrderStatus(Flag):
+#     ORDER_PLACED = 1
+#     PAYMENT_RECEIVED = 2
+#     SHIPPING_COMPLETE = 4
+#
+#
+# order_status = OrderStatus(0)
+# order_status |= OrderStatus.ORDER_PLACED
+#
+# if OrderStatus.ORDER_PLACED in order_status:
+#     print('Заказ оформлен!')
+#
+# order_status |= OrderStatus.PAYMENT_RECEIVED
+#
+# if OrderStatus.PAYMENT_RECEIVED in order_status:
+#     print('Оплата получена!')
+#
+# order_status |= OrderStatus.SHIPPING_COMPLETE
+#
+# if OrderStatus.SHIPPING_COMPLETE in order_status:
+#     print('Доставка завершена!')
+
+
+from enum import Flag
+
+
+class MovieGenres(Flag):
+    ACTION = 1
+    COMEDY = 2
+    DRAMA = 4
+    FANTASY = 6
+    HORROR = 8
+
+
+class Movie:
+    def __init__(self, name, genres):
+        self.name = name
+        self.genres = genres
+
+    def in_genre(self, check_genre):
+        if isinstance(check_genre, MovieGenres):
+            return True
+        return False
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+movie = Movie('The Lord of the Rings', MovieGenres.ACTION | MovieGenres.FANTASY)
+
+print(movie.in_genre(MovieGenres.FANTASY))
+print(movie.in_genre(MovieGenres.COMEDY))
+print(movie.in_genre(MovieGenres.ACTION | MovieGenres.FANTASY))
