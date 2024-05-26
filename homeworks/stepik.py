@@ -8,6 +8,7 @@
 # import math
 import random
 
+
 # a = 1
 #
 # def do_something():
@@ -6570,33 +6571,201 @@ import random
 #     print('Доставка завершена!')
 
 
-from enum import Flag
+# from enum import Flag
+#
+#
+# class MovieGenres(Flag):
+#     ACTION = 1
+#     COMEDY = 2
+#     DRAMA = 4
+#     FANTASY = 6
+#     HORROR = 8
+#
+#
+# class Movie:
+#     def __init__(self, name, genres):
+#         self.name = name
+#         self.genres = genres
+#
+#     def in_genre(self, check_genre):
+#         if isinstance(check_genre, MovieGenres):
+#             return True
+#         return False
+#
+#     def __str__(self):
+#         return f"{self.name}"
+#
+#
+# movie = Movie('The Lord of the Rings', MovieGenres.ACTION | MovieGenres.FANTASY)
+#
+# print(movie.in_genre(MovieGenres.FANTASY))
+# print(movie.in_genre(MovieGenres.COMEDY))
+# print(movie.in_genre(MovieGenres.ACTION | MovieGenres.FANTASY))
 
 
-class MovieGenres(Flag):
-    ACTION = 1
-    COMEDY = 2
-    DRAMA = 4
-    FANTASY = 6
-    HORROR = 8
+# import functools
 
 
-class Movie:
-    def __init__(self, name, genres):
-        self.name = name
-        self.genres = genres
+# def reverse_args(func):
+#     @functools.wraps(func)
+#     def wrapper(*args, **kwargs):
+#         args = reversed(args)
+#         return func(*args, **kwargs)
+#     return wrapper
 
-    def in_genre(self, check_genre):
-        if isinstance(check_genre, MovieGenres):
-            return True
-        return False
+# class reverse_args:
+#     def __init__(self, func):
+#         functools.update_wrapper(self, func)
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         args = reversed(args)
+#         return self.func(*args, **kwargs)
+#
+#     def __get__(self, instance, owner):
+#         return functools.partial(self.__call__, instance)
+#
+#
+# @reverse_args
+# def operation(a, b):
+#     """integer division"""
+#     return a // b
+#
+#
+# print(operation.__name__)
+# print(operation.__doc__)
+# print(operation(90, 0))
 
-    def __str__(self):
-        return f"{self.name}"
+
+# import functools
+#
+#
+# class MaxCallsException(Exception):
+#     pass
+#
+#
+# class limited_calls:
+#     def __init__(self, n):
+#         self.n = n
+#         self.calls = 0
+#
+#     def __call__(self, func):
+#         @functools.wraps(func)
+#         def wrapper(*args, **kwargs):
+#             self.calls += 1
+#             if self.calls > self.n:
+#                 raise MaxCallsException("Превышено допустимое количество вызовов")
+#             return func(*args, **kwargs)
+#
+#         return wrapper
 
 
-movie = Movie('The Lord of the Rings', MovieGenres.ACTION | MovieGenres.FANTASY)
+# import functools
+#
+#
+# class takes_numbers:
+#     def __init__(self, func):
+#         functools.update_wrapper(self, func)
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         all_args = list(args) + list(kwargs.values())
+#         if not all(isinstance(arg, (int, float)) for arg in all_args):
+#             raise TypeError("Аргументы должны принадлежать типам int или float")
+#         return self.func(*args, **kwargs)
+#
+#     def __get__(self, instance, owner):
+#         return functools.partial(self.__call__, instance)
+#
+#
+# @takes_numbers
+# def mul(a, b=2):
+#     """multiplication"""
+#     return a * b
+#
+#
+# print(mul.__name__)
+# print(mul.__doc__)
+# print(mul(3, 4))
 
-print(movie.in_genre(MovieGenres.FANTASY))
-print(movie.in_genre(MovieGenres.COMEDY))
-print(movie.in_genre(MovieGenres.ACTION | MovieGenres.FANTASY))
+
+import functools
+
+
+# class returns:
+#     def __init__(self, datatype):
+#         functools.update_wrapper(self, datatype)
+#         self.datatype = datatype
+#
+#     def __call__(self, *args, **kwargs):
+#         result = list(args) + list(kwargs.values())
+#         if not all(isinstance(arg, (int, float)) for arg in result):
+#             raise TypeError(f"Возвращаемое значение должно быть типа {self.datatype.__name__}")
+#         return result
+#
+#
+# @returns(list)
+# def beegeek():
+#     '''beegeek docs'''
+#     return 'beegeek'
+#
+#
+# print(beegeek.__name__)
+# print(beegeek.__doc__)
+#
+# try:
+#     print(beegeek())
+# except TypeError as e:
+#     print(type(e))
+
+
+# def create_darts_board(size):
+#     # Создаем пустую матрицу
+#     board = [[0] * size for _ in range(size)]
+#
+#     # Начальное число для заполнения
+#     start_num = 1
+#
+#     # Заполняем матрицу слоя за слоем
+#     for layer in range((size + 1) // 2):
+#         # Верхняя горизонтальная линия
+#         for i in range(layer, size - layer):
+#             board[layer][i] = start_num
+#             start_num += 1
+#
+#         # Правая вертикальная линия
+#         for j in range(layer + 1, size - layer):
+#             board[j][size - layer - 1] = start_num
+#             start_num += 1
+#
+#         # Нижняя горизонтальная линия
+#         for i in range(size - layer - 2, layer - 1, -1):
+#             board[size - layer - 1][i] = start_num
+#             start_num += 1
+#
+#         # Левая вертикальная линия
+#         for j in range(size - layer - 2, layer, -1):
+#             board[j][layer] = start_num
+#             start_num += 1
+#
+#     return board
+#
+#
+# # Ввод размера поля
+# n = int(input("Введите размер стороны игрового поля: "))
+#
+# # Проверка на максимальный размер
+# if n > 18:
+#     print("Размер поля не должен превышать 18.")
+# else:
+#     # Создание и вывод поля
+#     darts_board = create_darts_board(n)
+#     for row in darts_board:
+#         print(' '.join(str(num) for num in row))
+
+
+# import sys
+#
+# names = input(str())
+# data = [line.strip() for line in sys.stdin]
+# print(data)
