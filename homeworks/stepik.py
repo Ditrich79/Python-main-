@@ -6769,3 +6769,10 @@ import functools
 # names = input(str())
 # data = [line.strip() for line in sys.stdin]
 # print(data)
+
+
+# lst1 = [1, 2, 3, 4, 5, 6]
+# lst2 = ['one', 'two', 'three', 'four', 'five', 'six']
+#
+# dct = dict(zip(lst1, lst2))
+# print(dct)
