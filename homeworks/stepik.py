@@ -6776,3 +6776,65 @@ import functools
 #
 # dct = dict(zip(lst1, lst2))
 # print(dct)
+
+# def is_decimal(string):
+#     if string.count('.') > 1:
+#         return False
+#
+#     if string.count('-') > 1:
+#         return False
+#
+#     valid_chars = set("0123456789.-")
+#     if not all(char in valid_chars for char in string):
+#         return False
+#
+#     if string.count('.') > 1 and string.index('.') < string.rindex('-'):
+#         return False
+#
+#     try:
+#         float(string)
+#         return True
+#     except ValueError:
+#         return False
+#
+#
+# print(is_decimal('199.1'))
+
+
+def is_fraction(string):
+    if string.count(' / ') == 1:
+        return False
+
+    if string.count('/') == 1:
+        return True
+
+    if string.count('-') > 1:
+        return False
+
+    valid_chars = set("0123456789/-")
+    if not all(char in valid_chars for char in string):
+        return False
+
+    parts = string.split('/')
+    if len(parts) != 2:
+        return False
+
+    numerator = parts[0]
+    denominator = parts[1]
+    if not numerator.replace('-', '').isdigit() or not denominator.replace('-', '').isdigit():
+        return False
+
+    if numerator != '0' and numerator.lstrip('-').startswith('0'):
+        return False
+
+    if denominator == '0':
+        return False
+
+    try:
+        float(string)
+        return True
+    except ValueError:
+        return False
+
+
+print(is_fraction('1/0'))
