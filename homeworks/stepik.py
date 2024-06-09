@@ -6838,3 +6838,258 @@ import functools
 #
 #
 # print(is_fraction('1/0'))
+
+
+# class Wordplay:
+#     def __init__(self, words=None):
+#         if words is None:
+#             self.words = []
+#         else:
+#             self.words = list(words)
+#
+#     def add_word(self, word):
+#         if word not in self.words:
+#             self.words.append(word)
+#
+#     def words_with_length(self, n):
+#         return [word for word in self.words if len(word) == n]
+#
+#     def only(self, *letters):
+#         words = [word for word in self.words if word in letters or set(word) == set(letters)]
+#         return words
+#
+#     def avoid(self, *letters):
+#         words = [word for word in self.words if not any(letter in word for letter in letters)]
+#         return words
+#
+#
+# words = ['Лейбниц', 'Бэббидж', 'Нейман', 'Джобс', 'да_Винчи', 'Касперский']
+# wordplay = Wordplay(words)
+#
+# words.extend(['Гуев', 'Харисов', 'Светкин'])
+# print(words)
+# print(wordplay.words)
+
+
+# class Wordplay:
+#     def __init__(self, words=None):
+#         if words is None:
+#             words = []
+#         self.words = words.copy()
+#
+#     def add_word(self, word):
+#         if word not in self.words:
+#             self.words.append(word)
+#
+#     def words_with_length(self, n):
+#         return [word for word in self.words if len(word) == n]
+#
+#     def only(self, *letters):
+#         return [word for word in self.words if set(word).issubset(set(letters))]
+#
+#     def avoid(self, *letters):
+#         return [word for word in self.words if not any(letter in word for letter in letters)]
+
+
+# class Color:
+#     def __init__(self, hexcode):
+#         self.hexcode = hexcode
+#
+#     @property
+#     def hexcode(self):
+#         return f'{self.r:02X}{self.g:02X}{self.b:02X}'
+#
+#     @hexcode.setter
+#     def hexcode(self, value):
+#         self.r = int(value[0:2], 16)
+#         self.g = int(value[2:4], 16)
+#         self.b = int(value[4:6], 16)
+#
+#
+# color = Color('0000FF')
+#
+# print(color.hexcode)
+# print(color.r)
+# print(color.g)
+# print(color.b)
+
+# import re
+#
+#
+# class CaseHelper:
+#     @staticmethod
+#     def is_snake(s):
+#         return re.match(r'^[a-z0-9]+(_[a-z0-9]+)*$', s) is not None
+#         # return s == s.lower() or '_' in s and s.replace('_', '').isalpha()
+#
+#     @staticmethod
+#     def is_upper_camel(s):
+#         return s != s.lower() and '_' not in s and s[0].isupper() and s.replace('_', '').isalpha()
+#
+#     @staticmethod
+#     def to_snake(s):
+#         return ''.join(['_' + c.lower() if c.isupper() else c for c in s]).lstrip('_')
+#
+#     @staticmethod
+#     def to_upper_camel(s):
+#         return ''.join(word.title() for word in s.split('_'))
+#
+#
+# cases = ['assert_equal', 'tear_down', '__init__', 'assertEqual', 'setUp', 'tearDown', 'run', 'exit', 'setup', 'its_wednesday_my_dudes']
+#
+# for case in cases:
+#     print(CaseHelper.is_snake(case))
+
+
+# from datetime import date
+# from functools import singledispatchmethod
+#
+#
+# class BirthInfo:
+#     @singledispatchmethod
+#     def __init__(self, birth_date):
+#         if isinstance(birth_date, date):
+#             self.birth_date = birth_date
+#         raise TypeError('Аргумент переданного типа не поддерживается')
+#
+#     @__init__.register(str)
+#     def _from_str(self, birth_date):
+#         try:
+#             self.birth_date = date.fromisoformat(birth_date)
+#         except ValueError:
+#             raise TypeError('Аргумент переданного типа не поддерживается')
+#
+#     @__init__.register(list)
+#     @__init__.register(tuple)
+#     def _from_list_tuple(self, birth_date):
+#         if len(birth_date) == 3:
+#             try:
+#                 year, month, day = map(int, birth_date)
+#                 self.birth_date = date(year, month, day)
+#             except ValueError:
+#                 raise TypeError('Аргумент переданного типа не поддерживается')
+#
+#     @property
+#     def age(self):
+#         def current_age(birth_date):
+#             today = date.today()
+#             return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+#
+#         return current_age(self.birth_date)
+
+
+# from datetime import date
+#
+#
+# class BirthInfo:
+#     def __init__(self, birth_date):
+#         if isinstance(birth_date, date):
+#             self.birth_date = birth_date
+#         elif isinstance(birth_date, str):
+#             try:
+#                 self.birth_date = date.fromisoformat(birth_date)
+#                 # year, month, day = map(int, birth_date.split('-'))
+#                 # self.birth_date = date(year, month, day)
+#             except ValueError:
+#                 raise TypeError('Аргумент переданного типа не поддерживается')
+#         elif isinstance(birth_date, (list, tuple)) and len(birth_date) == 3:
+#             try:
+#                 year, month, day = map(int, birth_date)
+#                 self.birth_date = date(year, month, day)
+#             except ValueError:
+#                 raise TypeError('Аргумент переданного типа не поддерживается')
+#         else:
+#             raise TypeError('Аргумент переданного типа не поддерживается')
+#
+#     @property
+#     def age(self):
+#         def current_age(birth_date):
+#             today = date.today()
+#             return today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+#
+#         return current_age(self.birth_date)
+#
+#
+# birth_dates = ['20200918', '2020-0918', '202009-18', ' 2020-09-18 ', '2020-9-18']
+#
+# for birth_date in birth_dates:
+#     try:
+#         birthinfo1 = BirthInfo(birth_date)
+#     except TypeError as e:
+#         print(e)
+
+
+# class AnyClass:
+#     def __init__(self, **kwargs):
+#         self.__dict__.update(kwargs)
+#
+#     def __str__(self):
+#         attributes = ', '.join([f'{key}={repr(value) if isinstance(value, str) else value}' for key, value in self.__dict__.items()])
+#         return f'AnyClass: {attributes}'
+#
+#     def __repr__(self):
+#         attributes = ', '.join([f'{key}={repr(value) if isinstance(value, str) else value}' for key, value in self.__dict__.items()])
+#         return f'AnyClass({attributes})'
+#
+#
+# any = AnyClass()
+#
+# print(str(any))
+# print(repr(any))
+
+
+# from functools import total_ordering
+#
+#
+# @total_ordering
+# class Version:
+#     def __init__(self, version):
+#         self.major, self.minor, self.patch = self._parse_version(version)
+#
+#     def _parse_version(self, version):
+#         parts = version.split('.')
+#         major = int(parts[0]) if parts else 0
+#         minor = int(parts[1]) if len(parts) > 1 else 0
+#         patch = int(parts[2]) if len(parts) > 2 else 0
+#         return major, minor, patch
+#
+#     def __str__(self):
+#         return f"{self.major}.{self.minor}.{self.patch}"
+#
+#     def __repr__(self):
+#         return f"Version('{self.major}.{self.minor}.{self.patch}')"
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Version):
+#             return (self.major, self.minor, self.patch) == (other.major, other.minor, other.patch)
+#         return NotImplemented
+#
+#     def __lt__(self, other):
+#         if isinstance(other, Version):
+#             return (self.major, self.minor, self.patch) < (other.major, other.minor, other.patch)
+#         return NotImplemented
+#
+#
+# versions = [Version('2'), Version('2.1'), Version('1.9.1')]
+#
+# print(sorted(versions))
+# print(min(versions))
+# print(max(versions))
+
+
+# from functools import wraps
+#
+#
+# def CachedFunction(func):
+#     func.cache = {}
+#
+#     @wraps(func)
+#     def wrapper(*args):
+#         if args in func.cache:
+#             return func.cache[args]
+#         result = func(*args)
+#         func.cache[args] = result
+#         return result
+#
+#     return wrapper
+
