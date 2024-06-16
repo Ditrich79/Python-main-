@@ -6689,7 +6689,7 @@ import random
 # print(mul(3, 4))
 
 
-import functools
+# import functools
 
 
 # class returns:
@@ -7163,4 +7163,229 @@ import functools
 # videogame.developer = 'Studio MDHR'
 # print(videogame.name)
 # print(videogame.developer)
+
+
+# class AttrsIterator:
+#     def __init__(self, obj):
+#         self.obj = obj
+#         self.attrs = list(obj.__dict__.items())
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if not self.attrs:
+#             raise StopIteration
+#         return self.attrs.pop(0)
+#
+#
+# class User:
+#     def __init__(self, name, surname, age):
+#         self.name = name
+#         self.surname = surname
+#         self.age = age
+#
+#
+# user = User('Debbie', 'Harry', 77)
+# attrsiterator = AttrsIterator(user)
+#
+# print(*attrsiterator)
+
+
+# class SkipIterator:
+#     def __init__(self, iterable, n):
+#         self.iterable = iterable
+#         self.n = n
+#         self.index = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         while self.index < len(self.iterable):
+#             current, self.index = self.index, self.index + self.n + 1
+#             return self.iterable[current]
+#         raise StopIteration
+#
+#
+# skipiterator = SkipIterator([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1)   # пропускаем по одному элементу
+#
+# print(*skipiterator)
+
+
+# import random
+#
+#
+# class RandomLooper:
+#     def __init__(self, *iterables):
+#         self.items = [item for iterable in iterables for item in iterable]
+#         random.shuffle(self.items)
+#         self.index = 0
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         if self.index < len(self.items):
+#             result = self.items[self.index]
+#             self.index += 1
+#             return result
+#         else:
+#             raise StopIteration
+#
+#
+# randomlooper = RandomLooper(['red', 'blue', 'green', 'purple'])
+#
+# print(list(randomlooper))
+# print(list(randomlooper))
+
+
+# class SparseArray:
+#     def __init__(self, default):
+#         self.array = {}
+#         self.default = default
+#
+#     def __getitem__(self, index):
+#         return self.array.get(index, self.default)
+#
+#     def __setitem__(self, index, value):
+#         if value == self.default:
+#             if index in self.array:
+#                 del self.array[index]
+#         else:
+#             self.array[index] = value
+#
+#
+# array = SparseArray(0)
+#
+# array[5] = 1000
+# array[12] = 1001
+#
+# print(array[5])
+# print(array[12])
+# print(array[13])
+
+
+# class CyclicList:
+#     def __init__(self, iterable=None):
+#         self.list = list(iterable) if iterable is not None else []
+#
+#     def __iter__(self):
+#         while True:
+#             for item in self.list:
+#                 yield item
+#
+#     def __len__(self):
+#         return len(self.list)
+#
+#     def append(self, item):
+#         self.list.append(item)
+#
+#     def pop(self, index=-1):
+#         return self.list.pop(index)
+#
+#     def __getitem__(self, index):
+#         if not self.list:
+#             raise IndexError("Indexing empty CyclicList is not allowed")
+#         return self.list[index % len(self.list)]
+#
+#
+# cyclic_list = CyclicList([1, 2, 3])
+#
+# for index, elem in enumerate(cyclic_list):
+#     if index > 6:
+#         break
+#     print(elem, end=' ')
+
+
+# class OrderedSet:
+#     def __init__(self, iterable=None):
+#         self.items = []
+#         if iterable is not None:
+#             for item in iterable:
+#                 if item not in self.items:
+#                     self.items.append(item)
+#
+#     def __iter__(self):
+#         return iter(self.items)
+#
+#     def __len__(self):
+#         return len(self.items)
+#
+#     def add(self, item):
+#         if item not in self.items:
+#             self.items.append(item)
+#
+#     def discard(self, item):
+#         if item in self.items:
+#             self.items.remove(item)
+#
+#     def __contains__(self, item):
+#         return item in self.items
+#
+#     def __eq__(self, other):
+#         if isinstance(other, OrderedSet):
+#             return self.items == other.items
+#         elif isinstance(other, set):
+#             return set(self.items) == other
+#         return NotImplemented
+#
+#     def __ne__(self, other):
+#         result = self.__eq__(other)
+#         if result is NotImplemented:
+#             return NotImplemented
+#         return not result
+#
+#
+# orderedset = OrderedSet(['bee', 'python', 'stepik', 'bee', 'geek', 'python', 'bee'])
+#
+# print(*orderedset)
+# print(len(orderedset))
+
+
+# class PermaDict:
+#     def __init__(self, data=None):
+#         self._data = dict(data) if data is not None else {}
+#
+#     def keys(self):
+#         return self._data.keys()
+#
+#     def values(self):
+#         return self._data.values()
+#
+#     def items(self):
+#         return self._data.items()
+#
+#     def __len__(self):
+#         return len(self._data)
+#
+#     def __iter__(self):
+#         return iter(self._data)
+#
+#     def __setitem__(self, key, value):
+#         if key in self._data:
+#             raise KeyError("Изменение значения по ключу невозможно")
+#         self._data[key] = value
+#
+#     def __getitem__(self, key):
+#         return self._data[key]
+#
+#     def __delitem__(self, key):
+#         if key in self._data:
+#             del self._data[key]
+#
+#
+# permadict = PermaDict({'name': 'Timur', 'city': 'Moscow'})
+#
+# print(permadict['name'])
+# print(len(permadict))
+
+
+# def log_for(logfile, date_str):
+#     output_filename = f'log_for_{date_str}.txt'
+#
+#     with open(logfile, 'r', encoding='utf-8') as log, open(output_filename, 'w', encoding='utf-8') as output:
+#         for line in log:
+#             if line.startswith(date_str):
+#                 output.write(line[len(date_str) + 1:])
 
