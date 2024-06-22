@@ -7389,3 +7389,136 @@ import random
 #             if line.startswith(date_str):
 #                 output.write(line[len(date_str) + 1:])
 
+
+# class Greeter:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __enter__(self):
+#         print(f'Приветствую, {self.name}!')
+#         return self
+#
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         print(f'До встречи, {self.name}!')
+#         if exc_val:
+#             return True
+#
+#
+# with Greeter('Кейв') as greeter:
+#     print(greeter.name)
+
+
+# class Closer:
+#     def __init__(self, obj):
+#         self.obj = obj
+#
+#     def __enter__(self):
+#         return self.obj
+#
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         try:
+#             self.obj.close()
+#         except AttributeError:
+#             print("Незакрываемый объект")
+#
+#
+# with Closer(5) as i:
+#     i += 1
+#
+# print(i)
+
+
+# class ReadableTextFile:
+#     def __init__(self, filename):
+#         self.filename = filename
+#         self.file = None
+#
+#     def __enter__(self):
+#         self.file = open(self.filename, 'r', encoding="utf-8")
+#         return self
+#
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         if self.file:
+#             self.file.close()
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         line = self.file.readline()
+#         if not line:
+#             raise StopIteration
+#         return line.rstrip('\n')
+#
+#
+# with open('glados_quotes.txt', 'w', encoding='utf-8') as file:
+#     print('Только посмотрите!', file=file)
+#     print('Как величаво она парит в воздухе', file=file)
+#     print('Как орел', file=file)
+#     print('На воздушном шаре', file=file)
+#
+# with ReadableTextFile('glados_quotes.txt') as file:
+#     for line in file:
+#         print(line)
+
+
+# class Reloopable:
+#     def __init__(self, file):
+#         self.file = file
+#
+#     def __enter__(self):
+#         self.file.seek(0)
+#         return self
+#
+#     def __exit__(self, exc_type, exc_value, traceback):
+#         self.file.close()
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         line = self.file.readline()
+#         if not line:
+#             self.file.seek(0)
+#             raise StopIteration
+#         return line.strip()
+#
+#
+# with open('file.txt', 'w') as file:
+#     file.write('Evil is evil\n')
+#     file.write('Lesser, greater, middling\n')
+#     file.write('Makes no difference\n')
+#
+# with Reloopable(open('file.txt')) as reloopable:
+#     for line in reloopable:
+#         print(line.strip())
+#     for line in reloopable:
+#         print(line.strip())
+
+
+# import sys
+#
+#
+# class UpperPrint:
+#     def __enter__(self):
+#         self.original_stdout_write = sys.stdout.write
+#         sys.stdout.write = self.uppercase_write
+#         return self
+#
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         sys.stdout.write = self.original_stdout_write
+#
+#     def uppercase_write(self, text):
+#         self.original_stdout_write(text.upper())
+#
+#
+# print('Если жизнь одаривает вас лимонами — не делайте лимонад')
+# print('Заставьте жизнь забрать их обратно!')
+#
+# with UpperPrint():
+#     print('Мне не нужны твои проклятые лимоны!')
+#     print('Что мне с ними делать?')
+#
+# print('Требуйте встречи с менеджером, отвечающим за жизнь!')
+
+
