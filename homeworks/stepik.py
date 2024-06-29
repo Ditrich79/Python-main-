@@ -7522,3 +7522,271 @@ import random
 # print('Требуйте встречи с менеджером, отвечающим за жизнь!')
 
 
+# class Suppress:
+#     def __init__(self, *exception_types):
+#         self.exception_types = exception_types
+#         self.exception = None
+#
+#     def __enter__(self):
+#         return self
+#
+#     def __exit__(self, exc_type, exc_value, traceback):
+#         if exc_type and issubclass(exc_type, self.exception_types):
+#             self.exception = exc_value
+#             return True
+#
+#
+# with Suppress(NameError):
+#     print('Этой переменной не существует -->', variable)
+#
+# print('Завершение программы')
+
+
+# import time
+#
+#
+# class AdvancedTimer:
+#     def __init__(self):
+#         self.last_run = None
+#         self.runs = []
+#         self.min = None
+#         self.max = None
+#
+#     def __enter__(self):
+#         self.start_time = time.perf_counter()
+#         return self
+#
+#     def __exit__(self, exc_type, exc_value, traceback):
+#         end_time = time.perf_counter()
+#         run_time = end_time - self.start_time
+#
+#         self.last_run = run_time
+#         self.runs.append(run_time)
+#
+#         if self.min is None or run_time < self.min:
+#             self.min = run_time
+#
+#         if self.max is None or run_time > self.max:
+#             self.max = run_time
+#
+#
+# from time import sleep
+#
+# timer = AdvancedTimer()
+#
+# with timer:
+#     sleep(1.5)
+# print(round(timer.last_run, 1))
+#
+# with timer:
+#     sleep(0.7)
+# print(round(timer.last_run, 1))
+#
+# with timer:
+#     sleep(1)
+# print(round(timer.last_run, 1))
+
+
+# class HtmlTag:
+#     def __init__(self, tag, inline=False):
+#         self.tag = tag
+#         self.inline = inline
+#         self.indent_level = 0
+#
+#     def __enter__(self):
+#         # Увеличиваем уровень отступа при входе в контекст
+#         self.indent_level += 2
+#         if not self.inline:
+#             print(f"{' ' * (self.indent_level - 2)}<{self.tag}>")
+#         return self
+#
+#     def __exit__(self, exc_type, exc_val, exc_tb):
+#         # Уменьшаем уровень отступа и печатаем закрывающий тег
+#         self.indent_level -= 2
+#         if not self.inline:
+#             print(f"{' ' * self.indent_level}</{self.tag}>")
+#
+#     def print(self, content):
+#         if self.inline:
+#             print(f"<{self.tag}>{content}</{self.tag}>", end='')
+#         else:
+#             print(f"{' ' * self.indent_level}{content}")
+#
+#
+# with HtmlTag('body') as _:
+#     with HtmlTag('h1') as header:
+#         header.print('Поколение Python')
+#     with HtmlTag('p') as section:
+#         section.print('Cерия курсов по языку программирования Python от команды BEEGEEK')
+
+
+# from contextlib import contextmanager
+#
+#
+# @contextmanager
+# def make_tag(tag):
+#     print(tag)
+#     yield tag
+#     print(tag)
+#
+#
+# with make_tag('---'):
+#     print('Поколение Python')
+
+
+# from contextlib import contextmanager
+# import sys
+#
+#
+# @contextmanager
+# def reversed_print():
+#     original_write = sys.stdout.write
+#
+#     def reverse_write(text):
+#         original_write(text[::-1])
+#
+#     sys.stdout.write = reverse_write
+#     yield
+#     sys.stdout.write = original_write
+#
+#
+# print('Вывод вне блока with')
+#
+# with reversed_print():
+#     print('Вывод внутри блока with')
+#
+# print('Вывод вне блока with')
+
+
+# import keyword
+#
+#
+# class NonKeyword:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __get__(self, instance, owner):
+#         if instance is None:
+#             return self
+#         if self.name not in instance.__dict__:
+#             raise AttributeError("Атрибут не найден")
+#         return instance.__dict__[self.name]
+#
+#     def __set__(self, instance, value):
+#         if isinstance(value, str) and keyword.iskeyword(value):
+#             raise ValueError("Некорректное значение")
+#         instance.__dict__[self.name] = value
+#
+#     def __delete__(self, instance):
+#         if self.name in instance.__dict__:
+#             del instance.__dict__[self.name]
+#         else:
+#             raise AttributeError("Атрибут не найден")
+#
+#
+# class Student:
+#     name = NonKeyword('name')
+#
+#
+# student = Student()
+# student.name = 'Peter'
+#
+# print(student.name)
+
+
+# class Counter:
+#     def __init__(self, start=0):
+#         self.value = max(0, start)
+#
+#     def inc(self, amount=1):
+#         self.value += amount
+#
+#     def dec(self, amount=1):
+#         self.value = max(0, self.value - amount)
+#
+#
+# class NonDecCounter(Counter):
+#     def dec(self, amount=1):
+#         pass
+#
+#
+# class LimitedCounter(Counter):
+#     def __init__(self, start=0, limit=10):
+#         super().__init__(start)
+#         self.limit = limit
+#
+#     def inc(self, amount=1):
+#         self.value = min(self.limit, self.value + amount)
+#
+#
+# counter = Counter()
+#
+# print(counter.value)
+# counter.inc()
+# counter.inc(5)
+# print(counter.value)
+# counter.dec()
+# counter.dec(3)
+# print(counter.value)
+# counter.dec(10)
+# print(counter.value)
+
+
+# class FieldTracker:
+#     def __init__(self):
+#         self._original_values = {}
+#         for field in self.fields:
+#             self._original_values[field] = getattr(self, field)
+#
+#     def base(self, field):
+#         return self._original_values.get(field, getattr(self, field))
+#
+#     def has_changed(self, field):
+#         return getattr(self, field) != self._original_values[field]
+#
+#     def changed(self):
+#         return {field: self._original_values[field] for field in self.fields if self.has_changed(field)}
+#
+#     def save(self):
+#         for field in self.changed():
+#             self._original_values[field] = getattr(self, field)
+#
+#
+# class Point(FieldTracker):
+#     fields = ('x', 'y', 'z')
+#
+#     def __init__(self, x, y, z):
+#         self.x, self.y, self.z = x, y, z
+#         super().__init__()
+#
+#
+# point = Point(1, 2, 3)
+#
+# print(point.base('x'))
+# print(point.has_changed('x'))
+# print(point.changed())
+
+
+# class LowerString(str):
+#     def __new__(cls, obj=""):
+#         obj = obj.lower() if isinstance(obj, str) else str(obj).lower()
+#         return super().__new__(cls, obj)
+#
+#
+# print(LowerString(['Bee', 'Geek']))
+# print(LowerString({'A': 1, 'B': 2, 'C': 3}))
+
+
+# class ModularTuple(tuple):
+#     def __new__(cls, iterable=(), size=100):
+#         # Создаем новый кортеж, элементы которого разделены с остатком на size
+#         mod_vals = (x % size for x in iterable)
+#         return super(ModularTuple, cls).__new__(cls, mod_vals)
+#
+#
+# modulartuple = ModularTuple([101, 102, 103, 104, 105])
+#
+# print(modulartuple)
+# print(type(modulartuple))
+
+
