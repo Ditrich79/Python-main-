@@ -8,7 +8,6 @@
 # import math
 import random
 
-
 # a = 1
 #
 # def do_something():
@@ -7788,5 +7787,126 @@ import random
 #
 # print(modulartuple)
 # print(type(modulartuple))
+
+
+# from collections import UserList
+#
+#
+# class NumberList(UserList):
+#     def _validate(self, iterable):
+#         if iterable is not None:
+#             if not all(isinstance(x, (int, float)) for x in iterable):
+#                 raise TypeError("Элементами экземпляра класса NumberList должны быть числа")
+#
+#     def __init__(self, iterable=None):
+#         self._validate(iterable)
+#         super().__init__(iterable)
+#
+#     def __setitem__(self, index, item):
+#         self._validate([item])
+#         super().__setitem__(index, item)
+#
+#     def append(self, item):
+#         self._validate([item])
+#         super().append(item)
+#
+#     def extend(self, iterable):
+#         self._validate(iterable)
+#         super().extend(iterable)
+#
+#     def insert(self, index, item):
+#         self._validate([item])
+#         super().insert(index, item)
+#
+#     def __add__(self, other):
+#         self._validate(other)
+#         return super().__add__(other)
+#
+#     def __iadd__(self, other):
+#         self._validate(other)
+#         return super().__iadd__(other)
+#
+#
+# numberlist = NumberList([0, 1.0])
+#
+# numberlist[1] = 1
+# numberlist = numberlist + NumberList([2, 3])
+# numberlist += NumberList([4, 5])
+# print(numberlist)
+
+
+# from collections import UserString
+#
+#
+# class MutableString(UserString):
+#     def __setitem__(self, index, value):
+#         if isinstance(index, slice):
+#             self.data = self.data[:index.start] + value + self.data[index.stop:]
+#         else:
+#             self.data = self.data[:index] + value + self.data[index+1:]
+#
+#     def __delitem__(self, index):
+#         if isinstance(index, slice):
+#             self.data = self.data[:index.start] + self.data[index.stop:]
+#         else:
+#             self.data = self.data[:index] + self.data[index+1:]
+#
+#     def lower(self):
+#         self.data = self.data.lower()
+#
+#     def upper(self):
+#         self.data = self.data.upper()
+#
+#     def sort(self, key=None, reverse=False):
+#         self.data = ''.join(sorted(self.data, key=key, reverse=reverse))
+#
+#
+# mutablestring = MutableString('Beegeek')
+#
+# mutablestring.lower()
+# print(mutablestring)
+# mutablestring.upper()
+# print(mutablestring)
+# mutablestring.sort()
+# print(mutablestring)
+
+
+# from abc import ABC, abstractmethod
+#
+#
+# class ChessPiece(ABC):
+#     def __init__(self, horizontal, vertical):
+#         self.horizontal = horizontal
+#         self.vertical = vertical
+#
+#     @abstractmethod
+#     def can_move(self, horizontal, vertical):
+#         pass
+#
+#
+# class King(ChessPiece):
+#     def can_move(self, horizontal, vertical):
+#         # Король может двигаться на одну клетку в любом направлении
+#         horizontals = 'abcdefgh'
+#         dx = abs(horizontals.index(self.horizontal) - horizontals.index(horizontal))
+#         dy = abs(self.vertical - vertical)
+#         return max(dx, dy) == 1
+#
+#
+# class Knight(ChessPiece):
+#     def can_move(self, horizontal, vertical):
+#         # Конь двигается буквой "Г": две клетки по одной оси и одна по другой
+#         horizontals = 'abcdefgh'
+#         dx = abs(horizontals.index(self.horizontal) - horizontals.index(horizontal))
+#         dy = abs(self.vertical - vertical)
+#         return (dx == 2 and dy == 1) or (dx == 1 and dy == 2)
+#
+#
+# king = King('b', 2)
+#
+# print(king.can_move('c', 3))
+# print(king.can_move('a', 1))
+# print(king.can_move('f', 7))
+
 
 
