@@ -7909,4 +7909,316 @@ import random
 # print(king.can_move('f', 7))
 
 
+# def print_special_numbers():
+#     for number in range(0, 1001):
+#         if number % 3 == 0 and number % 5 != 0:
+#             if sum(int(digit) for digit in str(number)) < 10:
+#                 print(number)
+#
+#
+# print_special_numbers()
+
+
+# def spam():
+#     try:
+#         print("begin", end=" ")
+#         return "result"
+#         print("end", end=" ")
+#     finally:
+#         print("final", end=" ")
+#
+#
+# print(spam())
+
+
+# try:
+#     a = 1/0
+#     print(1)
+# except ArithmeticError:
+#     print(2)
+# except ZeroDivisionError:
+#     print(3)
+# else:
+#     print(4)
+# finally:
+#     print(5)
+
+
+# def square(func):
+#     return lambda x: func(x * x)
+#
+#
+# def add(func):
+#     return lambda x: func(x + 5)
+#
+#
+# @add
+# @square
+# def identity(x):
+#     return x
+#
+#
+# print(identity(2))
+
+
+# def my_pow(x=3, *, y=2):
+#     return x ** y
+#
+#
+# my_pow(5)
+
+
+# def some_func():
+#     for i in "abc":
+#         counter += 2
+#
+#
+# counter = 1
+# some_func()
+# print(counter)
+
+
+# def val(v: str) -> str:
+#     return 'Value: ' + v
+#
+#
+# print(val(42))
+
+
+# def f(param1, **args):
+#     print(type(args))
+#
+#
+# f('spam', x='eggs', y='foo', z='bar')
+
+
+# def count(n):
+#     while n > 0:
+#         n -= 1
+#
+#
+# count(10000000)
+# count(10000000)
+#
+# Какое влияние окажет на программу перевод её на многопоточное выполнение?
+
+
+# class Spam:
+#     def __init__(self, alpha, betta, gamma):
+#         self.x = alpha + betta + gamma
+#
+#
+# s = Spam(1, 2, 3)
+# y = getattr(s, 'x')
+# setattr(s, 'x', y + 1)
+# print(s.x)
+
+
+# def eggs(self, x):
+#     print(x)
+#
+#
+# class Spam:
+#     f = eggs
+#
+#
+# s = Spam()
+# s.f(3)
+
+
+# foo = 3
+# bar = foo
+# foo = foo + 2
+# print(bar)
+
+
+# q = 0
+# while q < 3:
+#     print(q)
+#     q += 1
+# else:
+#     print(0)
+
+
+# import os
+#
+# print(os.listdir())
+
+
+# from os import walk
+#
+# for item in walk("./"):
+#     print(item)
+
+
+# import functools
+#
+#
+# def track_instances(**attrs):
+#     def decorator(cls):
+#         old_init = cls.__init__
+#
+#         @functools.wraps(old_init)
+#         def new_init(self, *args, **kwargs):
+#             old_init(self, *args, **kwargs)
+#             self.__list__.append(attrs)
+#
+#         cls.__init__ = new_init
+#         return cls
+#
+#     return decorator
+
+
+# def track_instances(cls):
+#     old_init = cls.__init__
+#
+#     def new_init(self, *args, **kwargs):
+#         if not hasattr(cls, 'instances'):
+#             cls.instances = []
+#         cls.instances.append(self)
+#         old_init(self, *args, **kwargs)
+#
+#     cls.__init__ = new_init
+#     return cls
+#
+#
+# @track_instances
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __repr__(self):
+#         return f'Person({self.name!r})'
+#
+#
+# obj1 = Person('object 1')
+# obj2 = Person('object 2')
+
+# print(Person.instances)
+
+
+# def add_attr_to_class(**attrs):
+#     def decorator(cls):
+#         for attr_name, attr_value in attrs.items():
+#             setattr(cls, attr_name, attr_value)
+#         return cls
+#     return decorator
+#
+#
+# @add_attr_to_class(first_attr=1, second_attr=2)
+# class MyClass:
+#     pass
+#
+#
+# print(MyClass.first_attr)
+# print(MyClass.second_attr)
+
+
+# import json
+#
+#
+# def jsonattr(filename):
+#     def decorator(cls):
+#         with open(filename, 'r') as file:
+#             data = json.load(file)
+#             for key, value in data.items():
+#                 setattr(cls, key, value)
+#         return cls
+#     return decorator
+#
+#
+# with open('test.json', 'w') as file:
+#     file.write('{"x": 1, "y": 2}')
+#
+#
+# @jsonattr('test.json')
+# class MyClass:
+#     pass
+#
+#
+# print(MyClass.x)
+# print(MyClass.y)
+
+
+# from dataclasses import dataclass
+#
+#
+# @dataclass
+# class City:
+#     name: str
+#     population: int
+#     founded: int
+#
+#
+# city = City('Tokyo', 14043239, 1457)
+#
+# print(city)
+# print(city.name)
+# print(city.population)
+# print(city.founded)
+
+
+# from dataclasses import dataclass, field
+#
+#
+# @dataclass(frozen=True)
+# class MusicAlbum:
+#     title: str
+#     artist: str
+#     genre: str = field(repr=False, compare=False)
+#     year: int = field(repr=False)
+#
+#
+# musicalbum1 = MusicAlbum('Calendar', 'Motorama', 'Post-punk', 2012)
+# musicalbum2 = MusicAlbum('Poverty', 'Motorama', 'New Wave, Indie Rock', 2012)
+#
+# print(musicalbum1 == musicalbum2)
+# print(musicalbum1 != musicalbum2)
+
+
+# from dataclasses import dataclass, field
+#
+#
+# @dataclass(order=True)
+# class FootballPlayer:
+#     name: str = field(compare=False)
+#     surname: str = field(compare=False)
+#     value: int = field(repr=False)
+#
+#
+# @dataclass
+# class FootballTeam:
+#     name: str
+#     players: list = field(default_factory=list, repr=False, compare=False)
+#
+#     def add_players(self, *args):
+#         self.players.extend(args)
+#         return self.players
+
+
+# team = FootballTeam('PSG')
+#
+# print(team)
+# print(team.name)
+# print(team.players)
+#
+# team.add_players(FootballPlayer('Kylian', 'Mbappe', 180000000))
+# print(team.players)
+
+
+# player1 = FootballPlayer('Ronaldo', '', 20000000)
+# player2 = FootballPlayer('Lothar', 'Matthaus', 250000000)
+# player3 = FootballPlayer('Xavi', 'Simons', 54000000)
+# player4 = FootballPlayer('Paolo', 'Maldini', 28000000)
+# player5 = FootballPlayer('Лев', 'Яшин', 200000000)
+# player6 = FootballPlayer('Diego', 'Maradona', 305000000)
+# player7 = FootballPlayer('Lionel', 'Messi', 180000000)
+# player8 = FootballPlayer('Kristiano','Ronaldo',10000000)
+#
+# team = FootballTeam('Best')
+# print(team.name)
+#
+# team.add_players(player1, player2, player3, player4, player5, player6, player7, player8)
+# print(team.players)
+
 
