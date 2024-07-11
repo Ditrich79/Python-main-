@@ -8222,3 +8222,12 @@ import random
 # print(team.players)
 
 
+# n = int(input())
+# for i in range(1, n+1):
+#     words = input()
+#     if words.isspace() or len(words) == 0:
+#         print(f"{i}: COMMENT SHOULD BE DELETED")
+#     else:
+#         print(f'{i}: {words}')
+
+
