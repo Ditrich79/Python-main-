@@ -8231,3 +8231,30 @@ import random
 #         print(f'{i}: {words}')
 
 
+# from fractions import Fraction
+#
+#
+# digit = Fraction(10, 15)
+# print(digit)
+
+
+# from fractions import Fraction
+#
+#
+# def sum_of_series(n):
+#     result = Fraction(0)
+#     for i in range(1, n + 1):
+#         result += Fraction(1, i**2)
+#     return result
+#
+#
+# n = int(input())
+#
+# print(sum_of_series(n))
+
+
+# numbers = [12, 2, -30, 48, 51, -60, 19, 10, 13]
+# large_numbers = list(filter(lambda x: x > 10, numbers))
+# print(large_numbers)
+
+
