@@ -8258,3 +8258,75 @@ import random
 # print(large_numbers)
 
 
+# def is_Valid(s):
+#     depot = []
+#     mapping = {")": "(", "}": "{", "]": "["}
+#
+#     for char in s:
+#         if char in mapping:
+#             top_elem = depot.pop() if depot else ''
+#             if mapping[char] != top_elem:
+#                 return False
+#             else:
+#                 depot.append(char)
+#
+#     return not depot
+#
+#
+# print(is_Valid('{}[]()'))
+# print(is_Valid('{[}]()'))
+# print(is_Valid('{[}])'))
+# print(is_Valid('{[()]}'))
+# print(is_Valid('({[]})'))
+
+
+# def are_quotes_balanced(s):
+#     """Функция are_quotes_balanced принимает строку s и проверяет, правильно ли в ней расставлены кавычки.
+#     Она использует словарь quotes, где ключами являются открывающие кавычки, а значениями — соответствующие
+#     закрывающие. Стек stack используется для отслеживания открывающих кавычек. Если встречается закрывающая
+#     кавычка, функция проверяет, соответствует ли она последней открывающей кавычке в стеке. Если нет, или
+#     если стек пуст, возвращается False. Если в конце стек пуст, это означает, что все кавычки правильно закрыты,
+#     и функция возвращает True."""
+#
+#     stack = []
+#     quotes = {'(': ')', "{": "}", "[": "]"}
+#
+#     for char in s:
+#         if char in quotes.keys():
+#             stack.append(char)
+#         elif char in quotes.values():
+#             if not stack or quotes[stack.pop()] != char:
+#                 return False
+#
+#     return not stack
+#
+#
+# print(are_quotes_balanced("{[()]}"))
+# print(are_quotes_balanced('{[}])'))
+# print(are_quotes_balanced('{[}]()'))
+# print(are_quotes_balanced('({[]})'))
+
+
+# def check_quotes_sequence(s):
+#     """
+#     Проверяет наличие и правильную последовательность открывающих и закрывающих кавычек в строке.
+#
+#     :param s: Исходная строка
+#     :return: True, если кавычки стоят правильно, иначе False
+#     """
+#     stack = []
+#     for char in s:
+#         if char in ["'", '"']:  # Проверяем, является ли символ кавычкой
+#             if stack and stack[-1] == char:
+#                 stack.pop()  # Если кавычка закрывающая, убираем её из стека
+#             else:
+#                 stack.append(char)  # Если кавычка открывающая, добавляем в стек
+#
+#     # Если стек пуст, значит кавычки правильно закрыты
+#     return len(stack) == 0
+#
+#
+# # Примеры использования
+# print(check_quotes_sequence('Это "правильная" строка.'))  # True
+# print(check_quotes_sequence('Это "неправильная строка.'))  # False
+# print(check_quotes_sequence("Это 'тест' с 'одинарными' кавычками."))
