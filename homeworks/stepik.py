@@ -8330,3 +8330,43 @@ import random
 # print(check_quotes_sequence('Это "правильная" строка.'))  # True
 # print(check_quotes_sequence('Это "неправильная строка.'))  # False
 # print(check_quotes_sequence("Это 'тест' с 'одинарными' кавычками."))
+
+
+# class Singleton:
+#     _instance = None
+#
+#     def __new__(cls, *args, **kwargs):
+#         if cls._instance is None:
+#             cls._instance = object.__new__(cls)
+#         return cls._instance
+#
+#
+# first = Singleton()
+# second = Singleton()
+#
+# print(first)
+# print(second)
+# print(first is second)
+
+
+def dispense_cash(amount):
+    # Номиналы банкнот в порядке убывания
+    denominations = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1]  # в рублях
+    # Словарь для хранения количества банкнот каждого номинала
+    result = {}
+
+    for denomination in denominations:
+        if amount >= denomination:
+            count = amount // denomination  # Количество банкнот данного номинала
+            result[denomination] = count  # Сохраняем количество в результате
+            amount -= count * denomination  # Уменьшаем сумму на величину выданных банкнот
+
+    return result
+
+
+# Пример использования
+total_amount = 12787  # Сумма в рублях
+banknotes = dispense_cash(total_amount)
+print("Количество банкнот для суммы", total_amount, ":")
+for denomination, count in banknotes.items():
+    print(f"{count} банкнот(ы) номиналом {denomination} рублей")
