@@ -8,6 +8,7 @@
 # import math
 import random
 
+
 # a = 1
 #
 # def do_something():
@@ -8349,24 +8350,39 @@ import random
 # print(first is second)
 
 
-def dispense_cash(amount):
-    # Номиналы банкнот в порядке убывания
-    denominations = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1]  # в рублях
-    # Словарь для хранения количества банкнот каждого номинала
-    result = {}
+# def dispense_cash(amount):
+#     # Номиналы банкнот в порядке убывания
+#     denominations = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 1]  # в рублях
+#     # Словарь для хранения количества банкнот каждого номинала
+#     result = {}
+#
+#     for denomination in denominations:
+#         if amount >= denomination:
+#             count = amount // denomination  # Количество банкнот данного номинала
+#             result[denomination] = count  # Сохраняем количество в результате
+#             amount -= count * denomination  # Уменьшаем сумму на величину выданных банкнот
+#
+#     return result
+#
+#
+# # Пример использования
+# total_amount = 12787  # Сумма в рублях
+# banknotes = dispense_cash(total_amount)
+# print("Количество банкнот для суммы", total_amount, ":")
+# for denomination, count in banknotes.items():
+#     print(f"{count} банкнот(ы) номиналом {denomination} рублей")
 
-    for denomination in denominations:
-        if amount >= denomination:
-            count = amount // denomination  # Количество банкнот данного номинала
-            result[denomination] = count  # Сохраняем количество в результате
-            amount -= count * denomination  # Уменьшаем сумму на величину выданных банкнот
 
-    return result
+# def is_digit(string: str) -> int:
+#     lst = []
+#     for elem in string:
+#         if elem.isdigit():
+#             lst.append(elem)
+#
+#     return sum(map(int, lst))
+#
+#
+# print(is_digit('shjs546513hsjdj'))
+# print(is_digit('dxjdtj5654jdsj5s4jh5sr4j55s6js5j5sj8s9h7str'))
 
 
-# Пример использования
-total_amount = 12787  # Сумма в рублях
-banknotes = dispense_cash(total_amount)
-print("Количество банкнот для суммы", total_amount, ":")
-for denomination, count in banknotes.items():
-    print(f"{count} банкнот(ы) номиналом {denomination} рублей")
