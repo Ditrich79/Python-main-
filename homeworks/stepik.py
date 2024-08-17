@@ -6,7 +6,6 @@
 # do_something()
 # print(a)
 # import math
-import random
 
 
 # a = 1
@@ -8385,4 +8384,48 @@ import random
 # print(is_digit('shjs546513hsjdj'))
 # print(is_digit('dxjdtj5654jdsj5s4jh5sr4j55s6js5j5sj8s9h7str'))
 
+
+# number = 200
+# print(f"number = {number:0b}")
+
+
+# x = 5
+# y = ~x
+# print(f"y: {y}")  # -6
+
+
+# numbers = [1, 2, 3, 4]
+#
+# iterator = iter(numbers)           # создается итератор
+#
+# while True:
+#     try:
+#         item = next(iterator)
+#         print(item)
+#     except StopIteration:
+#         break
+
+
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+# result = list(filter(lambda n: n % 2 == 0, numbers))
+# print(result)
+
+
+# numbers = [100, 70, 34, 45, 30, 83, 12, 83, -28, 49, -8, -2, 6, 62, 64, -22, -19, 61, 13, 5, 80, -17, 7, 3, 21, 73,
+#            88, -11, 16, -22]
+# iterator = iter(numbers)
+# count = 0
+# while True:
+#     item = next(iterator)
+#     count += 1
+#     if count == 4:
+#         print(item)
+#         break
+
+
+# numbers = [100, 70, 34, 45, 30, 83, 12, 83, -28, 49, -8, -2, 6, 62, 64, -22, -19, 61, 13, 5, 80, -17, 7, 3, 21,
+#            73, 88, -11, 16, -22]
+# reversed_numbers = numbers[::-1]
+# iterator = iter(reversed_numbers)
+# print(next(iterator))
 
