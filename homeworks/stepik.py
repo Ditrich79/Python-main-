@@ -8429,3 +8429,94 @@
 # iterator = iter(reversed_numbers)
 # print(next(iterator))
 
+
+# class MutableString:
+#     def __init__(self, string=""):
+#         self.string = string
+#
+#     def lower(self):
+#         self.string = self.string.lower()
+#
+#     def upper(self):
+#         self.string = self.string.upper()
+#
+#     def __str__(self):
+#         return f'{self.string}'
+#
+#     def __repr__(self):
+#         return f"MutableString('{self.string}')"
+#
+#     def __len__(self):
+#         return len(self.string)
+#
+#     def __iter__(self):
+#         return iter(self.string)
+#
+#     def __getitem__(self, index):
+#         result = self.string[index]
+#         return MutableString(result)
+#
+#     def __setitem__(self, key, value):
+#         temp = list(self.string)
+#         temp[key] = value
+#         self.string = ''.join(temp)
+#
+#     def __delitem__(self, key):
+#         temp = list(self.string)
+#         del temp[key]
+#         self.string = ''.join(temp)
+#
+#     def __getslice__(self, start, end):
+#         return MutableString(self.string[start:end])
+#
+#     def __add__(self, other):
+#         if isinstance(other, MutableString):
+#             return MutableString(self.string + other.string)
+#         return NotImplemented
+#
+#
+# mutablestring = MutableString('beegeek')
+#
+# del mutablestring[1:3]
+# print(mutablestring)
+
+
+# from dataclasses import dataclass
+#
+#
+# @dataclass
+# class Point:
+#     x: float = 0.0
+#     y: float = 0.0
+#
+#     def __post_init__(self):
+#         self.quadrant = self._calculate_quadrant()
+#
+#     def _calculate_quadrant(self) -> int:
+#         if self.x == 0 or self.y == 0:
+#             return 0
+#         elif self.x > 0 and self.y > 0:
+#             return 1
+#         elif self.x < 0 and self.y > 0:
+#             return 2
+#         elif self.x < 0 and self.y < 0:
+#             return 3
+#         elif self.x > 0 and self.y < 0:
+#             return 4
+#
+#     def symmetric_x(self) -> 'Point':
+#         return Point(self.x, -self.y)
+#
+#     def symmetric_y(self) -> 'Point':
+#         return Point(-self.x, self.y)
+#
+#     def __repr__(self) -> str:
+#         return f"Point(x={self.x}, y={self.y}, quadrant={self.quadrant})"
+#
+#
+# point = Point()
+#
+# print(point)
+# print(point.x)
+# print(point.y)
+# print(point.quadrant)

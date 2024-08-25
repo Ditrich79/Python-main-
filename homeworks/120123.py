@@ -138,8 +138,6 @@
 # print(convert_to_miles(num))
 
 
-
-
 # def area_parallelepiped(a, b, c, s1):
 #     s2 = 2 * (s1 + a * c + b * c)
 #
