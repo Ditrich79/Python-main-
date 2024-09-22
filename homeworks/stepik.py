@@ -8520,3 +8520,128 @@
 # print(point.x)
 # print(point.y)
 # print(point.quadrant)
+
+
+# import re
+# from typing import List, Dict
+#
+#
+# def search_patterns(text: str, patterns: List[str]) -> Dict[str, List[str]]:
+#     """
+#     Ищет совпадения для каждого регулярного выражения в тексте.
+#
+#     :param text: Текст, в котором осуществляется поиск.
+#     :param patterns: Список регулярных выражений.
+#     :return: Словарь, где ключи - это регулярные выражения, а значения - списки совпадений.
+#     """
+#     results = {}
+#
+#     for pattern in patterns:
+#         # Скомпилируйте регулярное выражение
+#         compiled_pattern = re.compile(pattern)
+#
+#         # Найдите все совпадения
+#         matches = compiled_pattern.findall(text)
+#
+#         # Добавьте результаты в словарь
+#         results[pattern] = matches
+#
+#     return results
+#
+#
+# # Пример использования
+# text = "Here is some sample text with emails like example@example.com and other text. Another email is test@test.com."
+# patterns = [
+#     r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',  # Email
+#     r'\b\d{3}-\d{2}-\d{4}\b',  # SSN (Social Security Number)
+#     r'\b\d{4}\b'  # Four-digit numbers
+# ]
+#
+# results = search_patterns(text, patterns)
+#
+# # Вывод результатов
+# for pattern, matches in results.items():
+#     print(f"Pattern: {pattern}")
+#     print(f"Matches: {matches}")
+
+
+# import re
+# from typing import List, Dict
+#
+#
+# def search_patterns(text: str, patterns: List[str]) -> Dict[str, List[str]]:
+#     """
+#     Ищет совпадения для каждого регулярного выражения в тексте.
+#
+#     :param text: Текст, в котором осуществляется поиск.
+#     :param patterns: Список регулярных выражений.
+#     :return: Словарь, где ключи - это регулярные выражения, а значения - списки совпадений.
+#     """
+#     results = {}
+#
+#     for pattern in patterns:
+#         compiled_pattern = re.compile(pattern)
+#         matches = compiled_pattern.findall(text)
+#         results[pattern] = matches
+#
+#     return results
+#
+#
+# def add_label_to_paragraphs(text: str, patterns: List[str], label: str) -> str:
+#     """
+#     Добавляет текстовую метку в абзацы, содержащие совпадения для любого из регулярных выражений.
+#
+#     :param text: Текст, который нужно обработать.
+#     :param patterns: Список регулярных выражений.
+#     :param label: Текстовая метка, которую нужно добавить.
+#     :return: Текст с добавленной меткой в соответствующих абзацах.
+#     """
+#     paragraphs = text.split('\n\n')  # Разбиваем текст на абзацы
+#     labeled_paragraphs = []
+#
+#     for paragraph in paragraphs:
+#         # Проверяем, содержит ли абзац совпадения с любым из регулярных выражений
+#         matches_found = False
+#         for pattern in patterns:
+#             if re.search(pattern, paragraph):
+#                 matches_found = True
+#                 break
+#
+#         # Добавляем метку, если совпадения найдены
+#         if matches_found:
+#             labeled_paragraphs.append(paragraph + f"\n\n{label}")
+#         else:
+#             labeled_paragraphs.append(paragraph)
+#
+#     # Объединяем абзацы обратно в текст
+#     return '\n\n'.join(labeled_paragraphs)
+#
+#
+# # Пример использования
+# text = """This is the first paragraph without sensitive information.
+#
+# Here is some sample text with emails like example@example.com and other text. Another email is test@test.com.
+#
+# This paragraph does not contain anything of concern.
+#
+# Yet another sample paragraph with a social security number 123-45-6789."""
+#
+# patterns = [
+#     r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b',  # Email
+#     r'\b\d{3}-\d{2}-\d{4}\b'  # SSN (Social Security Number)
+# ]
+#
+# # Поиск совпадений
+# results = search_patterns(text, patterns)
+#
+# # Обработка текста
+# labeled_text = add_label_to_paragraphs(text, patterns, "Возможно налоговый риск")
+#
+# # Вывод результатов
+# print("Results of search patterns:")
+# for pattern, matches in results.items():
+#     print(f"Pattern: {pattern}")
+#     print(f"Matches: {matches}")
+#
+# print("\nLabeled Text:")
+# print(labeled_text)
