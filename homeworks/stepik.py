@@ -8645,3 +8645,45 @@
 #
 # print("\nLabeled Text:")
 # print(labeled_text)
+
+
+# class AttrsNumberObject:
+#     def __init__(self, *args, **kwargs):
+#         self.attrs_num = 0
+#
+#     def __setattr__(self, key, value):
+#         self.attrs_num += 1
+#         return self.__dict__[key] == value
+
+# class AttrsNumberObject:
+#     def __init__(self, **kwargs):
+#         # Инициализируем attrs_num
+#         self.attrs_num = 1
+#
+#         # Устанавливаем переданные именованные аргументы как атрибуты экземпляра
+#         for key, value in kwargs.items():
+#             self.__setattr__(key, value)
+#
+#     def __setattr__(self, key, value):
+#         # Если атрибут attrs_num еще не установлен, устанавливаем его
+#         if key != 'attrs_num' and not hasattr(self, 'attrs_num'):
+#             super().__setattr__('attrs_num', 0)
+#
+#         # Увеличиваем attrs_num, если атрибут добавляется впервые
+#         if key != 'attrs_num' and not hasattr(self, key):
+#             super().__setattr__(key, value)
+#             super().__setattr__('attrs_num', self.attrs_num + 1)
+#         else:
+#             # Если атрибут уже существует, просто обновляем его значение
+#             super().__setattr__(key, value)
+#
+#     def __delattr__(self, attr):
+#         del self.__dict__[attr]
+#         self.attrs_num -= 1
+#
+#
+# music_group = AttrsNumberObject(name='Alexandra Savior', genre='dream pop')
+#
+# print(music_group.attrs_num)
+# del music_group.genre
+# print(music_group.attrs_num)
