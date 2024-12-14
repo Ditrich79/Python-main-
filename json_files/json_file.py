@@ -1,5 +1,6 @@
 import json
 import os
+import pandas as pd
 
 
 def pack_json(array, path):
@@ -23,5 +24,6 @@ to_json = {'trunk': trunk_template, 'access': access_template}
 file_path = os.path.join(rf'F:\python projects\json_files', rf'written_js.json')
 pack_json(to_json, file_path)
 
-with open('json_files\written_js.json', 'r') as read_file:
+with open(r'F:\python projects\json_files\written_js.json', 'r') as read_file:
     print(read_file.read())
+
