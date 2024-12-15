@@ -1,11 +1,19 @@
 import json
 import os
-import pandas as pd
 
 
-def pack_json(array, path):
-    with open(path, 'w') as file:
-        file.write(json.dumps(array))
+def pack_json(array: dict[str, list[str]], path: str) -> None:
+    """
+    This function convert dictionary to json file.
+    Args:
+        array: dictionary to convert
+        path: file path
+
+    Returns: None
+
+    """
+    with open(path, 'w', encoding='utf-8') as file:
+        file.write(json.dumps(array, indent=2))
 
 
 trunk_template = [
