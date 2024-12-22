@@ -8687,3 +8687,81 @@
 # print(music_group.attrs_num)
 # del music_group.genre
 # print(music_group.attrs_num)
+
+
+# from functools import wraps
+#
+# def ignore_exception(*exception_types):
+#     def decorator(func):
+#         @wraps(func)  # Сохраняем метаданные оригинальной функции
+#         def wrapper(*args, **kwargs):
+#             try:
+#                 return func(*args, **kwargs)
+#             except Exception as e:
+#                 if isinstance(e, exception_types):
+#                     print(f"Исключение {type(e).__name__} обработано")
+#                 else:
+#                     raise
+#         return wrapper
+#     return decorator
+#
+#
+# @ignore_exception(ValueError, TypeError, ZeroDivisionError, NameError)
+# def beegeek():
+#     """beegeek"""
+#     return 'beegeek'
+#
+#
+# print(beegeek.__name__)
+# print(beegeek.__doc__)
+# print(beegeek())
+
+
+# import json
+#
+#
+# class JsonSerializableMixin:
+#     def to_json(self):
+#         instance_dict = self.__dict__
+#         return json.dumps(instance_dict)
+
+
+# class Empty(JsonSerializableMixin):
+#     pass
+#
+# obj = Empty()
+# print(obj.to_json())
+
+
+# class Triangle(JsonSerializableMixin):
+#     def __init__(self, a, b, c):
+#         self.a = a
+#         self.b = b
+#         self.c = c
+#
+# triangle = Triangle(3, 5, 4)
+# print(triangle.to_json())
+
+# from datetime import datetime
+#
+#
+# class LoggerMixin:
+#     def __init__(self, rate=None, message=None):
+#         self.rate = rate
+#         self.date = datetime.now()
+#         self.message = message
+#
+#     def log(self, rate, message):
+#         print(f'[{datetime.now().strftime("%d.%m.%Y %H:%M:%S")}] - {rate} - {self.__class__.__name__}: {message}')
+#
+#
+# class Database(LoggerMixin):
+#     def connect(self):
+#         self.log('INFO', 'Выполнено подключение к базе данных.')
+#
+#     def disconnect(self):
+#         self.log('INFO', 'Подключение к базе данных закрыто.')
+#
+# db = Database()
+# db.connect()
+# db.disconnect()
