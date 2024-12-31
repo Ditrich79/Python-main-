@@ -8746,6 +8746,14 @@
 #
 #
 # class LoggerMixin:
+#     """
+#     This mixin provides logging functionality.
+#         Attributes:
+#             rate - level logging,
+#             message - message to be logged
+#
+#     """
+#
 #     def __init__(self, rate=None, message=None):
 #         self.rate = rate
 #         self.date = datetime.now()
@@ -8765,3 +8773,121 @@
 # db = Database()
 # db.connect()
 # db.disconnect()
+
+
+# def counter_add():
+#     def inner_function(x):
+#         return x + 5
+#     return inner_function
+#
+# cnt = counter_add()
+#
+# k = int(input('Введи число: '))
+#
+# result = cnt(k)
+# print(result)
+
+
+# def counter_add(n):
+#     def inner_function(m):
+#         result = m + n
+#         return result
+#     return inner_function
+#
+#
+# cnt = counter_add(2)
+# k = int(input('Введи число: '))
+# result = cnt(k)
+# print(result)
+
+
+# def add_tag():
+#     def inner(word: str) -> str:
+#         result = f'<h1>{word}</h1>'
+#         return result
+#     return inner
+#
+#
+# cnt = add_tag()
+# word = input('Enter a word: ')
+# print(cnt(word))
+
+
+# def add_tag(tag: str):
+#     def inner(word: str):
+#         result = f'<{tag}>{word}</{tag}>'
+#         return result
+#     return inner
+#
+#
+# t = input('Enter tag: ')
+# w = input('Enter word: ')
+# cnt = add_tag(t)
+# result = cnt(w)
+# print(result)
+
+
+# def convert_to_iter(tp: str):
+#     def inner(type_collection):
+#         if type_collection == 'list':
+#             return list(map(int, tp.split()))
+#         elif type_collection == 'tuple':
+#             return tuple(map(int, tp.split()))
+#     return inner
+#
+#
+# collection = input('Enter a collection: ')
+# word = input('Enter a word: ')
+#
+# cnt = convert_to_iter(word)
+# result = cnt(collection)
+# print(result)
+
+
+# def func_show(func):
+#     def wrapper(*args):
+#         result = func(*args)
+#         print(f'Площадь прямоугольника: {result}')
+#     return wrapper
+#
+#
+# @func_show
+# def get_sq(width: int, height: int) -> int:
+#     return width * height
+#
+#
+# get_sq(5, 5)
+
+
+# def show_menu(func):
+#     def wrapper(*args, **kwargs):
+#         array = func(*args, **kwargs)
+#         for item in range(len(array)):
+#             print(f'{item+1}. {array[item]}')
+#
+#     return wrapper
+#
+#
+# @show_menu
+# def get_menu(s: str) -> list[str]:
+#     return s.split()
+#
+#
+# get_menu('Главная Добавить Удалить Выйти')
+
+
+# def sort_list(func):
+#     def wrapper(*args, **kwargs):
+#         array = func(*args, **kwargs)
+#         array.sort()
+#         print(*array)
+#     return wrapper
+#
+#
+# @sort_list
+# def get_list(string: str) -> list[int]:
+#     return list(map(int, string.split()))
+#
+#
+# get_list('8 11 -5 4 3 10')
+
