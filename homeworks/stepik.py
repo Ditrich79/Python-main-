@@ -8891,3 +8891,345 @@
 #
 # get_list('8 11 -5 4 3 10')
 
+
+# def words_to_lists(string1, string2):
+#     list1 = string1.split()
+#     list2 = string2.split()
+#     return list1, list2
+#
+# def dictionary_decorator(func):
+#     def wrapper(string1, string2):
+#         list1, list2 = func(string1, string2)
+#         d = dict(zip(list1, list2))
+#         return d
+#     return wrapper
+#
+# @dictionary_decorator
+# def process_strings(string1, string2):
+#     return words_to_lists(string1, string2)
+#
+# input_string1 = input()
+# input_string2 = input()
+#
+# d = process_strings(input_string1, input_string2)
+#
+# print(*sorted(d.items()))
+
+
+# def transliterate(s):
+#     # Словарь для трансформации русских букв в латиницу
+#     t = {
+#         'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
+#         'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
+#         'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+#         'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+#     }
+#
+#     # Преобразуем строку в нижний регистр и заменяем символы
+#     result = []
+#     for char in s.lower():
+#         if char in t:
+#             result.append(t[char])  # Заменяем русскую букву
+#         elif char.isalnum():  # Если это буква или цифра
+#             result.append(char)
+#         else:
+#             result.append('-')  # Заменяем небуквенные символы на '-'
+#
+#     # Преобразуем результат в строку
+#     transformed_string = ''.join(result)
+#
+#     # Убираем несколько подряд идущих дефисов
+#     while '--' in transformed_string:
+#         transformed_string = transformed_string.replace('--', '-')
+#
+#     # Убедимся, что последний символ - это '!'
+#     if transformed_string and transformed_string[-1] == '-':
+#         transformed_string = transformed_string[:-1] + '!'  # Заменяем последний '-' на '!'
+#
+#     return transformed_string
+#
+#
+# def remove_multiple_hyphens(func):
+#     def wrapper(s):
+#         # Получаем строку после трансформации
+#         transformed = func(s)
+#         return transformed
+#
+#     return wrapper
+#
+#
+# @remove_multiple_hyphens
+# def transliterate_with_decorator(s):
+#     return transliterate(s)
+#
+#
+# # Чтение строки из входного потока
+# s = input()
+#
+# # Вызов функции и вывод результата
+# result = transliterate_with_decorator(s)
+# print(result)
+
+
+# def df_decorator(start=5):
+#     def main_decorator(func):
+#         def wrapper(*args, **kwargs):
+#             result = (func( *args, **kwargs) + start)
+#             return result
+#
+#         return wrapper
+#     return main_decorator
+#
+#
+# @df_decorator(start=5)
+# def get_sum(word: str) -> int:
+#     res = word.split(" ")
+#     result = [int(i) for i in res]
+#     return sum(result)
+#
+#
+# res = get_sum(input())
+# print(res)
+
+
+# from functools import wraps
+#
+#
+# def df_decorator(tag='h1'):
+#     def decorator(func):
+#         @wraps(func)
+#         def wrapper(*args, **kwargs):
+#             result = func(*args, **kwargs)
+#             return f"<{tag}>{result}</{tag}>"
+#         return wrapper
+#     return decorator
+#
+#
+# @df_decorator(tag='div')
+# def convert_to_lower(word: str) -> str:
+#     return word.lower()
+#
+#
+# print(convert_to_lower(input()))
+
+
+# def transliterate(s):
+#     # Словарь для трансформации русских букв в латиницу
+#     t = {
+#         'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
+#         'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
+#         'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+#         'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+#     }
+#
+#     # Преобразуем строку в нижний регистр и заменяем символы
+#     result = []
+#     for char in s.lower():
+#         if char in t:
+#             result.append(t[char])  # Заменяем русскую букву
+#         elif char.isalnum():  # Если это буква или цифра
+#             result.append(char)
+#         else:
+#             result.append('-')  # Заменяем небуквенные символы на '-'
+#
+#     # Преобразуем результат в строку
+#     transformed_string = ''.join(result)
+#
+#     return transformed_string
+#
+#
+# def main_dec(chars=" !?"):
+#     def remove_multiple_hyphens(func):
+#         def wrapper(string):
+#             # Получаем строку после трансформации
+#             transformed = func(string)
+#             # Убираем несколько подряд идущих дефисов
+#             if '---' in transformed:
+#                 transformed = transformed.replace('---', '-')
+#             elif '--' in transformed:
+#                 transformed = transformed.replace('--', '-')
+#             elif chars in transformed:
+#                 transformed = transformed.replace(chars, '-')
+#
+#             return transformed
+#
+#         return wrapper
+#     return remove_multiple_hyphens
+#
+#
+# @main_dec(chars="?!:;,. ")
+# def transliterate_with_decorator(s):
+#     return transliterate(s)
+#
+#
+# # Чтение строки из входного потока
+# s = input()
+#
+# # Вызов функции и вывод результата
+# result = transliterate_with_decorator(s)
+# print(result)
+
+# from functools import wraps
+#
+#
+# def get_list(word: str) -> list:
+#     """
+#
+#     Args: '''Функция для формирования списка целых значений'''
+#         word: Строка с целыми числами через пробел
+#
+#     Returns: Список с целыми числами
+#
+#     """
+#     result = word.split(' ')
+#     return list(map(int, result))
+#
+#
+# def decorator(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         res = func(*args, **kwargs)
+#         result = sum(res)
+#         return result
+#     return wrapper
+#
+#
+# @decorator
+# def get_list_with_dec(st):
+#     return get_list(st)
+#
+#
+# st = input("Enter word: ")
+# result = get_list_with_dec(st)
+# print(result)
+# print(get_list.__doc__)
+# print(get_list.__name__)
+
+
+# def get_sum(total):
+#     counter = 0
+#     for i in range(1, total + 1):
+#         counter += i
+#         yield counter
+#
+#
+# for i in get_sum(5):
+#     print(i, end=' ')
+
+
+# def balak_seq(max_len):
+#     a, b, c = 1, 1, 1  # Первые три числа последовательности
+#     yield a  # Возвращаем первое число
+#     yield b  # Возвращаем второе число
+#     yield c  # Возвращаем третье число
+#
+#     for _ in range(3, max_len):  # Начинаем с 4-го числа до max_len
+#         next_value = a + b + c  # Сумма трех предыдущих чисел
+#         yield next_value  # Возвращаем следующее значение
+#         a, b, c = b, c, next_value  # Сдвигаем значения для следующей итерации
+#
+# # Чтение входного значения
+# N = int(input())
+#
+# # Генерация и вывод чисел последовательности
+# for number in balak_seq(N):
+#     print(number, end=' ')
+
+
+# import random
+# from string import ascii_lowercase, ascii_uppercase
+#
+# # Определяем допустимые символы для пароля
+# chars = ascii_lowercase + ascii_uppercase + "0123456789!?@#$*"
+#
+# def password_generator(length):
+#     """Генератор паролей длиной length."""
+#     while True:  # Бесконечный цикл для генерации паролей
+#         password = ''.join(random.choice(chars) for _ in range(length))
+#         yield password  # Возвращаем сгенерированный пароль
+#
+# # Чтение входного значения
+# N = int(input("Введите длину пароля (N > 8): "))
+#
+# # Устанавливаем семя для генератора случайных чисел (по желанию)
+# random.seed(1)
+#
+# # Создаем генератор паролей
+# gen = password_generator(N)
+#
+# # Генерируем и выводим первые пять паролей
+# for _ in range(5):
+#     print(next(gen))  # Получаем следующий пароль из генератора
+
+
+# from functools import wraps
+#
+#
+# class type_check:
+#     def __init__(self, type: list):
+#         self.type = type
+#
+#     def __call__(self, func):
+#         @wraps(func)
+#         def wrapper(*args, **kwargs):
+#             result = func(*args, **kwargs)
+#             for item_type, item_value in zip(self.type, args):
+#                 if isinstance(item_value, item_type):
+#                     return result
+#                 else:
+#                     raise TypeError
+#
+#             if not self.type:
+#                 return result
+#
+#         return wrapper
+
+
+# @type_check([int, int])
+# def add(a, b):
+#     return a + b
+#
+# print(add(1, 2))
+
+
+# @type_check([int, int])
+# def add(a, b):
+#     return a + b
+#
+# try:
+#     print(add(1, '2'))
+# except Exception as error:
+#     print(type(error))
+
+
+# @type_check([int, int, str, list])
+# def add(a, b):
+#     """sum a and b"""
+#     return a + b
+#
+# print(add.__name__)
+# print(add.__doc__)
+# print(add(1, 2))
+
+
+# @type_check([int, int])
+# def add(a, b, c):
+#     return a + b + c
+#
+# print(add(1, 2, 3.0))
+
+
+# @type_check([])
+# def add(a, b):
+#     return a + b
+#
+#
+# print(add(1, 2))
+
+
+# @type_check([int, int, str])
+# def add(a, b, c=3):
+#     return a + b + c
+#
+#
+# print(add(1, 2, c=5))
