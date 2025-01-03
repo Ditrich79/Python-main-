@@ -8,12 +8,13 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
+logger = logging.getLogger(__name__)
 
 x = 5
-y = 2
+y = 0
 
 try:
     z = x / y
-    logging.info(f'Successfully divided {x} by {y}')
+    logger.info(f'Successfully divided {x} by {y}')
 except ZeroDivisionError:
-    logging.error(f'Cannot divide {x} by {y}')
+    logger.error(f'Cannot divide {x} by {y}')
