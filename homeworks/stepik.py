@@ -9233,3 +9233,41 @@
 #
 #
 # print(add(1, 2, c=5))
+
+
+# def singleton(cls):
+#     instances = {}
+#
+#     def get_instance(*args, **kwargs):
+#         if cls not in instances:
+#             instances[cls] = cls(*args, **kwargs)
+#         return instances[cls]
+#
+#     return get_instance
+
+
+# @singleton
+# class MyClass:
+#     pass
+#
+#
+# obj1 = MyClass()
+# obj2 = MyClass()
+#
+# print(obj1 is obj2)
+
+
+# @singleton
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def __repr__(self):
+#         return f'Person({self.name!r})'
+#
+#
+# instances = [Person('John Doe') for _ in range(1000)]
+# person = Person('Doe John')
+# print(person)
+# print(instances[389])
+# print(all(instance is person for instance in instances))
